@@ -1,6 +1,6 @@
 <template>
     <div class="position-relative">
-        <slot />
+                <slot />
     </div>
 </template>
 

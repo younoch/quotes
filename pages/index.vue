@@ -55,7 +55,6 @@ export default {
         async fetchAll() {
             const project = await axios.get('/api/project.json')
             this.projectList = project.data
-            console.log(typeof project.data.completedProject);
             this.completedProjectList = project.data.completedProject
 
             const others = await axios.get('/api/others.json')

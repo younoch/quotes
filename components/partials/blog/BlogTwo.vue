@@ -35,7 +35,7 @@
                             </div>
                         </div>
                         <!-- search section start -->
-                        <SearchCom :blogList="blogList.slice(0, 3)" />
+                        <SearchCom class="col-lg-4" :blogList="blogList.slice(0, 3)" />
                         <!-- search section end -->
                     </div>
                 </div>

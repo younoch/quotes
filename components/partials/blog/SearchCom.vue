@@ -1,5 +1,5 @@
 <template>
-    <div class="col-lg-4">
+    <div >
         <aside class="ps-lg-4">
             <div class="widget widget-search">
                 <div class="widget__header">

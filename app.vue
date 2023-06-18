@@ -54,7 +54,6 @@ export default {
     handleScroll() {
       if (process.client) {
         this.scrollPosition = window.scrollY
-        console.log(this.scrollPosition);
       }
     },
     scrollingTop() {

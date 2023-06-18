@@ -143,10 +143,13 @@
                                                 <nuxt-link to="/blog/blog-single" >Blog
                                                     Single</nuxt-link>
                                             </li>
+                                            <li>
+                                                <nuxt-link to="/quote/home">Quetes</nuxt-link>
+                                            </li>
                                         </ul>
                                     </li>
                                     <li>
-                                        <nuxt-link to="/contact-us" >Contact</nuxt-link>\   
+                                        <nuxt-link to="/contact-us" >Contact</nuxt-link>
                                     </li>
                                 </ul>
                                 <client-only>
@@ -157,7 +160,7 @@
                                     </a>
                                 </client-only>
 
-                                <div id="icon" class="header-bar d-lg-none" @click="close">
+                                <div id="icon" class="header-bar d-lg-none" @click="toggleMenu">
                                     <span></span>
                                     <span></span>
                                     <span></span>

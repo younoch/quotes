@@ -1,7 +1,10 @@
 // widget css start here
 .widget {
     background-color: $primary-color;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+    @include breakpoint(md) {
+        margin-bottom: 40px;
+    }
 
     &:last-child {
         margin-bottom: 0;
@@ -28,13 +31,17 @@
     }
 
     &.widget-search {
-        @include breakpoint(max-lg) {
-            margin-top: 65px;
+        @include breakpoint(lg) {
+            margin-top: 32px;
         }
 
         .widget-search-inner {
             background-color: $primary-color;
-            padding: 30px;
+            padding: 12px;
+
+            @include breakpoint(lg) {
+                padding: 30px;
+            }
 
             .form-control {
                 background-color: $body-color;
