@@ -14,9 +14,11 @@
               @focusin="isSearch = true"
               @focusout="isSearch = false"
             />
-            <button class="search-icon">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
+            <client-only>
+              <button class="search-icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </client-only>
           </div>
         </div>
       </div>

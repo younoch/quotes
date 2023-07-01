@@ -1,56 +1,69 @@
 <template>
-    <section class="project pb-2 pb-md-5 project--completed2">
-
-            <div class="project__wrapper">
-                <div class="row g-2 g-md-3">
-                    <div v-for="(item, index) in completedProjectList" :key="index" class="col-12">
-                        <div class="project__item2 position-relative aos-init" data-aos="fade-up"
-                            data-aos-duration="800">
-                            <div class="project__item2-inner">
-
-                                <!-- project name -->
-                                <div class="project__item2-name">
-                                    <div class="project__item2-thumb"><img :src="item.authImg" alt="Project Image">
-                                    </div>
-                                    <div class="project__item2-content">
-                                        <h4><nuxt-link to="/project/project-details" class="stretched-link">Cyber
-                                                battlefield</nuxt-link>
-                                        </h4>
-                                        <p>PRICE (GAC) = {{ item.price }} BUSD</p>
-                                    </div>
-                                </div>
-
-                                <!-- projct chain -->
-                                <div class="project__item2-chain">
-                                    <img :src="item.logo" alt="chain icon">
-                                </div>
-
-                                <!-- project launching time -->
-                                <div class="project__item2-time">
-                                    <p>{{ item.days }} Ago</p>
-                                </div>
-
-                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <Pagination v-if="pagination" />
-                <div v-else class="text-center mt-3 mt-md-5 aos-init" data-aos="fade-up" data-aos-duration="800">
-                    <nuxt-link to="/project" class="default-btn"><span>View More</span></nuxt-link>
-                </div>
+  <section class="project pb-2 pb-md-5 project--completed2">
+    <div class="project__wrapper">
+      <div class="row g-2 g-md-3">
+        <div
+          v-for="(item, index) in completedProjectList"
+          :key="index"
+          class="col-12"
+        >
+          <div
+            class="project__item2 position-relative aos-init"
+            data-aos="fade-up"
+            data-aos-duration="800"
+          >
+            <div class="quate-card">
+              <TextClamp :paragraph="quates" :lines="2"/>
             </div>
-    </section>
+          </div>
+        </div>
+      </div>
+      <Pagination v-if="pagination" />
+      <div
+        v-else
+        class="text-center mt-3 mt-md-5 aos-init"
+        data-aos="fade-up"
+        data-aos-duration="800"
+      >
+        <nuxt-link to="/project" class="default-btn"
+          ><span>View More</span></nuxt-link
+        >
+      </div>
+    </div>
+  </section>
 </template>
 
-<script>
-import Pagination from '@/components/reusable/buttuns/Pagination.vue'
-export default {
-    props: ['completedProjectList', 'pagination'],
-    components: { Pagination }
+<script setup lang="ts">
+import { ref, computed, reactive, onMounted } from "vue";
+import Pagination from "@/components/reusable/buttuns/Pagination.vue";
+import TextClamp from "@/components/reusable/textformat/TextClamp.vue";
+
+interface Props {
+  completedProjectList: object[];
+  pagination?: boolean;
 }
+
+const props = withDefaults(defineProps<Props>(), {
+  pagination: false,
+});
+
+const showMore = ref<boolean>(false);
+
+const quates = ref<string>(
+  "Be yourse; everyone else is alrea df gsdfg df g ddfsdff g dfg dfg dsdfasdf  sdf  t er g sd f df sdfa   dfgsdg  dfsg ds fg df gs dfgsf a sdf as d f asd f sdfasdfa sd f asd f a ser yrthbvagewr fwe f ar t werf g df sg dfgdfgdfg  df  gsdfg df g dsfg sdf g sdfg df g sdfdy tad d fsd fa sdf a sdf as df as df f sd f sdf s df sd f sd f sdf s df sdfsd fsd fs df s fasdfsdafken."
+);
+
+
 </script>
 
-<style>
-
+<style scoped lang="scss">
+.quate-card {
+  min-height: 80px;
+}
+.quate-content {
+  text-indent: 1em;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 </style>
