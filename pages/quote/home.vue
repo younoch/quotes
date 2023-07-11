@@ -1,6 +1,10 @@
 <template>
   <div class="container">
-    <ReusableHeader v-if="!isSearch" subtitle="Previous" title="Completed Project" />
+    <ReusableHeader
+      v-if="!isSearch"
+      subtitle="Previous"
+      title="Completed Project"
+    />
 
     <div class="row blog__wrapper">
       <div class="widget widget-search">
@@ -47,11 +51,24 @@ useHead({
   title: "Quates",
 });
 
-// definePageMeta({
-//     layout: "blank",
-// });
+const { get } = useApi();
 
-const isSearch = ref<boolean>(false)
+const quoteList = ref();
+
+onMounted(() => {
+  get("/get-quotes?page=1&limit=5")
+    .then((res) => {
+      quoteList.value = res.data;
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {
+      console.log("sdfsd");
+    });
+});
+
+const isSearch = ref<boolean>(false);
 
 const layoutStore = useLayoutStore();
 layoutStore.assignLayoutData({

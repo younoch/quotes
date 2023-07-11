@@ -50,9 +50,8 @@ const props = withDefaults(defineProps<Props>(), {
 const showMore = ref<boolean>(false);
 
 const quates = ref<string>(
-  "Be yourse; everyone else is alrea df gsdfg df g ddfsdff g dfg dfg dsdfasdf  sdf  t er g sd f df sdfa   dfgsdg  dfsg ds fg df gs dfgsf a sdf as d f asd f sdfasdfa sd f asd f a ser yrthbvagewr fwe f ar t werf g df sg dfgdfgdfg  df  gsdfg df g dsfg sdf g sdfg df g sdfdy tad d fsd fa sdf a sdf as df as df f sd f sdf s df sd f sd f sdf s df sdfsd fsd fs df s fasdfsdafken."
+  "Be yourse; everyone else is alrea d."
 );
-
 
 </script>
 

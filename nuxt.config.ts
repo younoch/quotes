@@ -57,14 +57,18 @@ export default defineNuxtConfig({
   // },
   modules: ["@pinia/nuxt", "@nuxt/content"],
   buildModules: ["@nuxtjs/style-resources", "@nuxtjs/axios"],
-  axios: {
-    baseURL: "http://localhost:3000",
+
+  runtimeConfig : {
+    public: {
+      API_URL : process.env.API_URL
+    }
   },
+
   plugins: [
     { src: "@/plugins/purecounter.js", mode: "client" },
     { src: "@/plugins/all.min.js", mode: "client" },
     { src: "@/plugins/aos.js", mode: "client" },
-    { src: "@/plugins/mixin.js" },
+    { src: "@/plugins/axios.ts", mode: "client" },
   ],
   generate: { fallback: false },
   extend(config, ctx) {

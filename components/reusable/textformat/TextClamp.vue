@@ -8,12 +8,12 @@
       > 
         {{ paragraph }}
     </p>
-    <div class="d-flex justify-content-between mt-n2">
+    <div class="d-flex justify-content-between">
       <span class="cursor-pointer" v-if="isClamped" @click="showLess = !showLess">
         {{ showLess ? "Show more" : "Show less" }}
       </span>
       <span v-else></span>
-      <i class="fa fa-quote-right pt-2"></i>
+      <i class="fa fa-quote-right pt-2 mt-r"></i>
     </div>
   </div>
 </template>
