@@ -2,7 +2,7 @@
   <div class="container">
     <i class="fa fa-quote-left tex"></i>
     <p
-        class="text"
+        class="text mb-0"
         :class="{ 'line-clamp': showLess }"
         :style="{ '-webkit-line-clamp': showLess ? lines : 'unset' }"
       > 
@@ -13,7 +13,7 @@
         {{ showLess ? "Show more" : "Show less" }}
       </span>
       <span v-else></span>
-      <i class="fa fa-quote-right pt-2 mt-r"></i>
+      <i class="fa fa-quote-right mt-n2"></i>
     </div>
   </div>
 </template>
@@ -65,6 +65,7 @@ onMounted(() => {
 <style scoped>
 .text {
   overflow: hidden;
+  text-indent: 15px;
 }
 
 .line-clamp {

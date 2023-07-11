@@ -28,20 +28,21 @@
       </div>
       <QuoteList
         class="col-12 col-md-8"
-        :completedProjectList="completedProjectList"
+        :quoteList="quoteList"
       />
-      <Tags class="col-12 col-md-4" :blogList="blogList.slice(0, 3)" />
+      <Tags class="col-12 col-md-4" :tagList="tagList" />
     </div>
   </div>
 </template>
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
-import { useLayoutStore } from "~/stores/layout";
-import Pagination from "@/components/reusable/buttuns/Pagination.vue";
+import { ref, onMounted, reactive } from "vue";
 import axios from "axios";
+import { useLayoutStore } from "~/stores/layout";
+import { useHead } from "@vueuse/head";
+
+import type { IQuoeteList } from "@/components/quote";
 import Tags from "@/components/quote/Tags.vue";
 import QuoteList from "@/components/quote/QuoteList.vue";
-import { useHead } from "@vueuse/head";
 
 const props = defineProps({});
 
@@ -53,12 +54,24 @@ useHead({
 
 const { get } = useApi();
 
-const quoteList = ref();
+const quoteList  = ref<IQuoeteList[]>([]);
+const tagList  = ref<IQuoeteList[]>([]);
 
 onMounted(() => {
   get("/get-quotes?page=1&limit=5")
     .then((res) => {
-      quoteList.value = res.data;
+      quoteList.value = res.data.data;
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {
+      console.log("sdfsd");
+    });
+
+  get("/get-tags")
+    .then((res) => {
+      tagList.value = res.data.data;
     })
     .catch((err) => {
       console.log(err);

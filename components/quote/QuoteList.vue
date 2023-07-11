@@ -3,7 +3,7 @@
     <div class="project__wrapper">
       <div class="row g-2 g-md-3">
         <div
-          v-for="(item, index) in completedProjectList"
+          v-for="(item, index) in quoteList"
           :key="index"
           class="col-12"
         >
@@ -13,8 +13,9 @@
             data-aos-duration="800"
           >
             <div class="quate-card">
-              <TextClamp :paragraph="quates" :lines="2"/>
+              <TextClamp :paragraph="item.quote" :lines="2"/>
             </div>
+            <p class="text-end"> - {{ item.author }}</p>
           </div>
         </div>
       </div>
@@ -34,12 +35,13 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, reactive, onMounted } from "vue";
+import { ref } from "vue";
 import Pagination from "@/components/reusable/buttuns/Pagination.vue";
 import TextClamp from "@/components/reusable/textformat/TextClamp.vue";
+import { IQuoeteList } from "./";
 
 interface Props {
-  completedProjectList: object[];
+  quoteList: IQuoeteList[];
   pagination?: boolean;
 }
 
@@ -48,10 +50,6 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 const showMore = ref<boolean>(false);
-
-const quates = ref<string>(
-  "Be yourse; everyone else is alrea d."
-);
 
 </script>
 
