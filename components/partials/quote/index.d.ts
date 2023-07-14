@@ -18,3 +18,8 @@ export interface IQuoeteList {
     author?: string;
   }
   
+  export interface ITags {
+    _id : string,
+    name : string,
+    counts : number
+  }

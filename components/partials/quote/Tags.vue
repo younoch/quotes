@@ -45,7 +45,7 @@
                     <h5>Popular tags</h5>
                 </div>
                 <ul class="lab-ul widget-wrapper">
-                    <li v-for="(item, index) in tagList"><a href="#">{{item._id}}</a>
+                    <li v-for="(item, index) in tagList"><a href="#">{{item.name}}</a>
                     </li>
                 </ul>
             </div>
@@ -54,6 +54,8 @@
 </template>
 
 <script setup lang="ts">
+import { ITags } from '.';
+
 
 interface Blog {
   img: string;
@@ -67,13 +69,15 @@ interface Category {
 }
 
 interface Props {
-  blogList: Blog[]
-  tagList?: any[]
-  pagination: boolean
+  blogList?: Blog[]
+  tagList?: ITags[]
+  pagination?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   pagination: false,
+  tagList: [],
+  blogList : []
 });
 
 

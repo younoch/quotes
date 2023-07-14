@@ -2,20 +2,14 @@
   <section class="project pb-2 pb-md-5 project--completed2">
     <div class="project__wrapper">
       <div class="row g-2 g-md-3">
-        <div
-          v-for="(item, index) in quoteList"
-          :key="index"
-          class="col-12"
-        >
+        <div v-for="(item, index) in quoteList" :key="index" class="col-12">
           <div
             class="project__item2 position-relative aos-init"
             data-aos="fade-up"
             data-aos-duration="800"
           >
-            <div class="quate-card">
-              <TextClamp :paragraph="item.quote" :lines="2"/>
-            </div>
-            <p class="text-end"> - {{ item.author }}</p>
+            <TextClamp :paragraph="item.quote" :lines="2" />
+            <p class="text-end mb-0">— {{ item.author }}</p>
           </div>
         </div>
       </div>
@@ -50,13 +44,9 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 const showMore = ref<boolean>(false);
-
 </script>
 
 <style scoped lang="scss">
-.quate-card {
-  min-height: 80px;
-}
 .quate-content {
   text-indent: 1em;
   display: -webkit-box;

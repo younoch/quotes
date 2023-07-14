@@ -1,19 +1,22 @@
 <template>
   <div class="container">
-    <i class="fa fa-quote-left tex"></i>
+    
     <p
         class="text mb-0"
         :class="{ 'line-clamp': showLess }"
         :style="{ '-webkit-line-clamp': showLess ? lines : 'unset' }"
       > 
-        {{ paragraph }}
+      <sup><i class="fa fa-quote-left tex"></i></sup>
+      <span class="mx-1 mx-md-2">{{ paragraph }}</span>
+      <sub><i class="fa fa-quote-right"></i></sub>
+      
     </p>
     <div class="d-flex justify-content-between">
       <span class="cursor-pointer" v-if="isClamped" @click="showLess = !showLess">
         {{ showLess ? "Show more" : "Show less" }}
       </span>
       <span v-else></span>
-      <i class="fa fa-quote-right mt-n2"></i>
+      
     </div>
   </div>
 </template>
@@ -56,8 +59,8 @@ onMounted(() => {
     isClamped.value = actualHeight > expectedHight;
     showLess.value = actualHeight > expectedHight;
 
-    console.log(actualHeight);
-    console.log(expectedHight);
+    // console.log(actualHeight);
+    // console.log(expectedHight);
   }
 });
 </script>
@@ -65,7 +68,6 @@ onMounted(() => {
 <style scoped>
 .text {
   overflow: hidden;
-  text-indent: 15px;
 }
 
 .line-clamp {
