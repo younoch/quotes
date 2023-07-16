@@ -18,7 +18,6 @@
 </template>
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
-import axios from "axios";
 import { useLayoutStore } from "~/stores/layout";
 import { useHead } from "@vueuse/head";
 

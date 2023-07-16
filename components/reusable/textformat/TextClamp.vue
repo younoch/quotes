@@ -6,9 +6,7 @@
         :class="{ 'line-clamp': showLess }"
         :style="{ '-webkit-line-clamp': showLess ? lines : 'unset' }"
       > 
-      <sup><i class="fa fa-quote-left tex"></i></sup>
-      <span class="mx-1 mx-md-2">{{ paragraph }}</span>
-      <sub><i class="fa fa-quote-right"></i></sub>
+      <i>&ldquo;{{ paragraph }}.&rdquo; </i>
       
     </p>
     <div class="d-flex justify-content-between">
@@ -22,7 +20,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
 
 // props
 // const props = defineProps({
@@ -46,8 +43,7 @@ const showLess = ref(false);
 const isClamped = ref(false);
 
 // methods
-
-onMounted(() => {
+function checkClamp () {
   const text = document.querySelector<HTMLElement>(".text");
   if (text) {
     const actualHeight = text.clientHeight;
@@ -58,11 +54,16 @@ onMounted(() => {
 
     isClamped.value = actualHeight > expectedHight;
     showLess.value = actualHeight > expectedHight;
-
-    // console.log(actualHeight);
-    // console.log(expectedHight);
   }
-});
+}
+
+onMounted(() => {
+  checkClamp()
+})
+
+watch(props, () => {
+  checkClamp()
+}, { deep: true})
 </script>
 
 <style scoped>

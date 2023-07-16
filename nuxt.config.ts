@@ -55,8 +55,11 @@ export default defineNuxtConfig({
   //     "process.env.DEBUG": false,
   //   },
   // },
+  typescript: {
+    strict: true
+  },
   modules: ["@pinia/nuxt", "@nuxt/content"],
-  buildModules: ["@nuxtjs/style-resources", "@nuxtjs/axios"],
+  buildModules: ["@nuxtjs/style-resources", "@nuxtjs/axios", "@nuxt/typescript-build"],
 
   runtimeConfig : {
     public: {

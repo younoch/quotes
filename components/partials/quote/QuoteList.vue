@@ -2,14 +2,15 @@
   <section class="project pb-2 pb-md-5 project--completed2">
     <div class="project__wrapper">
       <div class="row g-2 g-md-3">
-        <div v-for="(item, index) in quoteList" :key="index" class="col-12">
+        <div v-for="(item, index) in quoteList" :key="'quote'+index" class="col-12">
           <div
             class="project__item2 position-relative aos-init"
             data-aos="fade-up"
             data-aos-duration="800"
           >
-            <TextClamp :paragraph="item.quote" :lines="2" />
+            <TextClamp :paragraph="item.quote" :lines="2"/>
             <p class="text-end mb-0">— {{ item.author }}</p>
+            <ShareNow/>
           </div>
         </div>
       </div>
@@ -31,6 +32,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import Pagination from "@/components/reusable/buttuns/Pagination.vue";
+import ShareNow from "@/components/common/ShareNow.vue";
 import TextClamp from "@/components/reusable/textformat/TextClamp.vue";
 import { IQuoeteList } from "./";
 

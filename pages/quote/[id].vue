@@ -1,5 +1,5 @@
 <template>
-  <div class="blog padding-top padding-bottom">
+      <div class="blog padding-bottom">
     <div class="container">
       <div class="blog__wrapper">
         <div class="row">
@@ -8,10 +8,11 @@
               <div class="post-item-2">
                 <div class="post-inner">
                   <div class="post-thumb mb-30 px-30 pt-30">
-                    <img src="/images/blog/single/01.jpg" alt="blog" />
+                    <!-- <img src="/images/blog/single/01.jpg" alt="blog" /> -->
+                    <QuoteImage/>
                   </div>
                   <div class="post-content pt-0">
-                    <h3>How can I launch my IDO project in Torkgsdfasdfasdfo</h3>
+                    <h3>How can I launch my IDO project in Torkgo</h3>
                     <client-only>
                       <ul
                         class="blog__meta d-flex flex-wrap align-items-center mb-4"
@@ -261,9 +262,7 @@
               </div>
             </article>
           </div>
-          <!-- search section start -->
-          <SearchCom :blogList="blogList"></SearchCom>
-          <!-- search section end -->
+          <SearchCom class="col-lg-4" :blogList="blogList"/>
         </div>
       </div>
     </div>
@@ -271,7 +270,25 @@
 </template>
 
 <script setup lang="ts">
+import { useLayoutStore } from "~/stores/layout";
+import axios from 'axios';
 import SearchCom from "@/components/partials/blog/SearchCom.vue";
+import QuoteImage from "@/components/partials/quote/QuoteImage.vue";
 
-defineProps({ blogList: Array });
+const layoutStore = useLayoutStore();
+layoutStore.assignLayoutData({
+    title: 'Blog Details', subtitle: "Blog Single"
+})
+const blogList = ref([]);
+const fetchAll = async () => {
+    const blog = await axios.get('/api/blog.json')
+    blogList.value = blog.data.blogList
+}
+onMounted(fetchAll);
+
 </script>
+
+
+<style>
+
+</style>

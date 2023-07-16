@@ -1,10 +1,10 @@
 <template>
     <div >
-        <aside class="ps-lg-4">
+        <aside class="ps-lg-1">
             <div class="widget widget-category aos-init" data-aos="fade-up"
                             data-aos-duration="800">
                 <div class="widget__header">
-                    <h5>Post Categories</h5>
+                    <h5>Quote Categories</h5>
                 </div>
                 <ul class="lab-ul widget-wrapper list-bg-none">
                     <li class="aos-init" data-aos="fade-up" data-aos-duration="800" v-for="(item, index) in categories" :key="index">
@@ -23,7 +23,7 @@
 
             <div class="widget widget-post">
                 <div class="widget__header">
-                    <h5>Recent Post</h5>
+                    <h5>Recent Quotes</h5>
                 </div>
                 <ul class="lab-ul widget-wrapper">
                     <li data-aos="fade-up" data-aos-duration="800"  v-for="item in blogList" class="widget-post-item aos-init" :key="item">
@@ -45,7 +45,7 @@
                     <h5>Popular tags</h5>
                 </div>
                 <ul class="lab-ul widget-wrapper">
-                    <li v-for="(item, index) in tagList"><a href="#">{{item.name}}</a>
+                    <li v-for="(item, index) in tagList"><nuxt-link to="#">{{item.name}}</nuxt-link>
                     </li>
                 </ul>
             </div>

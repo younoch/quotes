@@ -19,7 +19,7 @@
                             </div>
                             <div class="menu-area">
                                 <ul id="menu" class="menu">
-                                    <li class="menu-item-has-children">
+                                    <!-- <li class="menu-item-has-children">
                                         <a href="javascript:void(0);">Home</a>
                                         <ul class="submenu">
                                             <li>
@@ -147,18 +147,22 @@
                                                 <nuxt-link to="/quote/home">Quetes</nuxt-link>
                                             </li>
                                         </ul>
+                                    </li> -->
+                                    <li>
+                                        <nuxt-link to="/quote" >Quetes</nuxt-link>
                                     </li>
                                     <li>
                                         <nuxt-link to="/contact-us" >Contact</nuxt-link>
                                     </li>
                                 </ul>
-                                <client-only>
+                                
                                     <a class="wallet-btn" href="" data-bs-toggle="modal"
                                         data-bs-target="#wallet-option">
                                         <span>Connect</span>
-                                        <i class="fa-solid fa-wallet px-1" style=" font-size: 1.2em"></i>
+                                        <client-only>
+                                            <i class="fa-solid fa-wallet px-1" style=" font-size: 1.2em"></i>
+                                        </client-only>
                                     </a>
-                                </client-only>
 
                                 <div id="icon" class="header-bar d-lg-none" @click="toggleMenu">
                                     <span></span>
