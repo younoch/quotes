@@ -1,0 +1,23 @@
+.px-24 {
+    
+    padding-inline: 12px;
+
+    @include breakpoint(sm) {
+        padding-inline: 18px;
+    }
+    @include breakpoint(md) {
+        padding-inline: 24px;
+    }
+}
+
+.pt-24 {
+    padding-inline: 12px;
+    
+    @include breakpoint(sm) {
+        padding-inline: 18px;
+    }
+
+    @include breakpoint(md) {
+        padding-top: 24px;
+    }
+}

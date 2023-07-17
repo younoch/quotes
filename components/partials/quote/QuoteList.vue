@@ -2,15 +2,28 @@
   <section class="project pb-2 pb-md-5 project--completed2">
     <div class="project__wrapper">
       <div class="row g-2 g-md-3">
-        <div v-for="(item, index) in quoteList" :key="'quote'+index" class="col-12">
+        <div
+          v-for="(item, index) in quoteList"
+          :key="'quote' + index"
+          class="col-12"
+        >
           <div
             class="project__item2 position-relative aos-init"
             data-aos="fade-up"
             data-aos-duration="800"
           >
-            <TextClamp :paragraph="item.quote" :lines="2"/>
-            <p class="text-end mb-0">— {{ item.author }}</p>
-            <ShareNow/>
+            <TextClamp :id="'text'+item._id" :paragraph="item.quote" :lines="2" />
+            <div class="d-flex justify-content-between">
+              <p class="text-end mb-0">— {{ item.author }}</p>
+              <NuxtLink :to="`/quote/${item._id}`">
+                <button type="button" class="btn btn-outline-info btn-sm" @click="nextLink(item._id)">
+                  <i class="fa fa-share-alt" aria-hidden="true"></i>
+                </button>
+
+              </NuxtLink>
+                
+            </div>
+            <!-- <ShareNow/> -->
           </div>
         </div>
       </div>
@@ -44,8 +57,6 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   pagination: false,
 });
-
-const showMore = ref<boolean>(false);
 </script>
 
 <style scoped lang="scss">
@@ -54,5 +65,9 @@ const showMore = ref<boolean>(false);
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+.share-button {
+  background-color: transparent;
+
 }
 </style>

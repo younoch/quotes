@@ -1,16 +1,16 @@
 <template>
-  <div class="container">
-    
+  <div>
     <p
+        :id="id"
         class="text mb-0"
         :class="{ 'line-clamp': showLess }"
         :style="{ '-webkit-line-clamp': showLess ? lines : 'unset' }"
       > 
-      <i>&ldquo;{{ paragraph }}.&rdquo; </i>
+      <i>&ldquo;{{ paragraph }}&rdquo; </i>
       
     </p>
     <div class="d-flex justify-content-between">
-      <span class="cursor-pointer" v-if="isClamped" @click="showLess = !showLess">
+      <span class="cursor-pointer show-toggle" v-if="isClamped" @click="showLess = !showLess">
         {{ showLess ? "Show more" : "Show less" }}
       </span>
       <span v-else></span>
@@ -21,20 +21,14 @@
 
 <script setup lang="ts">
 
-// props
-// const props = defineProps({
-//   paragraph: String,
-//   lines: {
-//     type: String,
-//     default: "3",
-//   },
-// });
 interface Props {
+  id: string
   paragraph: string;
   lines?: number;
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  id: 'text-calmp',
   lines: 3,
 });
 
@@ -44,7 +38,9 @@ const isClamped = ref(false);
 
 // methods
 function checkClamp () {
-  const text = document.querySelector<HTMLElement>(".text");
+  const text = document.querySelector<HTMLElement>(`#${props.id}`);
+  console.log();
+  
   if (text) {
     const actualHeight = text.clientHeight;
 
@@ -60,15 +56,12 @@ function checkClamp () {
 onMounted(() => {
   checkClamp()
 })
-
-watch(props, () => {
-  checkClamp()
-}, { deep: true})
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .text {
   overflow: hidden;
+  
 }
 
 .line-clamp {
@@ -78,5 +71,10 @@ watch(props, () => {
 }
 .cursor-pointer {
   cursor: pointer;
+}
+.show-toggle {
+  color: #28DBD1;
+  font-size: .75rem;
+
 }
 </style>

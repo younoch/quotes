@@ -7,92 +7,12 @@
             <article>
               <div class="post-item-2">
                 <div class="post-inner">
-                  <div class="post-thumb mb-30 px-30 pt-30">
+                  <div class="post-thumb mb-30  px-24 pt-24">
                     <!-- <img src="/images/blog/single/01.jpg" alt="blog" /> -->
                     <QuoteImage/>
                   </div>
                   <div class="post-content pt-0">
-                    <h3>How can I launch my IDO project in Torkgo</h3>
-                    <client-only>
-                      <ul
-                        class="blog__meta d-flex flex-wrap align-items-center mb-4"
-                      >
-                        <li class="blog__meta-author">
-                          <a href="#"
-                            ><span><i class="fa-solid fa-user"></i></span>
-                            dorothea
-                          </a>
-                        </li>
-                        <li class="blog__meta-date">
-                          <a href="#"
-                            ><span
-                              ><i class="fa-solid fa-calendar-days"></i
-                            ></span>
-                            30 December 2023</a
-                          >
-                        </li>
-                      </ul>
-                    </client-only>
-                    <p>
-                      Loremito wimmin taken posseson of mying entire soung like
-                      these sweet mornngs is whch enjoy with my whole heart
-                      create am alonesi and feel the charm of exstenceth spotens
-                      whch was the blis of souls like mineing am soo happy my
-                      dearsi frend absoribed the em exquste sense enjoy with my
-                      whole heart inaming alone and feel the charm of exstensc
-                      spotsi whch was the blis of souls like mineing am soing
-                      happyr my dear frend soingu ize absoribed the exqust sense
-                      tranquil existence that neglect my talentsr Ins should
-                      byers ncapable ofing is drawng and singe Lomberliel.
-                    </p>
-                    <blockquote class="single-quote mb-30">
-                      <div class="quotes">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing
-                        elit. Illum quae quia ab natus dolores beatae, deleniti
-                        cupiditate. Maiores, iure consequuntur!
-                      </div>
-                    </blockquote>
-                    <p>
-                      Loremito wimmin taken posseson of mying entire soung like
-                      these sweet mornngs is whch enjoy with my whole heart
-                      create am alonesi and feel the charm of exstenceth spotens
-                      whch was the blis of souls like mineing am soo happy my
-                      dearsi frend absoribed the em exquste sense enjoy with my
-                      whole heart inaming alone and feel the charm of exstensc
-                      spotsi whch was the blis of souls like mineing am soing
-                      happyr my dear frend soingu ize absoribed the exqust sense
-                      tranquil existence that neglect my talentsr Ins should
-                      byers ncapable ofing is drawng and singe Lomberliel.
-                    </p>
-                    <div class="post-thumb mb-30">
-                      <img src="/images/blog/single/02.jpg" alt="blog-img" />
-                    </div>
-
-                    <p>
-                      Loremito wimmin taken posseson of mying entire soung like
-                      these sweet mornngs is whch enjoy with my whole heart
-                      create am alonesi and feel the charm of exstenceth spotens
-                      whch was the blis of souls like mineing am soo happy my
-                      dearsi frend absoribed the em exquste sense enjoy with my
-                      whole heart inaming alone and feel the charm of exstensc
-                      spotsi whch was the blis of souls like mineing am soing
-                      happyr my dear frend soingu ize absoribed the exqust sense
-                      tranquil existence that neglect my talentsr Ins should
-                      byers ncapable ofing is drawng and singe Lomberliel.
-                    </p>
-
                     <div class="tags-area">
-                      <ul class="tags lab-ul justify-content-center">
-                        <li>
-                          <a href="#">INO</a>
-                        </li>
-                        <li>
-                          <a href="#" class="active">IDO</a>
-                        </li>
-                        <li>
-                          <a href="#">Metaverse</a>
-                        </li>
-                      </ul>
                       <client-only>
                         <ul class="social justify-content-center">
                           <li class="social__item">
@@ -117,6 +37,18 @@
                           </li>
                         </ul>
                       </client-only>
+                      <ul class="tags lab-ul justify-content-center">
+                        <li>
+                          <a href="#">INO</a>
+                        </li>
+                        <li>
+                          <a href="#" class="active">IDO</a>
+                        </li>
+                        <li>
+                          <a href="#">Metaverse</a>
+                        </li>
+                      </ul>
+                      
                     </div>
                   </div>
                 </div>
