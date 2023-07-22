@@ -1,7 +1,7 @@
 <template>
   <section class="project pb-2 pb-md-5 project--completed2">
     <div class="project__wrapper">
-      <div class="row g-2 g-md-3">
+      <div v-if="quoteList.length" class="row g-2 g-md-3">
         <div
           v-for="(item, index) in quoteList"
           :key="'quote' + index"
@@ -15,13 +15,9 @@
             <TextClamp :id="'text'+item._id" :paragraph="item.quote" :lines="2" />
             <div class="d-flex justify-content-between">
               <p class="text-end mb-0">— {{ item.author }}</p>
-              <NuxtLink :to="`/quote/${item._id}`">
-                <button type="button" class="btn btn-outline-info btn-sm" @click="nextLink(item._id)">
+                <button type="button" class="btn btn-outline-info btn-sm" @click="pushChild(item._id)">
                   <i class="fa fa-share-alt" aria-hidden="true"></i>
                 </button>
-
-              </NuxtLink>
-                
             </div>
             <!-- <ShareNow/> -->
           </div>
@@ -43,9 +39,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
 import Pagination from "@/components/reusable/buttuns/Pagination.vue";
-import ShareNow from "@/components/common/ShareNow.vue";
 import TextClamp from "@/components/reusable/textformat/TextClamp.vue";
 import { IQuoeteList } from "./";
 
@@ -57,6 +51,12 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   pagination: false,
 });
+
+const router = useRouter()
+
+function pushChild(id:string) {
+  router.push( { path: '/quote/single', query: { id }} )
+}
 </script>
 
 <style scoped lang="scss">

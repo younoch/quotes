@@ -34,7 +34,6 @@ const emit = defineEmits<{
 }>();
 
 function submitValue() {
-  console.log("search Quote submited");
 
   emit("submitSearchedString", searchedString.value);
 }

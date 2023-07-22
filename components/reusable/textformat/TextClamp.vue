@@ -29,6 +29,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   id: 'text-calmp',
+  paragraph: '',
   lines: 3,
 });
 

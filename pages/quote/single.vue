@@ -1,5 +1,5 @@
 <template>
-      <div class="blog padding-bottom">
+  <div class="blog padding-bottom">
     <div class="container">
       <div class="blog__wrapper">
         <div class="row">
@@ -7,9 +7,9 @@
             <article>
               <div class="post-item-2">
                 <div class="post-inner">
-                  <div class="post-thumb mb-30  px-24 pt-24">
+                  <div class="post-thumb mb-30 px-24 pt-24">
                     <!-- <img src="/images/blog/single/01.jpg" alt="blog" /> -->
-                    <QuoteImage/>
+                    <QuoteImage :quote="singleQuote" />
                   </div>
                   <div class="post-content pt-0">
                     <div class="tags-area">
@@ -48,7 +48,6 @@
                           <a href="#">Metaverse</a>
                         </li>
                       </ul>
-                      
                     </div>
                   </div>
                 </div>
@@ -194,7 +193,7 @@
               </div>
             </article>
           </div>
-          <SearchCom class="col-lg-4" :blogList="blogList"/>
+          <SearchCom class="col-lg-4" />
         </div>
       </div>
     </div>
@@ -202,25 +201,43 @@
 </template>
 
 <script setup lang="ts">
+import { storeToRefs } from "pinia";
 import { useLayoutStore } from "~/stores/layout";
-import axios from 'axios';
 import SearchCom from "@/components/partials/blog/SearchCom.vue";
 import QuoteImage from "@/components/partials/quote/QuoteImage.vue";
+import { useQuoteStore } from "~/stores/quote";
+import { IQuoeteList } from "~/components/partials/quote";
 
+
+
+const { get } = useApi();
+const route = useRoute();
 const layoutStore = useLayoutStore();
+const { getQuoteList, getTagList } = storeToRefs(useQuoteStore());
+
 layoutStore.assignLayoutData({
-    title: 'Blog Details', subtitle: "Blog Single"
-})
-const blogList = ref([]);
-const fetchAll = async () => {
-    const blog = await axios.get('/api/blog.json')
-    blogList.value = blog.data.blogList
+  title: "Blog Details",
+  subtitle: "Blog Single",
+});
+
+const singleQuote = ref<IQuoeteList>();
+
+if (getQuoteList.value.length) {
+  singleQuote.value = getQuoteList.value.find(
+    (element) => element._id === route.query.id
+  );
+} else {
+  await get("/get-single-quote/" + route.query.id)
+    .then((res) => {
+      singleQuote.value = res.data.data;
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {});
 }
-onMounted(fetchAll);
+
 
 </script>
 
-
-<style>
-
-</style>
+<style></style>

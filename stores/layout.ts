@@ -3,7 +3,7 @@ import { defineStore } from "pinia";
 export const useLayoutStore = defineStore("feature", {
   state: () => ({
     count: 0,
-    layoutTitle: "",
+    layoutTitle: "Home",
     layoutSubtitle: "",
   }),
   getters: {
