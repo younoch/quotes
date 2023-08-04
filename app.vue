@@ -20,49 +20,53 @@
     </transition>
   </div>
 </template>
-<script>
-export default {
-  name: 'DefaultApp',
-  data() {
-    return {
-      show: true,
-      scrollPosition: 0
-    }
-  },
+<script setup lang="ts">
+import { ref, watch, onMounted, onUnmounted } from 'vue'
+import { useRoute } from 'vue-router'
 
-  watch: {
-    '$route'() {
-      this.show = true;
 
-      setTimeout(() => {
-        this.show = false;
-      }, 300)
-    }
-  },
-  created() {
-    this.show = false;
-    if (process.client) {
-      window.addEventListener("scroll", this.handleScroll);
-    }
-  },
-  destroyed() {
-    if (process.client) {
-      window.removeEventListener("scroll", this.handleScroll);
-    }
-  },
-  methods: {
-    handleScroll() {
-      if (process.client) {
-        this.scrollPosition = window.scrollY
-      }
-    },
-    scrollingTop() {
-      window.scrollTo(0, 0)
-    }
-  },
+useHead({
+  title: "Home",
+  meta: [
+    { name: 'title', content: "The Speakers" },
+    { name: 'description', content: "Wisdom from the World’s Greatest Minds" },
+    { name: 'application-name', content: "The Seakers" },
+    { name: "og:image", content: "/images/og.png"},
+    { name: "keywords", content: "the, speakers, quote, quotes" },
+  ],
+})
 
+const show = ref<boolean>(true)
+const scrollPosition = ref<number>(0)
+
+const route = useRoute()
+
+watch(route, () => {
+  show.value = true
+
+  setTimeout(() => {
+    show.value = false
+  }, 300)
+})
+
+onMounted(() => {
+  show.value = false
+  window.addEventListener("scroll", handleScroll)
+})
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll)
+})
+
+function handleScroll() {
+  scrollPosition.value = window.scrollY
+}
+
+function scrollingTop() {
+  window.scrollTo(0, 0)
 }
 </script>
+
 <style lang="scss" scoped>
 .fade-enter-active,
 .fade-leave-active {

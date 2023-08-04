@@ -7,7 +7,9 @@
             <MainSide :singleQuote="singleQuote" />
           </div>
           <div class="col-lg-4">
-            <LeftSide />
+            <template v-if="getTagList && getTagList.length">
+              <LeftSide :tagList="getTagList" />
+            </template>
           </div>
         </div>
       </div>
@@ -16,6 +18,7 @@
 </template>
 
 <script setup lang="ts">
+
 import { storeToRefs } from "pinia";
 import { useLayoutStore } from "~/stores/layout";
 import LeftSide from "@/components/partials/blog/LeftSide.vue";
@@ -43,10 +46,20 @@ if (getQuoteList.value.length) {
   await get("/get-single-quote/" + route.query.id)
     .then((res) => {
       singleQuote.value = res.data.data;
+      
     })
     .catch((err) => {
       console.log(err);
     })
     .finally(() => {});
 }
+
+useHead({
+  title: "Quote",
+  meta: [
+    { name: 'description', content: singleQuote.value?.author },
+    { name: 'title', content: singleQuote.value?.quote },
+    { name: "keywords", content: "the, speakers, quote, quotes," + singleQuote.value?.tags.join(",")},
+  ],
+})
 </script>

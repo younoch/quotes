@@ -9,6 +9,12 @@
 </template>
 
 <script setup lang="ts">
+import { useQuoteStore } from '~/stores/quote';
+const { fetchTagList } = useQuoteStore();
+
+ onMounted( async () => {
+   await fetchTagList()
+})
 
 </script>
 

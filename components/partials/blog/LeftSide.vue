@@ -48,22 +48,23 @@
       <div class="widget__header">
         <h5>Popular tags</h5>
       </div>
-      <ul class="lab-ul widget-wrapper">
-        <li><a href="#">metaverse</a></li>
-        <li><a href="#" class="active">IDO</a></li>
-        <li><a href="#">token</a></li>
-        <li><a href="#">torkgo</a></li>
-        <li><a href="#">html</a></li>
-        <li><a href="#">cryptos</a></li>
-        <li><a href="#">games</a></li>
-        <li><a href="#">polygon</a></li>
-        <li><a href="#">solana</a></li>
+      <ul v-if="tagList && tagList.length" class="lab-ul widget-wrapper">
+        <li><a v-for="(tag, index) in tagList" :key="index" href="#">{{ tag.name }}</a></li>
       </ul>
     </div>
   </aside>
 </template>
 
 <script setup lang="ts">
+import { ITags } from '../quote';
+
+interface Props {
+  tagList?: ITags[]
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  tagList: [],
+});
 interface Blog {
   img: string;
   title: string;

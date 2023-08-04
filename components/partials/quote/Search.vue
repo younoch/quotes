@@ -7,7 +7,7 @@
             type="text"
             class="form-control"
             v-model="searchedString"
-            placeholder="Search here"
+            placeholder="Search quote"
             aria-label="Search bar"
             @focusin="isSearch = true"
             @focusout="isSearch = false"

@@ -1,6 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  target: "static",
+  target: 'static',
+  ssr: true,
   app: {
     head: {
       charset: "utf-8",
@@ -8,31 +9,8 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: "zxx",
       },
-      title: "Torkgo Web 3 Metaverse IDO Launchpad Vue.js (Nuxt.js) Template",
-      titleTemplate: `%s | Torkgo Web 3 Metaverse IDO Launchpad Vue.js (Nuxt.js) Template`,
-      meta: [
-        {
-          name: "description",
-          hid: "description",
-          content:
-            "Torkgo Web 3 Metaverse IDO Launchpad Vue.js (Nuxt.js) Template by TheTork. It is suitable for any kind of IDO,IGO,INO and Metaverse Launchpad.",
-        },
-        {
-          name: "keywords",
-          content:
-            "torkgo, web3, ico ino, nft, blockchain,launchpad,ido launchpad, nft launchpad, crypto launchpad, nuxt js, vue js, bootstrap 5",
-        },
-        {
-          hid: "og:image",
-          property: "og:image",
-          content: "/images/og.png",
-        },
-        {
-          name: "application-name",
-          content:
-            "Torkgo Web 3 Metaverse IDO Launchpad Vue.js (Nuxt.js) Template",
-        },
-      ],
+      title: "The Speakers",
+      titleTemplate: `%s | The Speakers`,
       link: [
         {
           rel: "shortcut icon",

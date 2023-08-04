@@ -1,9 +1,9 @@
 {
-  "name": "Torkgo",
-  "description": "Torkgo Web 3 Metaverse IDO Launchpad Vue.js (Nuxt.js) Template by TheTork. It is suitable for any kind of IDO,IGO,INO and Metaverse Launchpad.",
-  "author": "The Tork",
+  "name": "The speakers",
+  "description": "Wisdom from the World’s Greatest Minds",
+  "author": "The speakers",
   "url": "https://themeforest.net/user/thetork",
-  "email": "support@thetork.com",
+  "email": "younoch295@gmail.com",
   "private": true,
   "scripts": {
     "build": "nuxt build",

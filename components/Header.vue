@@ -1,25 +1,30 @@
 <template>
-    <div>
-        <div class="header-section" :class="scrollPosition > 100 ? 'header-fixed fadeInUp' : ''">
-            <div class="container">
-                <div class="header-holder">
-                    <div class="header-primary d-flex flex-wrap justify-content-between align-items-center">
-                        <div class="brand-logo d-none d-lg-inline-block">
-                            <div class="logo">
-                                <nuxt-link to="/" >
-                                    <img src="/images/logo/logo.png" alt="logo" />
-                                </nuxt-link>
-                            </div>
-                        </div>
-                        <div class="header-wrapper justify-content-lg-end">
-                            <div class="mobile-logo d-lg-none">
-                                <nuxt-link to="/" >
-                                    <img src="/images/logo/logo.png" alt="logo" />
-                                </nuxt-link>
-                            </div>
-                            <div class="menu-area">
-                                <ul id="menu" class="menu">
-                                    <!-- <li class="menu-item-has-children">
+  <div>
+    <div
+      class="header-section"
+      :class="scrollPosition > 100 ? 'header-fixed fadeInUp' : ''"
+    >
+      <div class="container">
+        <div class="header-holder">
+          <div
+            class="header-primary d-flex flex-wrap justify-content-between align-items-center"
+          >
+            <div class="brand-logo d-none d-lg-inline-block">
+              <div class="logo">
+                <nuxt-link to="/">
+                  <img src="/images/logo/logo.png" height="55" alt="logo" />
+                </nuxt-link>
+              </div>
+            </div>
+            <div class="header-wrapper justify-content-lg-end">
+              <div class="mobile-logo d-lg-none">
+                <nuxt-link to="/">
+                  <img src="/images/logo/logo.png" height="55" alt="logo" />
+                </nuxt-link>
+              </div>
+              <div class="menu-area">
+                <ul id="menu" class="menu">
+                  <!-- <li class="menu-item-has-children">
                                         <a href="javascript:void(0);">Home</a>
                                         <ul class="submenu">
                                             <li>
@@ -148,88 +153,96 @@
                                             </li>
                                         </ul>
                                     </li> -->
-                                    <li>
+                  <!-- <li>
                                         <nuxt-link to="/quote" >Quetes</nuxt-link>
-                                    </li>
-                                    <li>
-                                        <nuxt-link to="/contact-us" >Contact</nuxt-link>
-                                    </li>
-                                </ul>
-                                
-                                    <a class="wallet-btn" href="" data-bs-toggle="modal"
-                                        data-bs-target="#wallet-option">
-                                        <span>Connect</span>
-                                        <client-only>
-                                            <i class="fa-solid fa-wallet px-1" style=" font-size: 1.2em"></i>
-                                        </client-only>
-                                    </a>
+                                    </li> -->
+                  <li>
+                    <nuxt-link to="/contact-us">Contact</nuxt-link>
+                  </li>
+                </ul>
 
-                                <div id="icon" class="header-bar d-lg-none" @click="toggleMenu">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <!-- <a
+                  class="wallet-btn"
+                  href=""
+                  data-bs-toggle="modal"
+                  data-bs-target="#wallet-option"
+                >
+                  <span>Connect</span>
+                  <client-only>
+                    <i
+                      class="fa-solid fa-wallet px-1"
+                      style="font-size: 1.2em"
+                    ></i>
+                  </client-only>
+                </a> -->
+
+                <div id="icon" class="header-bar d-lg-none" @click="toggleMenu">
+                  <span></span>
+                  <span></span>
+                  <span></span>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
-        <WaletModal />
+      </div>
     </div>
+    <WaletModal />
+  </div>
 </template>
 
 <script setup lang="ts">
-import WaletModal from "@/components/partials/header/WaletModal.vue"
-import { ref, onMounted, onUnmounted } from 'vue'
+import WaletModal from "@/components/partials/header/WaletModal.vue";
+import { ref, onMounted, onUnmounted } from "vue";
 
-const scrollPosition = ref<number>(0)
+const scrollPosition = ref<number>(0);
 
 onMounted(() => {
   if (process.client) {
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll);
   }
-  eventList()
-})
+  eventList();
+});
 
 onUnmounted(() => {
   if (process.client) {
-    window.removeEventListener("scroll", handleScroll)
+    window.removeEventListener("scroll", handleScroll);
   }
-})
+});
 
 function handleScroll() {
   if (process.client) {
-    scrollPosition.value = window.scrollY
+    scrollPosition.value = window.scrollY;
   }
 }
 
 function toggleMenu() {
-  const element = document.getElementById("menu") as HTMLElement
-  const icon = document.getElementById("icon") as HTMLElement
-  element.classList.toggle("active")
-  icon.classList.toggle("active")
+  const element = document.getElementById("menu") as HTMLElement;
+  const icon = document.getElementById("icon") as HTMLElement;
+  element.classList.toggle("active");
+  icon.classList.toggle("active");
 }
 
 function closeMenu() {
-  const element = document.getElementById("menu") as HTMLElement
-  const icon = document.getElementById("icon") as HTMLElement
-  element.classList.remove("active")
-  icon.classList.remove("active")
+  const element = document.getElementById("menu") as HTMLElement;
+  const icon = document.getElementById("icon") as HTMLElement;
+  element.classList.remove("active");
+  icon.classList.remove("active");
 }
 
 function eventList() {
-  const elementList = Array.from(document.querySelectorAll(".menu li")) as HTMLElement[]
+  const elementList = Array.from(
+    document.querySelectorAll(".menu li")
+  ) as HTMLElement[];
   if (window.innerWidth)
     for (let i = 0; i < elementList.length; i++) {
       elementList[i].addEventListener("click", function () {
-        closeMenu()
-        elementList[i].classList.toggle("open")
-      })
+        closeMenu();
+        elementList[i].classList.toggle("open");
+      });
     }
 }
 </script>
-
 
 <style lang="scss">
 // .menu li ul {

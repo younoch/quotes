@@ -30,7 +30,7 @@
         data-aos="fade-up"
         data-aos-duration="800"
       >
-        <nuxt-link to="/project" class="default-btn"
+        <nuxt-link to="/" class="default-btn"
           ><span>View More</span></nuxt-link
         >
       </div>
