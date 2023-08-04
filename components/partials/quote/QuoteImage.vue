@@ -5,20 +5,27 @@
       <div class="corner" id="left_bottom"></div>
       <div class="corner" id="right_top"></div>
       <div class="corner" id="right_bottom"></div>
-      <span>Winston Churchill</span>
+      <span>{{ author }}</span>
       <blockquote>
         <p class="mb-0">
-          <i
-            >&ldquo;Success consists of going from failure to failure without
-            loss of enthusiasm.&rdquo;
-          </i>
+          <i>&ldquo; {{quote}} &rdquo;</i>
         </p>
       </blockquote>
     </div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+interface Props {
+  author: string
+  quote: string;
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  author: '',
+  quote: "",
+});
+</script>
 
 <style scoped>
 .container-design {

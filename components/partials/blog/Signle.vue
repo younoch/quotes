@@ -11,7 +11,9 @@
                     <img src="/images/blog/single/01.jpg" alt="blog" />
                   </div>
                   <div class="post-content pt-0">
-                    <h3>How can I launch my IDO project in Torkgsdfasdfasdfo</h3>
+                    <h3>
+                      How can I launch my IDO project in Torkgsdfasdfasdfo
+                    </h3>
                     <client-only>
                       <ul
                         class="blog__meta d-flex flex-wrap align-items-center mb-4"
@@ -262,7 +264,7 @@
             </article>
           </div>
           <!-- search section start -->
-          <SearchCom :blogList="blogList"></SearchCom>
+          <LeftSide :blogList="blogList"></LeftSide>
           <!-- search section end -->
         </div>
       </div>
@@ -271,7 +273,7 @@
 </template>
 
 <script setup lang="ts">
-import SearchCom from "@/components/partials/blog/SearchCom.vue";
+import LeftSide from "@/components/partials/blog/LeftSide.vue";
 
 defineProps({ blogList: Array });
 </script>
