@@ -1,61 +1,78 @@
 <template>
-    <div >
-        <aside class="ps-lg-1">
-            <div class="widget widget-category aos-init" data-aos="fade-up"
-                            data-aos-duration="800">
-                <div class="widget__header">
-                    <h5>Quote Categories</h5>
-                </div>
-                <ul class="lab-ul widget-wrapper list-bg-none">
-                    <li class="aos-init" data-aos="fade-up" data-aos-duration="800" v-for="(item, index) in categories" :key="index">
-                        <a href="#" class="d-flex flex-wrap justify-content-between">
-                            <client-only>
-                                <span>
-                                    <i class="fa-solid fa-folder"></i>
-                                    <span class="ml-3">{{ item.name }}</span>
-                                </span>
-                            </client-only>
-                            <span>{{ item.counts }}</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+  <div>
+    <aside class="ps-lg-1">
+      <div
+        class="widget widget-category aos-init"
+        data-aos="fade-up"
+        data-aos-duration="800"
+      >
+        <div class="widget__header">
+          <h5>Quote Categories</h5>
+        </div>
+        <ul class="lab-ul widget-wrapper list-bg-none">
+          <li
+            class="aos-init"
+            data-aos="fade-up"
+            data-aos-duration="800"
+            v-for="(item, index) in categories"
+            :key="index"
+          >
+            <a href="#" class="d-flex flex-wrap justify-content-between">
+              <client-only>
+                <span>
+                  <i class="fa-solid fa-folder"></i>
+                  <span class="ml-3">{{ item.name }}</span>
+                </span>
+              </client-only>
+              <span>{{ item.counts }}</span>
+            </a>
+          </li>
+        </ul>
+      </div>
 
-            <div class="widget widget-post">
-                <div class="widget__header">
-                    <h5>Recent Quotes</h5>
-                </div>
-                <ul class="lab-ul widget-wrapper">
-                    <li data-aos="fade-up" data-aos-duration="800"  v-for="item in blogList" class="widget-post-item aos-init" :key="item">
-                        <div class="post-thumb">
-                            <nuxt-link to="/blog/blog-single"><img :src="item.image" alt="product" /></nuxt-link>
-                        </div>
-                        <div class="post-content">
-                            <nuxt-link to="/blog/blog-single">
-                                <h6>{{ item.title }}</h6>
-                            </nuxt-link>
-                            <p>{{ item.date }}</p>
-                        </div>
-                    </li>
-                </ul>
+      <div class="widget widget-post">
+        <div class="widget__header">
+          <h5>Recent Quotes</h5>
+        </div>
+        <ul class="lab-ul widget-wrapper">
+          <li
+            data-aos="fade-up"
+            data-aos-duration="800"
+            v-for="item in blogList"
+            class="widget-post-item aos-init"
+            :key="item"
+          >
+            <div class="post-thumb">
+              <nuxt-link to="/blog/blog-single"
+                ><img :src="item.image" alt="product"
+              /></nuxt-link>
             </div>
+            <div class="post-content">
+              <nuxt-link to="/blog/blog-single">
+                <h6>{{ item.title }}</h6>
+              </nuxt-link>
+              <p>{{ item.date }}</p>
+            </div>
+          </li>
+        </ul>
+      </div>
 
-            <div class="widget widget-tags">
-                <div class="widget__header">
-                    <h5>Popular tags</h5>
-                </div>
-                <ul class="lab-ul widget-wrapper">
-                    <li v-for="(item, index) in tagList"><nuxt-link to="#">{{item.name}}</nuxt-link>
-                    </li>
-                </ul>
-            </div>
-        </aside>
-    </div>
+      <div class="widget widget-tags">
+        <div class="widget__header">
+          <h5>Popular tags</h5>
+        </div>
+        <ul class="lab-ul widget-wrapper">
+          <li v-for="(item, index) in tagList">
+            <nuxt-link to="#">{{ item.name }}</nuxt-link>
+          </li>
+        </ul>
+      </div>
+    </aside>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { ITags } from '.';
-
+import { ITags } from ".";
 
 interface Blog {
   img: string;
@@ -69,17 +86,16 @@ interface Category {
 }
 
 interface Props {
-  blogList?: Blog[]
-  tagList?: ITags[]
-  pagination?: boolean
+  blogList?: Blog[];
+  tagList?: ITags[];
+  pagination?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
   pagination: false,
   tagList: [],
-  blogList : []
+  blogList: [],
 });
-
 
 const categories: Category[] = [
   {
@@ -134,7 +150,7 @@ const recentPosts: Blog[] = [
   },
   {
     img: "/images/blog/p-post/04.jpg",
-    title: "What is the Token allocation in Torkgo",
+    title: "What is the Token allocation in The Speakers",
     date: "05 March 2023",
   },
 ];

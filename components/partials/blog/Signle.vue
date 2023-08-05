@@ -133,7 +133,7 @@
                   <a href="#"
                     >Next Article <i class="fa-solid fa-angles-right"></i
                   ></a>
-                  <p>Best Multichain IDO Launchpad Template Torkgo</p>
+                  <p>Best Multichain IDO Launchpad Template The Speakers</p>
                 </div>
               </div>
               <div class="authors">

@@ -49,17 +49,21 @@
         <h5>Popular tags</h5>
       </div>
       <ul v-if="tagList && tagList.length" class="lab-ul widget-wrapper">
-        <li><a v-for="(tag, index) in tagList" :key="index" href="#">{{ tag.name }}</a></li>
+        <li>
+          <a v-for="(tag, index) in tagList" :key="index" href="#">{{
+            tag.name
+          }}</a>
+        </li>
       </ul>
     </div>
   </aside>
 </template>
 
 <script setup lang="ts">
-import { ITags } from '../quote';
+import { ITags } from "../quote";
 
 interface Props {
-  tagList?: ITags[]
+  tagList?: ITags[];
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -131,7 +135,7 @@ const recentPosts: Blog[] = [
   },
   {
     img: "/images/blog/p-post/04.jpg",
-    title: "What is the Token allocation in Torkgo",
+    title: "What is the Token allocation in The Speakers",
     date: "05 March 2023",
   },
 ];

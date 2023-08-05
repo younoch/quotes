@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  target: 'static',
+  target: "static",
   ssr: true,
   app: {
     head: {
@@ -24,7 +24,7 @@ export default defineNuxtConfig({
         },
       ],
     },
-    // baseURL: "/demos/vue/torkgo/",
+    // baseURL: "/demos/vue/The Speakers/",
   },
 
   css: ["~/assets/scss/style.scss", "~/assets/css/all.min.css"], // add
@@ -34,15 +34,19 @@ export default defineNuxtConfig({
   //   },
   // },
   typescript: {
-    strict: true
+    strict: true,
   },
   modules: ["@pinia/nuxt", "@nuxt/content"],
-  buildModules: ["@nuxtjs/style-resources", "@nuxtjs/axios", "@nuxt/typescript-build"],
+  buildModules: [
+    "@nuxtjs/style-resources",
+    "@nuxtjs/axios",
+    "@nuxt/typescript-build",
+  ],
 
-  runtimeConfig : {
+  runtimeConfig: {
     public: {
-      API_URL : process.env.API_URL
-    }
+      API_URL: process.env.API_URL,
+    },
   },
 
   plugins: [

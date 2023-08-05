@@ -7,7 +7,10 @@
       <div class="coming-soon__wrapper text-center">
         <div class="coming-soon__content">
           <nuxt-link class="mb-4 d-inline-block" to="/"
-            ><img src="/images/logo/logo.png" height="55" alt="Torkgo logo"
+            ><img
+              src="/images/logo/logo.png"
+              height="55"
+              alt="The Speakers logo"
           /></nuxt-link>
           <h2>We are Coming soon</h2>
           <p>
