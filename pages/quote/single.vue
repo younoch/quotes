@@ -58,7 +58,9 @@ useHead({
   title: "Quote",
   meta: [
     { name: 'description', content: singleQuote.value?.author },
+    { name: 'og:description', content: singleQuote.value?.author },
     { name: 'title', content: singleQuote.value?.quote },
+    { name: 'og:title', content: singleQuote.value?.quote },
     { name: "keywords", content: "the, speakers, quote, quotes," + singleQuote.value?.tags.join(",")},
   ],
 })
