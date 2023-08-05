@@ -4,8 +4,6 @@
     </div>
 </template>
 
-<script>
-export default ({
-    name: 'blank',
-})
+<script setup lang="ts">
+
 </script>

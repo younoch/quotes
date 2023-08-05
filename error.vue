@@ -21,19 +21,11 @@
     </div>
 </template>
 
-<script>
+<script setup lang="ts">
 import ApplyToLanuch from '@/components/common/ApplyToLanuch.vue'
-export default {
-    scrollToTop: true,
-    components: { ApplyToLanuch },
-    head() {
-        return {
-            title: "404",
-        }
-    }
-}
+
+useHead({
+  title: "Error"
+})
+
 </script>
-
-<style>
-
-</style>
