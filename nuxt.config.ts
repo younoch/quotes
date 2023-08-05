@@ -9,8 +9,6 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: "zxx",
       },
-      title: "The Speakers",
-      titleTemplate: `%s | The Speakers`,
       link: [
         {
           rel: "shortcut icon",
@@ -36,7 +34,7 @@ export default defineNuxtConfig({
   typescript: {
     strict: true,
   },
-  modules: ["@pinia/nuxt", "@nuxt/content"],
+  modules: ["@pinia/nuxt", "@nuxt/content", '@nuxt/devtools'],
   buildModules: [
     "@nuxtjs/style-resources",
     "@nuxtjs/axios",

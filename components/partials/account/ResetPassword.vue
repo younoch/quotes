@@ -17,7 +17,7 @@
                 </form>
                 <div class="account-bottom">
                     <span class="d-block cate pt-10">Remember your password ? <nuxt-link
-                            to="/account/account/account/account/account/account/account/login">
+                            to="/account/login">
                             Login</nuxt-link></span>
                 </div>
             </div>

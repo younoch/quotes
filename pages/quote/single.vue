@@ -54,14 +54,25 @@ if (getQuoteList.value.length) {
     .finally(() => {});
 }
 
-useHead({
-  title: "Quote",
-  meta: [
-    { name: 'description', content: singleQuote.value?.author },
-    { name: 'og:description', content: singleQuote.value?.author },
-    { name: 'title', content: singleQuote.value?.quote },
-    { name: 'og:title', content: singleQuote.value?.quote },
-    { name: "keywords", content: "the, speakers, quote, quotes," + singleQuote.value?.tags.join(",")},
-  ],
+// useHead({
+//   meta: [
+//     { name: 'description', content: singleQuote.value?.author },
+//     { name: 'og:description', content: singleQuote.value?.author },
+//     { name: 'title', content: singleQuote.value?.quote },
+//     { name: 'og:title', content: singleQuote.value?.quote },
+//     { name: "keywords", content: "the, speakers, quote, quotes," + singleQuote.value?.tags.join(",")},
+//   ],
+// })
+useSeoMeta( {
+  title: singleQuote.value?.author,
+  twitterTitle: singleQuote.value?.author,
+  ogTitle: singleQuote.value?.author,
+  description: singleQuote.value?.quote,
+  twitterDescription: singleQuote.value?.quote,
+  ogDescription: singleQuote.value?.quote,
+  applicationName: "The Seakers",
+  ogImage: "/images/og.png",
+  twitterImage: "/images/og.png",
+  
 })
 </script>

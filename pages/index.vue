@@ -17,7 +17,6 @@
 import { ref, onMounted } from "vue";
 import { storeToRefs } from "pinia";
 import { useQuoteStore } from "~/stores/quote";
-import { useHead } from "@vueuse/head";
 
 import Tags from "@/components/partials/quote/Tags.vue";
 import QuoteList from "@/components/partials/quote/QuoteList.vue";
@@ -27,9 +26,6 @@ const { fetchQuoteData, fetchTagList, fetchSearch } = useQuoteStore();
 const { getQuoteList , getTagList  } = storeToRefs(useQuoteStore());
 const isSearch = ref<boolean>(false);
 
-useHead({
-  title: "Quates",
-});
 
 
 function searchState(value: boolean): void {
@@ -44,4 +40,11 @@ onMounted(() => {
   fetchQuoteData();
   fetchTagList();
 });
+
+useSeoMeta( {
+  title: "Home | The Speakers",
+  description: "Wisdom from the World’s Greatest Minds",
+  applicationName: "The Seakers",
+  ogImage: "/images/og.png",
+})
 </script>

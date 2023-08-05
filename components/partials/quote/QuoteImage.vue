@@ -5,17 +5,18 @@
       <div class="corner" id="left_bottom"></div>
       <div class="corner" id="right_top"></div>
       <div class="corner" id="right_bottom"></div>
-      <span>{{ author }}</span>
+      <h6>{{ author }}</h6>
       <blockquote>
-        <p class="mb-0">
+        <h1 class="mb-0">
           <i>&ldquo; {{quote}} &rdquo;</i>
-        </p>
+        </h1>
       </blockquote>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { toPng } from 'html-to-image'
 interface Props {
   author: string
   quote: string;
@@ -27,7 +28,7 @@ const props = withDefaults(defineProps<Props>(), {
 });
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .container-design {
   background: #02121F;
   padding: 10px 0;
@@ -39,15 +40,18 @@ const props = withDefaults(defineProps<Props>(), {
   position: relative;
   color: #fff;
   padding: 15px;
-}
-span {
+
+  h6 {
   background: #02121F;
+  display: inline;
   color: #28DBD1;
   padding: 0 10px;
   font-size: 20px;
   position: relative;
   top: -28px;
 }
+}
+
 .corner {
   height: 30px;
   width: 30px;
@@ -78,8 +82,9 @@ span {
   right: -16px;
   border-color: #28DBD1 transparent transparent transparent;
 }
-p {
+h1 {
   padding-top: 13px;
   font-size: 18px;
+  font-weight: 400;
 }
 </style>

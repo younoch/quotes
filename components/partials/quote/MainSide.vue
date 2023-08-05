@@ -3,10 +3,11 @@
     <div class="post-item-2 mt-2 mt-4 pt-2">
       <div class="post-inner">
         <div class="post-thumb mb-30 px-24 pt-24">
-          <QuoteImage
-            :author="singleQuote?.author"
-            :quote="singleQuote?.quote"
-          />
+            <QuoteImage
+            id="og-image"
+              :author="singleQuote?.author"
+              :quote="singleQuote?.quote"
+            />
         </div>
         <div class="post-content pt-0">
           <div class="tags-area px-3 px-md-4 pb-3 pb-md-4">
@@ -143,10 +144,26 @@
 
 <script setup lang="ts">
 import QuoteImage from "@/components/partials/quote/QuoteImage.vue";
+import { toPng } from 'html-to-image'
 import { IQuoeteList } from ".";
 
 interface Props {
   singleQuote: IQuoeteList | undefined;
+}
+
+const ogImage = ref('')
+
+const generateImage = async () => {
+  const div : HTMLElement | string = document.querySelector('#og-image')  ?? ''
+  if (div) {
+    const dataUrl = await toPng(div)
+    ogImage.value = dataUrl
+    console.log(ogImage.value);
+    
+  } else {
+    console.log("It's failed");
+    
+  }
 }
 
 const props = defineProps<Props>();
