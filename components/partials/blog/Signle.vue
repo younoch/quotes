@@ -8,7 +8,7 @@
               <div class="post-item-2">
                 <div class="post-inner">
                   <div class="post-thumb mb-30 px-30 pt-30">
-                    <img src="/images/blog/single/01.jpg" alt="blog" />
+                    <img src="" alt="blog" />
                   </div>
                   <div class="post-content pt-0">
                     <h3>
@@ -66,7 +66,7 @@
                       byers ncapable ofing is drawng and singe Lomberliel.
                     </p>
                     <div class="post-thumb mb-30">
-                      <img src="/images/blog/single/02.jpg" alt="blog-img" />
+                      <img src="" alt="blog-img" />
                     </div>
 
                     <p>

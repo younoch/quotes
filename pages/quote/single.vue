@@ -54,15 +54,6 @@ if (getQuoteList.value.length) {
     .finally(() => {});
 }
 
-// useHead({
-//   meta: [
-//     { name: 'description', content: singleQuote.value?.author },
-//     { name: 'og:description', content: singleQuote.value?.author },
-//     { name: 'title', content: singleQuote.value?.quote },
-//     { name: 'og:title', content: singleQuote.value?.quote },
-//     { name: "keywords", content: "the, speakers, quote, quotes," + singleQuote.value?.tags.join(",")},
-//   ],
-// })
 useSeoMeta( {
   title: singleQuote.value?.author,
   twitterTitle: singleQuote.value?.author,
@@ -73,6 +64,10 @@ useSeoMeta( {
   applicationName: "The Seakers",
   ogImage: "/images/og.png",
   twitterImage: "/images/og.png",
-  
+})
+useHead({
+  meta: [
+    { name: 'keywords', content: singleQuote.value?.tags.toString() },
+  ],
 })
 </script>

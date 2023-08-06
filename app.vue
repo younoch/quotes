@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="top"></div>
-    <transition name="fade">
+    <!-- <transition name="fade">
       <div v-if="show" class="preloader">
         <div class="preloader__inner">
           <div class="preloader__icon">
@@ -10,7 +10,7 @@
           </div>
         </div>
       </div>
-    </transition>
+    </transition> -->
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
@@ -37,18 +37,18 @@ import { useRoute } from 'vue-router'
 
 
 
-const show = ref<boolean>(true)
+// const show = ref<boolean>(true)
 const scrollPosition = ref<number>(0)
 
 const route = useRoute()
 
-watch(route, () => {
-  show.value = true
+// watch(route, () => {
+//   show.value = true
 
-  setTimeout(() => {
-    show.value = false
-  }, 300)
-})
+//   setTimeout(() => {
+//     show.value = false
+//   }, 300)
+// })
 
 onMounted(() => {
   show.value = false
@@ -68,7 +68,7 @@ function scrollingTop() {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 1s;

@@ -117,26 +117,4 @@ const categories: Category[] = [
   },
 ];
 
-const recentPosts: Blog[] = [
-  {
-    img: "/images/blog/p-post/01.jpg",
-    title: "Launch Your IDO Project Now",
-    date: "02 January 2023",
-  },
-  {
-    img: "/images/blog/p-post/02.jpg",
-    title: "Best IDO Launchpad HTML template",
-    date: "21 February 2023",
-  },
-  {
-    img: "/images/blog/p-post/03.jpg",
-    title: "Who are eligible to launch project?",
-    date: "30 Sep 2023",
-  },
-  {
-    img: "/images/blog/p-post/04.jpg",
-    title: "What is the Token allocation in The Speakers",
-    date: "05 March 2023",
-  },
-];
 </script>

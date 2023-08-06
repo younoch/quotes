@@ -3,7 +3,7 @@
     <Header class="sticky-top"></Header>
     <section
       class="page-header bg--cover"
-      style="background-image/images/header/bg.jpg)"
+      style="background-image: srcset(/images/header/bg.jpg);"
     >
       <div class="container">
         <div class="page-header__content text-center">

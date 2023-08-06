@@ -159,6 +159,9 @@
                   <li>
                     <nuxt-link to="/contact-us">Contact</nuxt-link>
                   </li>
+                  <li>
+                    <nuxt-link to="/account/login">Log In</nuxt-link>
+                  </li>
                 </ul>
 
                 <!-- <a
@@ -187,12 +190,10 @@
         </div>
       </div>
     </div>
-    <WaletModal />
   </div>
 </template>
 
 <script setup lang="ts">
-import WaletModal from "@/components/partials/header/WaletModal.vue";
 import { ref, onMounted, onUnmounted } from "vue";
 
 const scrollPosition = ref<number>(0);
