@@ -17,15 +17,15 @@
             v-for="(item, index) in categories"
             :key="index"
           >
-            <a href="#" class="d-flex flex-wrap justify-content-between">
+            <nuxt-link :to="`/quote/${item.value}`" class="d-flex flex-wrap justify-content-between">
               <client-only>
                 <span>
                   <i class="fa-solid fa-folder"></i>
                   <span class="ml-3">{{ item.name }}</span>
                 </span>
               </client-only>
-              <span>{{ item.counts }}</span>
-            </a>
+              <!-- <span>{{ item.counts }}</span> -->
+            </nuxt-link>
           </li>
         </ul>
       </div>
@@ -72,7 +72,7 @@
 </template>
 
 <script setup lang="ts">
-import { ITags } from ".";
+import { Category, ITags } from ".";
 
 interface Blog {
   img: string;
@@ -80,10 +80,6 @@ interface Blog {
   date: string;
 }
 
-interface Category {
-  name: string;
-  counts: number;
-}
 
 interface Props {
   blogList?: Blog[];
@@ -99,35 +95,43 @@ const props = withDefaults(defineProps<Props>(), {
 
 const categories: Category[] = [
   {
-    name: "Show all",
+    name: "Popular",
+    value: 'popular',
     counts: 15,
   },
   {
-    name: "IGO",
+    name: "Inspirational",
+    value: 'inspirational',
     counts: 20,
   },
   {
-    name: "Metaverse",
+    name: "Humor",
+    value: 'humor',
     counts: 65,
   },
   {
-    name: "Web 3.0",
+    name: "Success",
+    value: 'success',
     counts: 32,
   },
   {
-    name: "IDO",
+    name: "Philosophy",
+    value: "philosophy",
     counts: 16,
   },
   {
-    name: "Token",
+    name: "Happiness",
+    value: 'happiness',
     counts: 70,
   },
   {
-    name: "Binance",
+    name: "Love",
+    value: 'love',
     counts: 26,
   },
   {
-    name: "IGO",
+    name: "Motivational",
+    value: 'motivational',
     counts: 20,
   },
 ];

@@ -12,14 +12,22 @@
             <div class="brand-logo d-none d-lg-inline-block">
               <div class="logo">
                 <nuxt-link to="/">
-                  <img src="/images/logo/logo.png" height="55" alt="logo" />
+                  <img
+                    src="/images/logo/logo.png"
+                    height="55"
+                    alt="The Speakers"
+                  />
                 </nuxt-link>
               </div>
             </div>
             <div class="header-wrapper justify-content-lg-end">
               <div class="mobile-logo d-lg-none">
                 <nuxt-link to="/">
-                  <img src="/images/logo/logo.png" height="55" alt="logo" />
+                  <img
+                    src="/images/logo/logo.png"
+                    height="55"
+                    alt="The Speakers"
+                  />
                 </nuxt-link>
               </div>
               <div class="menu-area">

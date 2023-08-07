@@ -17,7 +17,6 @@ export const useQuoteStore = defineStore("quote", {
       get("/get-quotes", { page: 1, limit: 5 })
         .then((res) => {
           this.quoteListPinia = res.data.data;
-
         })
         .catch((err) => {
           console.log(err);
@@ -35,17 +34,17 @@ export const useQuoteStore = defineStore("quote", {
         .finally(() => {});
     },
 
-    fetchSearch(searchedString : string) {
-        get("/search-quotes", { q : searchedString})
-    .then((res) => {
-      this.quoteListPinia = res.data.data;
-    })
-    .catch((err) => {
-      console.log(err);
-    })
-    .finally(() => {
-      console.log("sdfsd");
-    });
-    }
+    fetchSearch(searchedString: string) {
+      get("/search-quotes", { q: searchedString })
+        .then((res) => {
+          this.quoteListPinia = res.data.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+        .finally(() => {
+          console.log("sdfsd");
+        });
+    },
   },
 });

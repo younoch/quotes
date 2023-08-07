@@ -4,7 +4,7 @@
       <div class="container">
         <div class="footer__content text-center">
           <nuxt-link class="mb-4 d-inline-block" to="/"
-            ><img src="/images/logo/logo2.png"  alt="Logo"
+            ><img src="/images/logo/logo2.png"  alt="the speakers"
           /></nuxt-link>
           <ul class="social justify-content-center">
             <li class="social__item">

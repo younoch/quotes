@@ -23,3 +23,9 @@ export interface IQuoeteList {
     name : string,
     counts : number
   }
+
+  export interface Category {
+    name: string
+    value: string
+    counts: number
+  }

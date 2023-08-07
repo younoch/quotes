@@ -279,32 +279,6 @@
         }
     }
 
-    //project completed slider (home 3)
-    &--completed2 {
-        // &-slider {
-        //     height: 350px;
-
-        //     @include breakpoint(sm) {
-        //         height: 250px;
-        //     }
-
-        //     @include breakpoint(md) {
-        //         height: 280px;
-        //     }
-
-        //     @include breakpoint(lg) {
-        //         height: 350px;
-        //     }
-        // }
-
-        .swiper-slide-active {
-            .project__item2 {
-                border: 1px solid rgba($theme-color, $alpha: .3);
-                box-shadow: 0 5px 5px rgba($theme-color, $alpha: .10);
-            }
-        }
-    }
-
     &__slider2 {
         &-nav {
             @extend %flex,

@@ -15,32 +15,34 @@
       <NuxtPage />
     </NuxtLayout>
     <transition name="scrolltop">
-      <a v-if="scrollPosition > 300" href="javascript:void(0);" @click="scrollingTop" class="scrollToTop"><i
-          class="fa-solid fa-arrow-up-from-bracket"></i></a>
+      <a
+        v-if="scrollPosition > 300"
+        href="javascript:void(0);"
+        @click="scrollingTop"
+        class="scrollToTop"
+        ><i class="fa-solid fa-arrow-up-from-bracket"></i
+      ></a>
     </transition>
   </div>
 </template>
 <script setup lang="ts">
-import { ref, watch, onMounted, onUnmounted } from 'vue'
-import { useRoute } from 'vue-router'
-
+import { ref, watch, onMounted, onUnmounted } from "vue";
+import { useRoute } from "vue-router";
 
 // useHead({
 //   meta: [
 //     { name: 'title', content: "The Speakers" },
 //     { name: 'description', content: "Wisdom from the World’s Greatest Minds" },
-//     { name: 'application-name', content: "The Seakers" },
+//     { name: 'application-name', content: "The Speakers" },
 //     { name: "og:image", content: "/images/og.png"},
 //     { name: "keywords", content: "the, speakers, quote, quotes" },
 //   ],
 // })
 
-
-
 // const show = ref<boolean>(true)
-const scrollPosition = ref<number>(0)
+const scrollPosition = ref<number>(0);
 
-const route = useRoute()
+const route = useRoute();
 
 // watch(route, () => {
 //   show.value = true
@@ -51,20 +53,20 @@ const route = useRoute()
 // })
 
 onMounted(() => {
-  show.value = false
-  window.addEventListener("scroll", handleScroll)
-})
+  // show.value = false
+  window.addEventListener("scroll", handleScroll);
+});
 
 onUnmounted(() => {
-  window.removeEventListener("scroll", handleScroll)
-})
+  window.removeEventListener("scroll", handleScroll);
+});
 
 function handleScroll() {
-  scrollPosition.value = window.scrollY
+  scrollPosition.value = window.scrollY;
 }
 
 function scrollingTop() {
-  window.scrollTo(0, 0)
+  window.scrollTo(0, 0);
 }
 </script>
 
@@ -76,7 +78,7 @@ function scrollingTop() {
 
 .fade-enter,
 .fade-leave-to {
-  opacity: 0
+  opacity: 0;
 }
 
 .scrolltop-enter-active,

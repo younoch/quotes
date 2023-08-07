@@ -25,7 +25,7 @@ export default defineNuxtConfig({
     // baseURL: "/demos/vue/The Speakers/",
   },
 
-  css: ["~/assets/scss/style.scss", "~/assets/css/all.min.css"], // add
+  css: ["~/assets/scss/style.scss"], // add
   // vite: {
   //   define: {
   //     "process.env.DEBUG": false,
@@ -34,7 +34,7 @@ export default defineNuxtConfig({
   typescript: {
     strict: true,
   },
-  modules: ["@pinia/nuxt", "@nuxt/content", '@nuxt/devtools'],
+  modules: ["@pinia/nuxt", "@nuxt/content", '@nuxtjs/robots', '@nuxt/devtools'],
   buildModules: [
     "@nuxtjs/style-resources",
     "@nuxtjs/axios",
@@ -43,12 +43,11 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      API_URL: process.env.API_URL,
+      API_URL: "https://app.the-speakers.com/api/v1",
     },
   },
 
   plugins: [
-    { src: "@/plugins/purecounter.js", mode: "client" },
     { src: "@/plugins/all.min.js", mode: "client" },
     { src: "@/plugins/aos.js", mode: "client" },
     { src: "@/plugins/axios.ts", mode: "client" },

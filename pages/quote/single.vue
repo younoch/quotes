@@ -1,73 +1,76 @@
 <template>
-  <div class="blog padding-bottom">
-    <div class="container">
-      <div class="blog__wrapper">
-        <div class="row">
-          <div class="col-lg-8">
-            <MainSide :singleQuote="singleQuote" />
-          </div>
-          <div class="col-lg-4">
-            <template v-if="getTagList && getTagList.length">
-              <LeftSide :tagList="getTagList" />
-            </template>
+  <transition name="fade">
+    <div v-if="pending" class="preloader">
+      <div class="preloader__inner">
+        <div class="preloader__icon">
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+
+    <div v-else-if="error">Oops, something went wrong!</div>
+    <div v-else class="blog padding-bottom">
+      <div class="container">
+        <div class="blog__wrapper">
+          <div class="row">
+            <div class="col-lg-8">
+              <MainSide :singleQuote="singleQuote.data" />
+            </div>
+            <div class="col-lg-4">
+              <template v-if="getTagList && getTagList.length">
+                <LeftSide :tagList="getTagList" />
+              </template>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script setup lang="ts">
-
 import { storeToRefs } from "pinia";
 import { useLayoutStore } from "~/stores/layout";
 import LeftSide from "@/components/partials/blog/LeftSide.vue";
 import MainSide from "@/components/partials/quote/MainSide.vue";
 import { useQuoteStore } from "~/stores/quote";
-import { IQuoeteList } from "~/components/partials/quote";
 
-const { get } = useApi();
 const route = useRoute();
 const layoutStore = useLayoutStore();
-const { getQuoteList, getTagList } = storeToRefs(useQuoteStore());
+const { getTagList } = storeToRefs(useQuoteStore());
+
+const {
+  data: singleQuote,
+  pending,
+  error,
+  refresh,
+} = await useAsyncData("quote", () =>
+  fetch(
+    useRuntimeConfig().public.API_URL +
+      "/get-single-quote/64b42ef370090d9d6ef1228b"
+  ).then((res) => res.json())
+);
 
 layoutStore.assignLayoutData({
   title: "Blog Details",
   subtitle: "Blog Single",
 });
 
-const singleQuote = ref<IQuoeteList>();
-
-if (getQuoteList.value.length) {
-  singleQuote.value = getQuoteList.value.find(
-    (element) => element._id === route.query.id
-  );
-} else {
-  await get("/get-single-quote/" + route.query.id)
-    .then((res) => {
-      singleQuote.value = res.data.data;
-      
-    })
-    .catch((err) => {
-      console.log(err);
-    })
-    .finally(() => {});
-}
-
-useSeoMeta( {
-  title: singleQuote.value?.author,
-  twitterTitle: singleQuote.value?.author,
-  ogTitle: singleQuote.value?.author,
-  description: singleQuote.value?.quote,
-  twitterDescription: singleQuote.value?.quote,
-  ogDescription: singleQuote.value?.quote,
-  applicationName: "The Seakers",
+useSeoMeta({
+  title: singleQuote.value?.data.author,
+  twitterTitle: singleQuote.value?.data.author,
+  ogTitle: singleQuote.value?.data.author,
+  description: singleQuote.value?.data.quote,
+  twitterDescription: singleQuote.value?.data.quote,
+  ogDescription: singleQuote.value?.data.quote,
+  applicationName: "The Speakers",
   ogImage: "/images/og.png",
   twitterImage: "/images/og.png",
-})
+});
 useHead({
   meta: [
-    { name: 'keywords', content: singleQuote.value?.tags.toString() },
+    { name: "keywords", content: singleQuote.value?.data.tags?.toString() },
   ],
-})
+});
 </script>

@@ -60,7 +60,7 @@
 </template>
 
 <script setup lang="ts">
-import { ITags } from "../quote";
+import { Category, ITags } from "../quote";
 
 interface Props {
   tagList?: ITags[];
@@ -75,44 +75,47 @@ interface Blog {
   date: string;
 }
 
-interface Category {
-  name: string;
-  counts: number;
-}
-
 const blogList: any[] = [];
 
 const categories: Category[] = [
   {
-    name: "Show all",
+    name: "Popular",
+    value: 'popular',
     counts: 15,
   },
   {
-    name: "IGO",
+    name: "Inspirational",
+    value: 'inspirational',
     counts: 20,
   },
   {
-    name: "Metaverse",
+    name: "Humor",
+    value: 'humor',
     counts: 65,
   },
   {
-    name: "Web 3.0",
+    name: "Success",
+    value: 'success',
     counts: 32,
   },
   {
-    name: "IDO",
+    name: "Philosophy",
+    value: "philosophy",
     counts: 16,
   },
   {
-    name: "Token",
+    name: "Happiness",
+    value: 'happiness',
     counts: 70,
   },
   {
-    name: "Binance",
+    name: "Love",
+    value: 'love',
     counts: 26,
   },
   {
-    name: "IGO",
+    name: "Motivational",
+    value: 'motivational',
     counts: 20,
   },
 ];
