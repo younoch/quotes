@@ -138,12 +138,12 @@
             }
 
             &:before {
-                background-image: url(/images/newsletter/bg-1.svg);
+                background-image: url(../../../public/images/newsletter/1.svg);
                 left: 0
             }
 
             &:after {
-                background-image: url(/images/newsletter/bg-2.svg);
+                background-image: url(../../../public/images/newsletter/2.svg);
                 right: 0
             }
         }

@@ -1,12 +1,12 @@
 import { defineStore } from "pinia";
-import type { IQuoeteList, ITags } from "@/components/partials/quote";
+import type { IQuoeteItem, ITags } from "@/components/partials/quote";
 
 const { get } = useApi();
 
 export const useQuoteStore = defineStore("quote", {
   state: () => ({
     tagList: ref<ITags[]>([]),
-    quoteListPinia: ref<IQuoeteList[]>([]),
+    quoteListPinia: ref<IQuoeteItem[]>([]),
   }),
   getters: {
     getTagList: (state) => state.tagList,
@@ -43,7 +43,6 @@ export const useQuoteStore = defineStore("quote", {
           console.log(err);
         })
         .finally(() => {
-          console.log("sdfsd");
         });
     },
   },

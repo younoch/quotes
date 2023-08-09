@@ -1,16 +1,5 @@
 <template>
   <div>
-    <div id="top"></div>
-    <!-- <transition name="fade">
-      <div v-if="show" class="preloader">
-        <div class="preloader__inner">
-          <div class="preloader__icon">
-            <span></span>
-            <span></span>
-          </div>
-        </div>
-      </div>
-    </transition> -->
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>

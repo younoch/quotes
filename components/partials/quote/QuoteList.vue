@@ -12,50 +12,49 @@
             data-aos="fade-up"
             data-aos-duration="800"
           >
-            <TextClamp :id="'text'+item._id" :paragraph="item.quote" :lines="2" />
+            <TextClamp
+              :id="'text' + item._id"
+              :paragraph="item.quote"
+              :lines="2"
+            />
             <div class="d-flex justify-content-between">
               <p class="text-end mb-0">— {{ item.author }}</p>
-                <button type="button" class="btn btn-outline-info btn-sm" @click="pushChild(item._id)">
-                  <i class="fa fa-share-alt" aria-hidden="true"></i>
-                </button>
+              <button
+                type="button"
+                class="btn btn-outline-info btn-sm"
+                @click="pushChild(item)"
+              >
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+              </button>
             </div>
             <!-- <ShareNow/> -->
           </div>
         </div>
-      </div>
-      <Pagination v-if="pagination" />
-      <div
-        v-else
-        class="text-center mt-3 mt-md-5 aos-init"
-        data-aos="fade-up"
-        data-aos-duration="800"
-      >
-        <nuxt-link to="/" class="default-btn"
-          ><span>View More</span></nuxt-link
-        >
       </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import Pagination from "@/components/reusable/buttuns/Pagination.vue";
 import TextClamp from "@/components/reusable/textformat/TextClamp.vue";
-import { IQuoeteList } from "./";
+import { IQuoeteItem } from "./";
 
 interface Props {
-  quoteList: IQuoeteList[];
-  pagination?: boolean;
+  quoteList: IQuoeteItem[];
 }
 
-const props = withDefaults(defineProps<Props>(), {
-  pagination: false,
-});
+const props = withDefaults(defineProps<Props>(), {});
 
-const router = useRouter()
+const router = useRouter();
 
-function pushChild(id:string) {
-  router.push( { path: '/quote/single', query: { id }} )
+function pushChild(item: IQuoeteItem) {
+  if(process.client) {
+
+    sessionStorage.setItem("selectedQuote", item.quote);
+    sessionStorage.setItem("selectedQuoteAuthor", item.author);
+    sessionStorage.setItem("selectedQuoteTags", item.tags.toString());
+    router.push({ path: "/quote/single", query: { id: item._id } });
+  }
 }
 </script>
 
@@ -68,6 +67,5 @@ function pushChild(id:string) {
 }
 .share-button {
   background-color: transparent;
-
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1
+    <p
         :id="id"
         class="text mb-0"
         :class="{ 'line-clamp': showLess }"
@@ -8,7 +8,7 @@
       > 
       <i>&ldquo;{{ paragraph }}&rdquo; </i>
       
-    </h1>
+    </p>
     <div class="d-flex justify-content-between">
       <span class="cursor-pointer show-toggle" v-if="isClamped" @click="showLess = !showLess">
         {{ showLess ? "Show more" : "Show less" }}
@@ -40,7 +40,6 @@ const isClamped = ref(false);
 // methods
 function checkClamp () {
   const text = document.querySelector<HTMLElement>(`#${props.id}`);
-  console.log();
   
   if (text) {
     const actualHeight = text.clientHeight;

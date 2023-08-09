@@ -1,10 +1,8 @@
 <template>
     <div class="position-relative">
-        <!-- <CommonHeader ></CommonHeader> -->
         <Header class="sticky-top" />
         <slot />
         <Footer />
-        <!-- <CommonFooter></CommonFooter> -->
     </div>
 </template>
 
