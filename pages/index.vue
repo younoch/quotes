@@ -65,7 +65,7 @@ async function search(searchedString: string): Promise<void> {
 }
 
 useSeoMeta({
-  title: "Home | The Speakers",
+  title: "Popular Quote | The Speakers",
   description: "Wisdom from the World’s Greatest Minds",
   applicationName: "The Speakers",
   ogImage: "/images/og.png",

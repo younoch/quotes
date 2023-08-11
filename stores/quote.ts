@@ -7,10 +7,12 @@ export const useQuoteStore = defineStore("quote", {
   state: () => ({
     tagList: ref<ITags[]>([]),
     quoteListPinia: ref<IQuoeteItem[]>([]),
+    selectedQuote: ref<IQuoeteItem>(),
   }),
   getters: {
     getTagList: (state) => state.tagList,
     getQuoteList: (state) => state.quoteListPinia,
+    getselectedQuote: (state) => state.selectedQuote,
   },
   actions: {
     async fetchQuoteData() {
@@ -44,6 +46,10 @@ export const useQuoteStore = defineStore("quote", {
         })
         .finally(() => {
         });
+    },
+    selectQuote(item: IQuoeteItem) : void {
+      this.selectedQuote = item;
+      
     },
   },
 });

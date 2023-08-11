@@ -70,7 +70,7 @@ async function search(searchedString: string): Promise<void> {
 }
 
 useSeoMeta({
-  title: "Home | The Speakers",
+  title: `${route.params.id.charAt(0).toUpperCase() + route.params.id.slice(1)} Quotes | The Speakers`,
   description: "Wisdom from the World’s Greatest Minds",
   applicationName: "The Speakers",
   ogImage: "/images/og.png",

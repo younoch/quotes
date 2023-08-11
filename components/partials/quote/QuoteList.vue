@@ -38,6 +38,7 @@
 <script setup lang="ts">
 import TextClamp from "@/components/reusable/textformat/TextClamp.vue";
 import { IQuoeteItem } from "./";
+import { useQuoteStore } from "~/stores/quote";
 
 interface Props {
   quoteList: IQuoeteItem[];
@@ -46,15 +47,11 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {});
 
 const router = useRouter();
+const { selectQuote } = useQuoteStore();
 
 function pushChild(item: IQuoeteItem) {
-  if(process.client) {
-
-    sessionStorage.setItem("selectedQuote", item.quote);
-    sessionStorage.setItem("selectedQuoteAuthor", item.author);
-    sessionStorage.setItem("selectedQuoteTags", item.tags.toString());
-    router.push({ path: "/quote/single", query: { id: item._id } });
-  }
+  selectQuote(item);
+  router.push({ path: "/quote/single", query: { id: item._id } });
 }
 </script>
 
