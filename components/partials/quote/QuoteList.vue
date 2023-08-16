@@ -19,15 +19,14 @@
             />
             <div class="d-flex justify-content-between">
               <p class="text-end mb-0">— {{ item.author }}</p>
-              <button
-                type="button"
+              <nuxt-link
+                :to="`/quote/single?id=${item._id}`"
                 class="btn btn-outline-info btn-sm"
                 @click="pushChild(item)"
               >
                 <i class="fa fa-share-alt" aria-hidden="true"></i>
-              </button>
+              </nuxt-link>
             </div>
-            <!-- <ShareNow/> -->
           </div>
         </div>
       </div>
@@ -51,7 +50,6 @@ const { selectQuote } = useQuoteStore();
 
 function pushChild(item: IQuoeteItem) {
   selectQuote(item);
-  router.push({ path: "/quote/single", query: { id: item._id } });
 }
 </script>
 

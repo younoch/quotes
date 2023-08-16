@@ -21,6 +21,7 @@
         <div class="col-12 col-md-8">
           <QuoteList :quoteList="quotesLists" />
           <Pagination
+            @click="viewMore"
             v-if="paginationData.page < paginationData.pages"
             :paginationData="paginationData"
           />
@@ -42,11 +43,52 @@ import { IQuoeteItem } from "~/components/partials/quote";
 const { get } = useApi();
 const route = useRoute();
 const { getTagList } = storeToRefs(useQuoteStore());
+const categories = [
+  {
+    value: "popular",
+    id: 1
+  },
+  {
+    value: "inspirational",
+    id: 2
+  },
+  {
+    value: "humor",
+    id: 3
+  },
+  {
+    value: "success",
+    id: 4
+  },
+  {
+    value: "philosophy",
+    id: 5
+  },
+  {
+    value: "happiness",
+    id: 6
+  },
+  {
+    value: "love",
+    id: 7
+  },
+  {
+    value: "motivational",
+    id: 8
+  },
+];
 
-const { data, pending, error, refresh } = await useAsyncData("quotes", () =>
-  fetch(useRuntimeConfig().public.API_URL + "/get-quotes?page=1&limit=5").then(
-    (res) => res.json()
-  )
+const findCetagory = () => {
+  const selectedCetagory = categories.find( (item) => item.value === route.params.id)
+  return selectedCetagory?.id
+}
+
+const { data, pending, error, refresh } = await useAsyncData(
+  "quotes-by-category",
+  () =>
+    fetch(
+      useRuntimeConfig().public.API_URL + "/get-quotes-by-category/"+ findCetagory() + "?page=1&limit=5"
+    ).then((res) => res.json())
 );
 
 const quotesLists = ref<IQuoeteItem[]>(data.value.data);
@@ -70,9 +112,13 @@ async function search(searchedString: string): Promise<void> {
 }
 
 useSeoMeta({
-  title: `${route.params.id.charAt(0).toUpperCase() + route.params.id.slice(1)} Quotes | The Speakers`,
-  description: "Wisdom from the World’s Greatest Minds",
+  title: `${
+    route.params.id.charAt(0).toUpperCase() + route.params.id.slice(1)
+  } Quotes | The Speakers`,
+  description:
+    "Are you looking for some inspiration, motivation, or wisdom? Explore our website and find quotes by famous authors that will empower you to achieve your goals, face your obstacles, and enjoy your journey.",
   applicationName: "The Speakers",
   ogImage: "/images/og.png",
+  keywords: "quote, author," + route.params.id + "quotes",
 });
 </script>

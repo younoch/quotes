@@ -49,6 +49,7 @@ export const useQuoteStore = defineStore("quote", {
     },
     selectQuote(item: IQuoeteItem) : void {
       this.selectedQuote = item;
+      console.log("selectQuote");
       
     },
   },

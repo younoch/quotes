@@ -52,8 +52,6 @@ if (route) {
     if(getselectedQuote.value) {
       localQuote.value = getselectedQuote.value
       isLoader.value =false
-      console.log('y');
-      
       
     } else {
       localQuote.value = data.value

@@ -16,8 +16,10 @@
       <div class="col-12 col-md-8">
         <QuoteList :quoteList="quotesLists" />
         <Pagination
+        
           v-if="paginationData.page < paginationData.pages"
           :paginationData="paginationData"
+          @click="viewMore"
         />
       </div>
       <Tags class="col-12 col-md-4" :tagList="getTagList" />
@@ -63,11 +65,24 @@ async function search(searchedString: string): Promise<void> {
     })
     .finally(() => {});
 }
+async function viewMore(): Promise<void> {
+  get("/get-quotes", { page: paginationData.value.page + 1, limit: 10  } )
+    .then((res) => {
+      quotesLists.value =  quotesLists.value.concat(res.data.data);
+      paginationData.value = res.data.pagination
+
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {});
+}
 
 useSeoMeta({
   title: "Popular Quote | The Speakers",
-  description: "Wisdom from the World’s Greatest Minds",
+  description: "Are you looking for some inspiration, motivation, or wisdom? Explore our website and find quotes by famous authors that will empower you to achieve your goals, face your obstacles, and enjoy your journey.",
   applicationName: "The Speakers",
   ogImage: "/images/og.png",
+  keywords: "quote, author, popular quotes",
 });
 </script>

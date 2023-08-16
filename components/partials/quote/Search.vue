@@ -11,9 +11,10 @@
             aria-label="Search bar"
             @focusin="isSearch = true"
             @focusout="isSearch = false"
+            @keyup.enter="submitValue"
           />
 
-          <button class="search-icon" @click="submitValue">
+          <button class="search-icon" @click="submitValue" >
             <client-only>
               <i class="fa-solid fa-magnifying-glass"></i>
             </client-only>

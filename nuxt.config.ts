@@ -34,12 +34,16 @@ export default defineNuxtConfig({
   typescript: {
     strict: true,
   },
-  modules: ["@pinia/nuxt", "@nuxt/content", "@nuxtjs/robots", "@nuxt/devtools"],
+  modules: ["@pinia/nuxt", "@nuxt/content", "@nuxtjs/robots", "@nuxt/devtools", "nuxt-simple-sitemap"],
   buildModules: [
     "@nuxtjs/style-resources",
     "@nuxtjs/axios",
-    "@nuxt/typescript-build"
+    "@nuxt/typescript-build",
+    "@nuxtjs/google-analytics"
   ],
+  googleAnalytics: {
+    id: 'G-B515496QYL'
+  },
 
   runtimeConfig: {
     public: {

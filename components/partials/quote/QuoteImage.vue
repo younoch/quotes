@@ -1,6 +1,6 @@
 <template>
   <div class="container-design py-3 px-3 rounded-2 py-lg-5 d-flex justify-content-center align-content-center">
-    <div id="ct">
+    <div v-if="author || quote" id="ct">
       <div class="corner" id="left_top"></div>
       <div class="corner" id="left_bottom"></div>
       <div class="corner" id="right_top"></div>
