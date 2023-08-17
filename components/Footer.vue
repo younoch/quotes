@@ -3,9 +3,12 @@
     <div class="footer__wrapper padding-top padding-bottom">
       <div class="container">
         <div class="footer__content text-center">
-          <nuxt-link class="mb-4 d-inline-block" to="/"
+          <nuxt-link class="d-inline-block" to="/"
             ><img src="/images/logo/logo2.png"  alt="the speakers"
           /></nuxt-link>
+          <div >
+            <p class="footer-description">Explore our website and find quotes that inspire, motivate, and empower you to live your best life.</p>
+          </div>
           <ul class="social justify-content-center">
             <li class="social__item">
               <a href="#" class="social__link"
@@ -50,3 +53,10 @@
     </div>
   </footer>
 </template>
+
+<style scoped lang="scss">
+  .footer-description {
+    font-size: 15px;
+    font-weight: 300;
+  }
+</style>

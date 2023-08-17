@@ -80,7 +80,7 @@ async function viewMore(): Promise<void> {
 
 useSeoMeta({
   title: "Popular Quote | The Speakers",
-  description: "Are you looking for some inspiration, motivation, or wisdom? Explore our website and find quotes by famous authors that will empower you to achieve your goals, face your obstacles, and enjoy your journey.",
+  description: "Explore our website and find quotes that inspire, motivate, and empower you to live your best life.",
   applicationName: "The Speakers",
   ogImage: "/images/og.png",
   keywords: "quote, author, popular quotes",

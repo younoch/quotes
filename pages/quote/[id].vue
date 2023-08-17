@@ -87,7 +87,7 @@ const { data, pending, error, refresh } = await useAsyncData(
   "quotes-by-category",
   () =>
     fetch(
-      useRuntimeConfig().public.API_URL + "/get-quotes-by-category/"+ findCetagory() + "?page=1&limit=5"
+      useRuntimeConfig().public.API_URL + "/get-quotes-by-category/"+ findCetagory() + "?page=1&limit=10"
     ).then((res) => res.json())
 );
 
@@ -111,12 +111,25 @@ async function search(searchedString: string): Promise<void> {
     .finally(() => {});
 }
 
+async function viewMore(): Promise<void> {
+  get("/get-quotes-by-category/"+ findCetagory(), { page: paginationData.value.page + 1, limit: 10  } )
+    .then((res) => {
+      quotesLists.value =  res.data.data.concat(quotesLists.value);
+      paginationData.value = res.data.pagination
+
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {});
+}
+
 useSeoMeta({
   title: `${
     route.params.id.charAt(0).toUpperCase() + route.params.id.slice(1)
   } Quotes | The Speakers`,
   description:
-    "Are you looking for some inspiration, motivation, or wisdom? Explore our website and find quotes by famous authors that will empower you to achieve your goals, face your obstacles, and enjoy your journey.",
+    "Explore our website and find quotes that inspire, motivate, and empower you to live your best life.",
   applicationName: "The Speakers",
   ogImage: "/images/og.png",
   keywords: "quote, author," + route.params.id + "quotes",
