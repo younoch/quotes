@@ -87,7 +87,7 @@ const { data, pending, error, refresh } = await useAsyncData(
   "quotes-by-category",
   () =>
     fetch(
-      useRuntimeConfig().public.API_URL + "/get-quotes-by-category/"+ findCetagory() + "?page=1&limit=10"
+      useRuntimeConfig().public.API_URL + "/get-quotes-by-category/"+ findCetagory() + "?page=1&limit=20"
     ).then((res) => res.json())
 );
 
@@ -123,7 +123,13 @@ async function viewMore(): Promise<void> {
     })
     .finally(() => {});
 }
-
+useHead({
+  link: [
+    { rel: "apple-touch-icon", href: "/images/favicon.png", sizes: "180x180" },
+    { rel: "icon", type: "image/png", href: "/images/favicon.png" },
+    { rel: "shortcut icon", type: "image/png", href: "/images/favicon.png" },
+  ],
+});
 useSeoMeta({
   title: `${
     route.params.id.charAt(0).toUpperCase() + route.params.id.slice(1)

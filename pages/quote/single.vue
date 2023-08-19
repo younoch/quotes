@@ -1,26 +1,26 @@
 <template>
-    <div v-if="!isLoader" class="blog padding-bottom">
-      <div class="container">
-        <div class="blog__wrapper">
-          <div class="row">
-            <div class="col-lg-8">
-              <MainSide :singleQuote="localQuote" />
-            </div>
-              <template v-if="getTagList && getTagList.length">
-                <Tags class="col-12 col-md-4" :tagList="getTagList" />
-              </template>
+  <div v-if="!isLoader" class="blog padding-bottom">
+    <div class="container">
+      <div class="blog__wrapper">
+        <div class="row">
+          <div class="col-lg-8">
+            <MainSide :singleQuote="localQuote" />
           </div>
+          <template v-if="getTagList && getTagList.length">
+            <Tags class="col-12 col-md-4" :tagList="getTagList" />
+          </template>
         </div>
       </div>
     </div>
-    <div v-else  class="preloader">
-      <div class="preloader__inner">
-        <div class="preloader__icon">
-          <span></span>
-          <span></span>
-        </div>
+  </div>
+  <div v-else class="preloader">
+    <div class="preloader__inner">
+      <div class="preloader__icon">
+        <span></span>
+        <span></span>
       </div>
     </div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -30,14 +30,14 @@ import Tags from "@/components/partials/quote/Tags.vue";
 import { useQuoteStore } from "~/stores/quote";
 import { IQuoeteItem } from "~/components/partials/quote";
 
-const isLoader = ref<boolean>(true)
+const isLoader = ref<boolean>(true);
 
 const route = useRoute();
 const { get } = useApi();
 const { getTagList, getselectedQuote } = storeToRefs(useQuoteStore());
 
 const data = ref<IQuoeteItem>();
-  const localQuote = ref<IQuoeteItem>()
+const localQuote = ref<IQuoeteItem>();
 if (route) {
   await get("/get-single-quote/" + route.query.id)
     .then((res) => {
@@ -49,29 +49,33 @@ if (route) {
     .finally(() => {});
 }
 
-    if(getselectedQuote.value) {
-      localQuote.value = getselectedQuote.value
-      isLoader.value =false
-      
-    } else {
-      localQuote.value = data.value
-      isLoader.value =false
-    }
+if (getselectedQuote.value) {
+  localQuote.value = getselectedQuote.value;
+  isLoader.value = false;
+} else {
+  localQuote.value = data.value;
+  isLoader.value = false;
+}
 
-  useSeoMeta({
-    title: localQuote.value?.author,
-    twitterTitle: localQuote.value?.author,
-    ogType: 'website',
-    ogTitle: localQuote.value?.author,
-    description: localQuote.value?.quote,
-    twitterDescription: localQuote.value?.quote,
-    ogDescription: localQuote.value?.quote,
-    applicationName: "The Speakers",
-    ogImage: "/images/og.png",
-    twitterImage: "/images/og.png",
-    keywords: localQuote.value?.tags?.toString(),
-  });
-  useHead({
-    meta: [{ name: "keywords", content: localQuote.value?.tags?.toString() }],
-  });
+useSeoMeta({
+  title: localQuote.value?.author,
+  twitterTitle: localQuote.value?.author,
+  ogType: "website",
+  ogTitle: localQuote.value?.author,
+  description: localQuote.value?.quote,
+  twitterDescription: localQuote.value?.quote,
+  ogDescription: localQuote.value?.quote,
+  applicationName: "The Speakers",
+  ogImage: "/images/og.png",
+  twitterImage: "/images/og.png",
+  keywords: localQuote.value?.tags?.toString(),
+});
+useHead({
+  meta: [{ name: "keywords", content: localQuote.value?.tags?.toString() }],
+  link: [
+    { rel: "apple-touch-icon", href: "/images/favicon.png", sizes: "180x180" },
+    { rel: "icon", type: "image/png", href: "/images/favicon.png" },
+    { rel: "shortcut icon", type: "image/png", href: "/images/favicon.png" },
+  ],
+});
 </script>

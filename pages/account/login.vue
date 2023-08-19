@@ -21,6 +21,14 @@ const activeID = ref(1);
 const layoutStore = useLayoutStore();
 layoutStore.assignLayoutData({ title: "Login Page", subtitle: "Login" });
 
+useHead({
+  link: [
+    { rel: "apple-touch-icon", href: "/images/favicon.png", sizes: "180x180" },
+    { rel: "icon", type: "image/png", href: "/images/favicon.png" },
+    { rel: "shortcut icon", type: "image/png", href: "/images/favicon.png" },
+  ],
+});
+
 useSeoMeta({
   title: "Login | The Speakers",
   description: "Wisdom from the World’s Greatest Minds",

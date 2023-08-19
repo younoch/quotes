@@ -5,22 +5,17 @@ export default defineNuxtConfig({
   app: {
     head: {
       charset: "utf-8",
+      meta: [
+        {
+          name: "google-site-verification",
+          content: "VZeznQM4NYGPR7oy00PAQNw6EsbHsayjrVlFtTBtfbI",
+        },
+        { "http-equiv": "Content-Type", content: "text/html; charset=utf-8" },
+      ],
       viewport: "width=device-width, initial-scale=1.0",
       htmlAttrs: {
         lang: "zxx",
       },
-      link: [
-        {
-          rel: "shortcut icon",
-          type: "image/png",
-          href: "/images/favicon.png",
-        },
-        {
-          rel: "icon",
-          type: "image/png",
-          href: "/images/favicon.png",
-        },
-      ],
     },
     // baseURL: "/demos/vue/The Speakers/",
   },
@@ -34,17 +29,24 @@ export default defineNuxtConfig({
   typescript: {
     strict: true,
   },
-  modules: ["@pinia/nuxt", "@nuxt/content", "@nuxtjs/robots", "@nuxt/devtools", "nuxt-simple-sitemap", "nuxt-gtag"],
+  modules: [
+    "@pinia/nuxt",
+    "@nuxt/content",
+    "@nuxt/devtools",
+    "nuxt-gtag",
+    "@nuxtjs/robots",
+    "nuxt-simple-sitemap",
+  ],
   buildModules: [
     "@nuxtjs/style-resources",
     "@nuxtjs/axios",
     "@nuxt/typescript-build",
   ],
   gtag: {
-    id: 'G-B515496QYL',
+    id: "G-B515496QYL",
     config: {
-      page_title: 'The Speakers'
-    }
+      page_title: "The Speakers",
+    },
   },
 
   runtimeConfig: {

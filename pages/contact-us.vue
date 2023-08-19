@@ -41,10 +41,21 @@
 
 <script setup lang="ts">
 import { useLayoutStore } from "~/stores/layout";
+import { useAuthStore } from '~/stores/auth'
 import ApplyToLanuch from '@/components/common/ApplyToLanuch.vue'
 
 const layoutStore = useLayoutStore();
 layoutStore.assignLayoutData({ title: 'Stacking', subtitle: "stacking" })
+
+const authStore = useAuthStore()
+
+useHead({
+  link: [
+    { rel: "apple-touch-icon", href: "/images/favicon.png", sizes: "180x180" },
+    { rel: "icon", type: "image/png", href: "/images/favicon.png" },
+    { rel: "shortcut icon", type: "image/png", href: "/images/favicon.png" },
+  ],
+});
 
 const { post } = useApi();
 const formData : contact = reactive({
@@ -53,12 +64,6 @@ const formData : contact = reactive({
     subject: '',
     message: ''
 })
-
-const head = () => {
-  return {
-    title: "contact us",
-  }
-}
 
 function submitForm() {
     post("/create-contact-message", formData)
@@ -70,6 +75,7 @@ function submitForm() {
     .finally(() => {
     });
 }
+export const middleware = authStore.checkAuth
 </script>
 
 

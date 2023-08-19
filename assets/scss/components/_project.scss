@@ -158,14 +158,14 @@
     }
 
     &__item2 {
-        @extend %p-20;
+        @extend %p-10;
         // @include add-prefix(transition, $transition !important);
         background-color: $primary-color;
         border-radius: 5px;
         border: 1px solid transparent;
 
         @include breakpoint(md) {
-            padding: 24px;
+            padding: 12px;
         }
 
         &-inner {

@@ -51,3 +51,23 @@
         </div>
     </div>
 </template>
+
+<script setup lang="ts">
+import { useAuthStore } from '~/stores/auth'
+
+const authStore = useAuthStore()
+
+interface LoginForm {
+  username: string;
+  password: string;
+}
+
+let loginForm: LoginForm = {
+  username: '',
+  password: ''
+}
+
+function login() {
+  authStore.login(loginForm)
+}
+</script>

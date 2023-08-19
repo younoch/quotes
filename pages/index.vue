@@ -16,7 +16,6 @@
       <div class="col-12 col-md-8">
         <QuoteList :quoteList="quotesLists" />
         <Pagination
-        
           v-if="paginationData.page < paginationData.pages"
           :paginationData="paginationData"
           @click="viewMore"
@@ -41,7 +40,7 @@ const { fetchSearch } = useQuoteStore();
 const { getTagList } = storeToRefs(useQuoteStore());
 
 const { data, pending, error, refresh } = await useAsyncData("quotes", () =>
-  fetch(useRuntimeConfig().public.API_URL + "/get-quotes?page=1&limit=10").then(
+  fetch(useRuntimeConfig().public.API_URL + "/get-quotes?page=1&limit=20").then(
     (res) => res.json()
   )
 );
@@ -66,21 +65,27 @@ async function search(searchedString: string): Promise<void> {
     .finally(() => {});
 }
 async function viewMore(): Promise<void> {
-  get("/get-quotes", { page: paginationData.value.page + 1, limit: 10  } )
+  get("/get-quotes", { page: paginationData.value.page + 1, limit: 10 })
     .then((res) => {
-      quotesLists.value =  quotesLists.value.concat(res.data.data);
-      paginationData.value = res.data.pagination
-
+      quotesLists.value = quotesLists.value.concat(res.data.data);
+      paginationData.value = res.data.pagination;
     })
     .catch((err) => {
       console.log(err);
     })
     .finally(() => {});
 }
-
+useHead({
+  link: [
+    { rel: "apple-touch-icon", href: "/images/favicon.png", sizes: "180x180" },
+    { rel: "icon", type: "image/png", href: "/images/favicon.png" },
+    { rel: "shortcut icon", type: "image/png", href: "/images/favicon.png" },
+  ],
+});
 useSeoMeta({
   title: "Popular Quote | The Speakers",
-  description: "Explore our website and find quotes that inspire, motivate, and empower you to live your best life.",
+  description:
+    "Explore our website and find quotes that inspire, motivate, and empower you to live your best life.",
   applicationName: "The Speakers",
   ogImage: "/images/og.png",
   keywords: "quote, author, popular quotes",

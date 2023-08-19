@@ -11,30 +11,30 @@
           </div>
           <ul class="social justify-content-center">
             <li class="social__item">
-              <a href="#" class="social__link"
+              <a href="https://twitter.com" class="social__link"
                 ><i class="fab fa-twitter"></i
               ></a>
             </li>
             <li class="social__item">
-              <a href="#" class="social__link"
+              <a href="https://discord.com/" class="social__link"
                 ><i class="fab fa-discord"></i
               ></a>
             </li>
             <li class="social__item">
-              <a href="#" class="social__link"><i class="fab fa-twitch"></i></a>
+              <a href="https://www.twitch.tv/" class="social__link"><i class="fab fa-twitch"></i></a>
             </li>
             <li class="social__item">
-              <a href="#" class="social__link"
+              <a href="https://www.instagram.com/" class="social__link"
                 ><i class="fab fa-instagram"></i
               ></a>
             </li>
             <li class="social__item">
-              <a href="#" class="social__link"
+              <a href="https://www.linkedin.com/" class="social__link"
                 ><i class="fab fa-linkedin-in"></i
               ></a>
             </li>
             <li class="social__item">
-              <a href="#" class="social__link"
+              <a href="https://www.facebook.com/" class="social__link"
                 ><i class="fab fa-facebook-f"></i
               ></a>
             </li>
