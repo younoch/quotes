@@ -37,7 +37,7 @@
 <script setup lang="ts">
 import TextClamp from "@/components/reusable/textformat/TextClamp.vue";
 import { IQuoeteItem } from "./";
-import { useQuoteStore } from "~/stores/quote";
+import { useQuoteStore } from "~/store/quote";
 
 interface Props {
   quoteList: IQuoeteItem[];

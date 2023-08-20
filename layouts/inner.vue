@@ -3,7 +3,7 @@
     <Header class="sticky-top"></Header>
     <section
       class="page-header bg--cover"
-      style="background-image: srcset(/images/header/bg.jpg);"
+      style="background-image: srcset(/images/header/bg.jpg)"
     >
       <div class="container">
         <div class="page-header__content text-center">
@@ -27,10 +27,10 @@
 </template>
 
 <script setup lang="ts">
-import { useLayoutStore } from "~/stores/layout";
-    const layoutStore = useLayoutStore();
-    const { assignLayoutData } = layoutStore;
-    assignLayoutData({ title: "", subtitle: "" });
+import { useLayoutStore } from "~/store/layout";
+const layoutStore = useLayoutStore();
+const { assignLayoutData } = layoutStore;
+assignLayoutData({ title: "", subtitle: "" });
 </script>
 
 <style lang="scss">

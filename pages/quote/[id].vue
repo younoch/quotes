@@ -34,7 +34,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { storeToRefs } from "pinia";
-import { useQuoteStore } from "~/stores/quote";
+import { useQuoteStore } from "~/store/quote";
 import Pagination from "@/components/reusable/buttuns/Pagination.vue";
 import Tags from "@/components/partials/quote/Tags.vue";
 import QuoteList from "@/components/partials/quote/QuoteList.vue";
@@ -46,48 +46,53 @@ const { getTagList } = storeToRefs(useQuoteStore());
 const categories = [
   {
     value: "popular",
-    id: 1
+    id: 1,
   },
   {
     value: "inspirational",
-    id: 2
+    id: 2,
   },
   {
     value: "humor",
-    id: 3
+    id: 3,
   },
   {
     value: "success",
-    id: 4
+    id: 4,
   },
   {
     value: "philosophy",
-    id: 5
+    id: 5,
   },
   {
     value: "happiness",
-    id: 6
+    id: 6,
   },
   {
     value: "love",
-    id: 7
+    id: 7,
   },
   {
     value: "motivational",
-    id: 8
+    id: 8,
   },
 ];
 
 const findCetagory = () => {
-  const selectedCetagory = categories.find( (item) => item.value === route.params.id)
-  return selectedCetagory?.id
-}
+  const selectedCetagory = categories.find(
+    (item) => item.value === route.params.id
+  );
+  return selectedCetagory?.id;
+};
 
 const { data, pending, error, refresh } = await useAsyncData(
   "quotes-by-category",
   () =>
     fetch(
-      useRuntimeConfig().public.API_URL + "/get-quotes-by-category/"+ findCetagory() + "?page=1&limit=20"
+      useRuntimeConfig().public.API_URL +
+        "/get-quotes-by-category/" +
+        findCetagory() +
+        "?page=1&limit=20"
     ).then((res) => res.json())
 );
 
@@ -112,11 +117,13 @@ async function search(searchedString: string): Promise<void> {
 }
 
 async function viewMore(): Promise<void> {
-  get("/get-quotes-by-category/"+ findCetagory(), { page: paginationData.value.page + 1, limit: 10  } )
+  get("/get-quotes-by-category/" + findCetagory(), {
+    page: paginationData.value.page + 1,
+    limit: 10,
+  })
     .then((res) => {
-      quotesLists.value =  res.data.data.concat(quotesLists.value);
-      paginationData.value = res.data.pagination
-
+      quotesLists.value = res.data.data.concat(quotesLists.value);
+      paginationData.value = res.data.pagination;
     })
     .catch((err) => {
       console.log(err);

@@ -167,8 +167,11 @@
                   <li>
                     <nuxt-link to="/contact-us">Contact</nuxt-link>
                   </li>
-                  <li>
-                    <nuxt-link to="/account/login">Log In</nuxt-link>
+                  <li v-if="authenticated" >
+                    <nuxt-link to="/account/login">logout</nuxt-link>
+                  </li>
+                  <li v-else>
+                    <nuxt-link  to="/account/login">Log In</nuxt-link>
                   </li>
                 </ul>
 
@@ -203,6 +206,19 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from "vue";
+import { storeToRefs } from 'pinia'; // import storeToRefs helper hook from pinia
+import { useAuthStore } from '~/store/auth'; // import the auth store we just created
+
+const router = useRouter();
+
+
+const { logUserOut } = useAuthStore(); // use authenticateUser action from  auth store
+const { authenticated } = storeToRefs(useAuthStore()); // make authenticated state reactive with storeToRefs
+
+const logout = () => {
+  logUserOut();
+  router.push('/login');
+};
 
 const scrollPosition = ref<number>(0);
 

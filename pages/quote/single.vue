@@ -27,7 +27,7 @@
 import { storeToRefs } from "pinia";
 import MainSide from "@/components/partials/quote/MainSide.vue";
 import Tags from "@/components/partials/quote/Tags.vue";
-import { useQuoteStore } from "~/stores/quote";
+import { useQuoteStore } from "~/store/quote";
 import { IQuoeteItem } from "~/components/partials/quote";
 
 const isLoader = ref<boolean>(true);

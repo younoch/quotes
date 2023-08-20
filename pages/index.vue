@@ -28,7 +28,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { storeToRefs } from "pinia";
-import { useQuoteStore } from "~/stores/quote";
+import { useQuoteStore } from "~/store/quote";
 import Pagination from "@/components/reusable/buttuns/Pagination.vue";
 import Tags from "@/components/partials/quote/Tags.vue";
 import QuoteList from "@/components/partials/quote/QuoteList.vue";

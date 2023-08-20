@@ -1,31 +1,31 @@
 <template>
-    <div class="position-relative">
-        <Header class="sticky-top" />
-        <slot />
-        <Footer />
-    </div>
+  <div class="position-relative">
+    <Header class="sticky-top" />
+    <slot />
+    <Footer />
+  </div>
 </template>
 
 <script setup lang="ts">
-import { useQuoteStore } from '~/stores/quote';
+import { useQuoteStore } from "~/store/quote";
+
 const { fetchTagList } = useQuoteStore();
 
- onMounted( async () => {
-   await fetchTagList()
-})
-
+onMounted(async () => {
+  await fetchTagList();
+});
 </script>
 
 <style lang="scss">
 .swiper-pagination-bullet {
-    -webkit-transform: skew(-10deg);
-    -moz-transform: skew(-10deg);
-    -ms-transform: skew(-10deg);
-    -o-transform: skew(-10deg);
-    transform: skew(-10deg);
-    width: 15px;
-    height: 15px;
-    border-radius: 2px;
-    background-color: #28DBD1;
+  -webkit-transform: skew(-10deg);
+  -moz-transform: skew(-10deg);
+  -ms-transform: skew(-10deg);
+  -o-transform: skew(-10deg);
+  transform: skew(-10deg);
+  width: 15px;
+  height: 15px;
+  border-radius: 2px;
+  background-color: #28dbd1;
 }
 </style>

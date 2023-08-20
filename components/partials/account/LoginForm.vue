@@ -53,21 +53,30 @@
 </template>
 
 <script setup lang="ts">
-import { useAuthStore } from '~/stores/auth'
+import { storeToRefs } from 'pinia'; // import storeToRefs helper hook from pinia
+import { useAuthStore } from '~/store/auth'; // import the auth store we just created
 
-const authStore = useAuthStore()
+const { authenticateUser } = useAuthStore(); // use authenticateUser action from  auth store
 
+const router = useRouter();
+
+const { authenticated } = storeToRefs(useAuthStore());
 interface LoginForm {
   username: string;
   password: string;
 }
 
-let loginForm: LoginForm = {
+let loginForm = ref<LoginForm>({
   username: '',
   password: ''
-}
+})
 
-function login() {
-  authStore.login(loginForm)
-}
+
+const login = async () => {
+  await authenticateUser(loginForm.value); // call authenticateUser and pass the user object
+  // redirect to homepage if user is authenticated
+  if (authenticated) {
+    router.push('/');
+  }
+};
 </script>

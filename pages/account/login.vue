@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import { useLayoutStore } from "~/stores/layout";
+import { useLayoutStore } from "~/store/layout";
 import LoginForm from "@/components/partials/account/LoginForm.vue";
 import NewLetter from "@/components/common/NewLetter.vue";
 import { ref } from "vue";
