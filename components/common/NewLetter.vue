@@ -13,7 +13,7 @@
                 <div class="newsletter__form">
                     <div class="row justify-content-center">
                         <div class="col-lg-6">
-                            <form action="#">
+                            <form >
                                 <input type="email" class="form-control" placeholder="Email address"
                                     aria-label="Newsletter Email">
                                 <button type="submit">Subscribe

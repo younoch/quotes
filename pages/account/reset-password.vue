@@ -10,7 +10,7 @@
 
 <script>
 import { useLayoutStore } from "~/store/layout";
-import ResetPassword from "@/compostoreartials/account/ResetPassword.vue";
+import ResetPassword from "@/components/partials/account/ResetPassword.vue";
 import NewLetter from "@/components/common/NewLetter.vue";
 definePageMeta({
   layout: "inner",

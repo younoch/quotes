@@ -19,13 +19,12 @@
             />
             <div class="d-flex justify-content-between">
               <p class="text-end mb-0">— {{ item.author }}</p>
-              <nuxt-link
-                :to="`/quote/single?id=${item._id}`"
+              <button
                 class="btn btn-outline-info btn-sm"
                 @click="pushChild(item)"
               >
                 <i class="fa fa-share-alt" aria-hidden="true"></i>
-              </nuxt-link>
+              </button>
             </div>
           </div>
         </div>
@@ -50,6 +49,7 @@ const { selectQuote } = useQuoteStore();
 
 function pushChild(item: IQuoeteItem) {
   selectQuote(item);
+  router.push(`/quote/single?id=${item._id}`)
 }
 </script>
 

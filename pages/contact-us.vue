@@ -11,7 +11,7 @@
       <div class="contact__wrapper">
         <div class="row justify-content-center">
           <div class="col-lg-10">
-            <form @submit.prevent="submitForm" action="#" class="form">
+            <form @submit.prevent="submitForm" class="form">
               <div class="row">
                 <div class="col-md-6">
                   <input
@@ -63,8 +63,12 @@ import { useLayoutStore } from "~/store/layout";
 import ApplyToLanuch from "@/components/common/ApplyToLanuch.vue";
 
 definePageMeta({
-    middleware: 'auth' // this should match the name of the file inside the middleware directory 
-})
+  middleware: [
+    function (to, from) {
+    },
+    'auth',
+  ],
+});
 
 const layoutStore = useLayoutStore();
 layoutStore.assignLayoutData({ title: "Stacking", subtitle: "stacking" });

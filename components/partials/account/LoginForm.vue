@@ -9,10 +9,10 @@
 
                 <form class="account-form">
                     <div class="form-group">
-                        <input type="text" placeholder="User Name" name="username">
+                        <input type="text" v-model="loginForm.username" placeholder="User Name" name="username">
                     </div>
                     <div class="form-group">
-                        <input type="password" placeholder="Password" name="password">
+                        <input type="password" v-model="loginForm.password" placeholder="Password" name="password">
                     </div>
                     <div class="form-group">
                         <div class="d-flex justify-content-between flex-wrap pt-sm-2">
@@ -24,7 +24,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <button class="default-btn"><span>Login Now</span></button>
+                        <button class="default-btn" @click.prevent="login"><span>Login Now</span></button>
                     </div>
                 </form>
                 <div class="account-bottom">
@@ -53,10 +53,10 @@
 </template>
 
 <script setup lang="ts">
-import { storeToRefs } from 'pinia'; // import storeToRefs helper hook from pinia
-import { useAuthStore } from '~/store/auth'; // import the auth store we just created
+import { storeToRefs } from 'pinia';
+import { useAuthStore } from '~/store/auth'; 
 
-const { authenticateUser } = useAuthStore(); // use authenticateUser action from  auth store
+const { authenticateUser } = useAuthStore(); 
 
 const router = useRouter();
 
@@ -71,10 +71,8 @@ let loginForm = ref<LoginForm>({
   password: ''
 })
 
-
 const login = async () => {
-  await authenticateUser(loginForm.value); // call authenticateUser and pass the user object
-  // redirect to homepage if user is authenticated
+  await authenticateUser(loginForm.value);
   if (authenticated) {
     router.push('/');
   }

@@ -92,7 +92,7 @@ const { data, pending, error, refresh } = await useAsyncData(
       useRuntimeConfig().public.API_URL +
         "/get-quotes-by-category/" +
         findCetagory() +
-        "?page=1&limit=20"
+        "?page=1&limit=30"
     ).then((res) => res.json())
 );
 
@@ -145,6 +145,6 @@ useSeoMeta({
     "Explore our website and find quotes that inspire, motivate, and empower you to live your best life.",
   applicationName: "The Speakers",
   ogImage: "/images/og.png",
-  keywords: "quote, author," + route.params.id + "quotes",
+  keywords: "quote, author, the-speakers " + route.params.id + " quotes",
 });
 </script>

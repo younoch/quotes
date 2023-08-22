@@ -1,8 +1,8 @@
 # The Speakers
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Look the live [The Speakers](https://www.the-speakers.com/).
 
-## Setup
+<!-- ## Setup
 
 Make sure to install the dependencies:
 
@@ -39,4 +39,4 @@ Locally preview production build:
 npm run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information. -->

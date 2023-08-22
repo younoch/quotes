@@ -287,12 +287,13 @@
                         @extend %d-inline-block;
                         @include add-prefix(transition, $transition);
                         font-family: $title-font;
-                        padding: 7px 13px;
-                        border-radius: 4px;
+                        padding: 3.5px 6.9px;
+                        border-radius: 3px;
                         background-color: $primary-color;
                         text-transform: capitalize;
-                        border: 1px solid rgba($theme-color, $alpha: .60);
-                        font-weight: 600;
+                        border: .5px solid rgba($theme-color, $alpha: .60);
+                        font-size: 14px;
+                        font-weight: 500;
 
                         &.active,
                         &:hover {

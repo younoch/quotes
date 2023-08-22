@@ -168,7 +168,7 @@
                     <nuxt-link to="/contact-us">Contact</nuxt-link>
                   </li>
                   <li v-if="authenticated" >
-                    <nuxt-link to="/account/login">logout</nuxt-link>
+                    <nuxt-link @click="logout">logout</nuxt-link>
                   </li>
                   <li v-else>
                     <nuxt-link  to="/account/login">Log In</nuxt-link>
@@ -217,7 +217,6 @@ const { authenticated } = storeToRefs(useAuthStore()); // make authenticated sta
 
 const logout = () => {
   logUserOut();
-  router.push('/login');
 };
 
 const scrollPosition = ref<number>(0);

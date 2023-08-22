@@ -60,8 +60,17 @@ export default defineNuxtConfig({
     { src: "@/plugins/aos.js", mode: "client" },
     { src: "@/plugins/axios.ts", mode: "client" },
   ],
+  render: {
+    static: {
+      setHeaders: (resp: { req: { originalUrl: string; }; setHeader: (arg0: string, arg1: string) => void; }, path: any) => {
+        if (resp.req.originalUrl === '/.well-known/apple-app-site-association') {
+          resp.setHeader('Content-Type', 'application/json')
+        }
+      },
+    },
+  },
   generate: { fallback: false },
-  extend(config, ctx) {
+  extend(config: { resolve: { symlinks: boolean; }; }, ctx: any) {
     config.resolve.symlinks = false;
   },
   routes: ["/"],

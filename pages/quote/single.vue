@@ -71,7 +71,13 @@ useSeoMeta({
   keywords: localQuote.value?.tags?.toString(),
 });
 useHead({
-  meta: [{ name: "keywords", content: localQuote.value?.tags?.toString() }],
+  meta: [
+    {
+      name: "keywords",
+      content:
+        localQuote.value?.quote + ", " + localQuote.value?.tags?.toString(),
+    },
+  ],
   link: [
     { rel: "apple-touch-icon", href: "/images/favicon.png", sizes: "180x180" },
     { rel: "icon", type: "image/png", href: "/images/favicon.png" },

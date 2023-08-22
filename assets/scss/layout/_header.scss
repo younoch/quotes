@@ -704,11 +704,11 @@
     &--middle {
         max-inline-size: 500px;
         margin: auto;
-        margin-bottom: 70px;
+        margin-bottom: 50px;
         text-align: center;
 
         @include breakpoint(lg) {
-            margin-bottom: 80px;
+            margin-bottom: 60px;
         }
 
         &:after {

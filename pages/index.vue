@@ -40,7 +40,7 @@ const { fetchSearch } = useQuoteStore();
 const { getTagList } = storeToRefs(useQuoteStore());
 
 const { data, pending, error, refresh } = await useAsyncData("quotes", () =>
-  fetch(useRuntimeConfig().public.API_URL + "/get-quotes?page=1&limit=20").then(
+  fetch(useRuntimeConfig().public.API_URL + "/get-quotes?page=1&limit=30").then(
     (res) => res.json()
   )
 );
@@ -88,6 +88,6 @@ useSeoMeta({
     "Explore our website and find quotes that inspire, motivate, and empower you to live your best life.",
   applicationName: "The Speakers",
   ogImage: "/images/og.png",
-  keywords: "quote, author, popular quotes",
+  keywords: "quote, author, popular quotes, the-speakers",
 });
 </script>
