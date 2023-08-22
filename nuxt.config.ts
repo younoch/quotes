@@ -8,7 +8,7 @@ export default defineNuxtConfig({
       meta: [
         {
           name: "google-site-verification",
-          content: "VZeznQM4NYGPR7oy00PAQNw6EsbHsayjrVlFtTBtfbI",
+          content:  process.env.SEARCH_CONSOLE
         },
         { "http-equiv": "Content-Type", content: "text/html; charset=utf-8" },
       ],
@@ -43,7 +43,7 @@ export default defineNuxtConfig({
     "@nuxt/typescript-build",
   ],
   gtag: {
-    id: "G-B515496QYL",
+    id: process.env.G_TAG,
     config: {
       page_title: "The Speakers",
     },
@@ -51,7 +51,7 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      API_URL: "https://app.the-speakers.com/api/v1",
+      API_URL: process.env.API_URL
     },
   },
 
