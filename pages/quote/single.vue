@@ -68,6 +68,7 @@ useSeoMeta({
   applicationName: "The Speakers",
   ogImage: "/images/og.png",
   twitterImage: "/images/og.png",
+  contentType: 'text/html; charset=utf-8',
   keywords: localQuote.value?.tags?.toString(),
 });
 useHead({

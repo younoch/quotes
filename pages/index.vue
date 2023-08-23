@@ -84,9 +84,13 @@ useHead({
 });
 useSeoMeta({
   title: "Popular Quote | The Speakers",
+  ogTitle: "Popular Quote | The Speakers",
   description:
     "Explore our website and find quotes that inspire, motivate, and empower you to live your best life.",
+  ogDescription:
+    "Explore our website and find quotes that inspire, motivate, and empower you to live your best life.",
   applicationName: "The Speakers",
+  contentType: 'text/html; charset=utf-8',
   ogImage: "/images/og.png",
   keywords: "quote, author, popular quotes, the-speakers",
 });

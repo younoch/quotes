@@ -145,6 +145,7 @@ useSeoMeta({
     "Explore our website and find quotes that inspire, motivate, and empower you to live your best life.",
   applicationName: "The Speakers",
   ogImage: "/images/og.png",
+  contentType: 'text/html; charset=utf-8',
   keywords: "quote, author, the-speakers " + route.params.id + " quotes",
 });
 </script>

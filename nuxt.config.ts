@@ -4,13 +4,11 @@ export default defineNuxtConfig({
   ssr: true,
   app: {
     head: {
-      charset: "utf-8",
       meta: [
         {
           name: "google-site-verification",
-          content:  process.env.SEARCH_CONSOLE
+          content: process.env.SEARCH_CONSOLE,
         },
-        { "http-equiv": "Content-Type", content: "text/html; charset=utf-8" },
       ],
       viewport: "width=device-width, initial-scale=1.0",
       htmlAttrs: {
@@ -20,12 +18,7 @@ export default defineNuxtConfig({
     // baseURL: "/demos/vue/The Speakers/",
   },
 
-  css: ["~/assets/scss/style.scss"], // add
-  // vite: {
-  //   define: {
-  //     "process.env.DEBUG": false,
-  //   },
-  // },
+  css: ["~/assets/scss/style.scss"],
   typescript: {
     strict: true,
   },
@@ -34,7 +27,6 @@ export default defineNuxtConfig({
     "@nuxt/content",
     "@nuxt/devtools",
     "nuxt-gtag",
-    "@nuxtjs/robots",
     "nuxt-simple-sitemap",
   ],
   buildModules: [
@@ -51,7 +43,7 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      API_URL: process.env.API_URL
+      API_URL: process.env.API_URL,
     },
   },
 
@@ -62,21 +54,29 @@ export default defineNuxtConfig({
   ],
   render: {
     static: {
-      setHeaders: (resp: { req: { originalUrl: string; }; setHeader: (arg0: string, arg1: string) => void; }, path: any) => {
-        if (resp.req.originalUrl === '/.well-known/apple-app-site-association') {
-          resp.setHeader('Content-Type', 'application/json')
+      setHeaders: (
+        resp: {
+          req: { originalUrl: string };
+          setHeader: (arg0: string, arg1: string) => void;
+        },
+        path: any
+      ) => {
+        if (
+          resp.req.originalUrl === "/.well-known/apple-app-site-association"
+        ) {
+          resp.setHeader("Content-Type", "application/json");
         }
       },
     },
   },
   generate: { fallback: false },
-  extend(config: { resolve: { symlinks: boolean; }; }, ctx: any) {
+  extend(config: { resolve: { symlinks: boolean } }, ctx: any) {
     config.resolve.symlinks = false;
   },
   routes: ["/"],
   nuxt: {
     host: "0.0.0.0",
-    port: "3000", // optional
+    port: "3000",
   },
   devtools: {
     enabled: true,
