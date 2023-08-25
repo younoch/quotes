@@ -22,6 +22,9 @@ export default defineNuxtConfig({
   typescript: {
     strict: true,
   },
+  serverMiddleware: [
+    '~/server/middlewere/header.ts'
+  ],
   modules: [
     "@pinia/nuxt",
     "@nuxt/content",

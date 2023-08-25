@@ -6,9 +6,11 @@
           <div class="col-lg-8">
             <MainSide :singleQuote="localQuote" />
           </div>
-          <template v-if="getTagList && getTagList.length">
-            <Tags class="col-12 col-md-4" :tagList="getTagList" />
-          </template>
+          <div class="col-12 col-md-4 mt-2 mt-4">
+          <aside class="ps-lg-1">
+            <Category class="mb-2 mb-md-4" />
+          </aside>
+        </div>
         </div>
       </div>
     </div>
@@ -26,7 +28,7 @@
 <script setup lang="ts">
 import { storeToRefs } from "pinia";
 import MainSide from "@/components/partials/quote/MainSide.vue";
-import Tags from "@/components/partials/quote/Tags.vue";
+import Category from "@/components/partials/quote/Category.vue";
 import { useQuoteStore } from "~/store/quote";
 import { IQuoeteItem } from "~/components/partials/quote";
 
@@ -34,7 +36,7 @@ const isLoader = ref<boolean>(true);
 
 const route = useRoute();
 const { get } = useApi();
-const { getTagList, getselectedQuote } = storeToRefs(useQuoteStore());
+const { getselectedQuote } = storeToRefs(useQuoteStore());
 
 const data = ref<IQuoeteItem>();
 const localQuote = ref<IQuoeteItem>();

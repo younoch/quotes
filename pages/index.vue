@@ -21,7 +21,12 @@
           @click="viewMore"
         />
       </div>
-      <Tags class="col-12 col-md-4" :tagList="getTagList" />
+      <div class="col-12 col-md-4">
+        <aside class="ps-lg-1">
+          <Category class=" mb-2 mb-md-4"/>
+          <Tags class=" mt-2 mt-md-4" :tagList="getTagList" />
+        </aside>
+      </div>
     </div>
   </div>
 </template>
@@ -31,6 +36,7 @@ import { storeToRefs } from "pinia";
 import { useQuoteStore } from "~/store/quote";
 import Pagination from "@/components/reusable/buttuns/Pagination.vue";
 import Tags from "@/components/partials/quote/Tags.vue";
+import Category from "@/components/partials/quote/Category.vue";
 import QuoteList from "@/components/partials/quote/QuoteList.vue";
 import Search from "@/components/partials/quote/Search.vue";
 import { IQuoeteItem } from "~/components/partials/quote";

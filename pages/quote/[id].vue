@@ -26,23 +26,25 @@
             :paginationData="paginationData"
           />
         </div>
-        <Tags class="col-12 col-md-4" :tagList="getTagList" />
+        <!-- <Tags class="col-12 col-md-4" :tagList="getTagList" /> -->
+        <div class="col-12 col-md-4">
+          <aside class="ps-lg-1">
+            <Category class="mb-2 mb-md-4" />
+          </aside>
+        </div>
       </div>
     </div>
   </transition>
 </template>
 <script setup lang="ts">
 import { ref } from "vue";
-import { storeToRefs } from "pinia";
-import { useQuoteStore } from "~/store/quote";
 import Pagination from "@/components/reusable/buttuns/Pagination.vue";
-import Tags from "@/components/partials/quote/Tags.vue";
+import Category from "@/components/partials/quote/Category.vue";
 import QuoteList from "@/components/partials/quote/QuoteList.vue";
 import Search from "@/components/partials/quote/Search.vue";
 import { IQuoeteItem } from "~/components/partials/quote";
 const { get } = useApi();
 const route = useRoute();
-const { getTagList } = storeToRefs(useQuoteStore());
 const categories = [
   {
     value: "popular",
@@ -145,7 +147,7 @@ useSeoMeta({
     "Explore our website and find quotes that inspire, motivate, and empower you to live your best life.",
   applicationName: "The Speakers",
   ogImage: "/images/og.png",
-  contentType: 'text/html; charset=utf-8',
+  contentType: "text/html; charset=utf-8",
   keywords: "quote, author, the-speakers " + route.params.id + " quotes",
 });
 </script>

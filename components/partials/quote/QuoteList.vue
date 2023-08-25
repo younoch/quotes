@@ -1,7 +1,7 @@
 <template>
   <section class="project pb-2 pb-md-5 project--completed2">
     <div class="project__wrapper">
-      <div v-if="quoteList.length" class="row g-2 g-md-3">
+      <div v-if="quoteList.length" class="row g-1 g-md-2">
         <div
           v-for="(item, index) in quoteList"
           :key="'quote' + index"
@@ -19,12 +19,34 @@
             />
             <div class="d-flex justify-content-between">
               <p class="text-end mb-0">— {{ item.author }}</p>
-              <button
-                class="btn btn-outline-info btn-sm"
-                @click="pushChild(item)"
-              >
-                <i class="fa fa-share-alt" aria-hidden="true"></i>
-              </button>
+              <div class="d-flex gap-2">
+                <span
+                  class="btn btn-outline-info btn-sm copy-btn"
+                  :id="'copy' + item._id"
+                  hidden
+                  >Copied!</span
+                >
+                <button
+                  type="button"
+                  class="btn btn-outline-info btn-sm"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title="Copy the quote"
+                  @click="copyText(item)"
+                >
+                  <i class="fa fa-copy" aria-hidden="true"></i>
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-outline-info btn-sm"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title="Share the quote"
+                  @click="pushChild(item)"
+                >
+                  <i class="fa fa-share-alt" aria-hidden="true"></i>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -43,13 +65,32 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {});
+const route = useRoute();
 
 const router = useRouter();
 const { selectQuote } = useQuoteStore();
 
 function pushChild(item: IQuoeteItem) {
   selectQuote(item);
-  router.push(`/quote/single?id=${item._id}`)
+  router.push(`/quote/single?id=${item._id}`);
+}
+
+async function copyText(item: IQuoeteItem) {
+  const copyText =
+    item.quote + " - " + item.author + ". " + location.origin + route.href;
+  const badgeId = "copy" + item._id;
+  const badge = document.getElementById(badgeId);
+  try {
+    await navigator.clipboard.writeText(copyText);
+    if (badge) {
+      badge.hidden = false;
+      setTimeout(function () {
+        badge.hidden = true;
+      }, 3000);
+    }
+  } catch (e) {
+    alert("Cannot copy");
+  }
 }
 </script>
 
@@ -62,5 +103,8 @@ function pushChild(item: IQuoeteItem) {
 }
 .share-button {
   background-color: transparent;
+}
+.copy-btn {
+  transition: all 1s ease-in-out;
 }
 </style>

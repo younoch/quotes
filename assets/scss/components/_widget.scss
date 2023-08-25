@@ -1,10 +1,6 @@
 // widget css start here
 .widget {
     background-color: $primary-color;
-    margin-bottom: 20px;
-    @include breakpoint(md) {
-        margin-bottom: 40px;
-    }
 
     &:last-child {
         margin-bottom: 0;
@@ -283,7 +279,7 @@
                     border: none;
                     padding: 0;
 
-                    a {
+                    span {
                         @extend %d-inline-block;
                         @include add-prefix(transition, $transition);
                         font-family: $title-font;
@@ -294,6 +290,7 @@
                         border: .5px solid rgba($theme-color, $alpha: .60);
                         font-size: 14px;
                         font-weight: 500;
+                        cursor: pointer;
 
                         &.active,
                         &:hover {
