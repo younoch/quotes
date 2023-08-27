@@ -142,36 +142,29 @@
                                                     Soon</nuxt-link>
                                             </li>
                                         </ul>
-                                    </li>
-                                    <li class="menu-item-has-children">
-                                        <a href="javascript:void(0);">Blog</a>
-                                        <ul class="submenu">
-                                            <li>
-                                                <nuxt-link to="/blog" >Blog</nuxt-link>
-                                            </li>
-                                            <li>
-                                                <nuxt-link to="/blog/blog-two" >Blog 2</nuxt-link>
-                                            </li>
-                                            <li>
-                                                <nuxt-link to="/blog/blog-single" >Blog
-                                                    Single</nuxt-link>
-                                            </li>
-                                            <li>
-                                                <nuxt-link to="/quote/home">Quetes</nuxt-link>
-                                            </li>
-                                        </ul>
                                     </li> -->
+
                   <!-- <li>
                                         <nuxt-link to="/quote" >Quetes</nuxt-link>
                                     </li> -->
                   <li>
                     <nuxt-link to="/contact-us">Contact</nuxt-link>
                   </li>
-                  <li v-if="authenticated" >
-                    <nuxt-link @click="logout">logout</nuxt-link>
+                  <li v-if="authenticated" class="menu-item-has-children">
+                    <a href="javascript:void(0);">
+                      {{`${userProfile.FirstName} ${userProfile.LastName}` }}
+                    </a>
+                    <ul class="submenu">
+                      <li>
+                        <nuxt-link to="/account/profile">profile</nuxt-link>
+                      </li>
+                      <li>
+                        <nuxt-link @click="logout">logout</nuxt-link>
+                      </li>
+                    </ul>
                   </li>
                   <li v-else>
-                    <nuxt-link  to="/account/login">Log In</nuxt-link>
+                    <nuxt-link to="/account/login">Log In</nuxt-link>
                   </li>
                 </ul>
 
@@ -205,15 +198,19 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from "vue";
-import { storeToRefs } from 'pinia'; // import storeToRefs helper hook from pinia
-import { useAuthStore } from '~/store/auth'; // import the auth store we just created
+import { storeToRefs } from "pinia";
+import { useAuthStore } from "~/store/auth";
 
 const router = useRouter();
 
+const { logUserOut } = useAuthStore();
+const { authenticated, userProfile } = storeToRefs(useAuthStore());
 
-const { logUserOut } = useAuthStore(); // use authenticateUser action from  auth store
-const { authenticated } = storeToRefs(useAuthStore()); // make authenticated state reactive with storeToRefs
+// const fullName = ref<string>(userProfile?.FirstName + ' ' + userProfile?.LastName || '')
+if(userProfile) {
+  console.log(userProfile);
+}
+
 
 const logout = () => {
   logUserOut();

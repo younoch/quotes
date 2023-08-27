@@ -51,3 +51,31 @@
         </div>
     </div>
 </template>
+<script setup lang="ts">
+import { storeToRefs } from 'pinia';
+import { useAuthStore } from '~/store/auth'; 
+
+const { authenticateUser } = useAuthStore(); 
+
+const router = useRouter();
+
+const { authenticated } = storeToRefs(useAuthStore());
+interface LoginForm {
+    FirstName: string;
+    LastName: string;
+    EmailAddress: string;
+    MobileNumber: string;
+}
+
+let loginForm = ref<LoginForm>({
+  username: '',
+  password: ''
+})
+
+const login = async () => {
+  await authenticateUser(loginForm.value);
+  if (authenticated) {
+    router.push('/');
+  }
+};
+</script>

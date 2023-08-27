@@ -51,6 +51,7 @@ export const useAuthStore = defineStore("auth", {
             },
           }
         );
+        this.userProfile = data.value.data[0]
       }
     },
   },

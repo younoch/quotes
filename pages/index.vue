@@ -24,7 +24,7 @@
       <div class="col-12 col-md-4">
         <aside class="ps-lg-1">
           <Category class=" mb-2 mb-md-4"/>
-          <Tags class=" mt-2 mt-md-4" :tagList="getTagList" />
+          <Tags class=" mt-2 mt-md-4" :tagList="getTagList" @select-tag="selectTag" />
         </aside>
       </div>
     </div>
@@ -88,6 +88,20 @@ useHead({
     { rel: "shortcut icon", type: "image/png", href: "/images/favicon.png" },
   ],
 });
+const selectTag = async (tag : string) => {
+  console.log("sdfsadfsdf");
+  
+  get("/get-quotes-by-tag", { tag: tag,  page: 1, limit: 10 })
+    .then((res) => {
+      quotesLists.value = res.data.data;
+      paginationData.value = res.data.pagination;
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {});
+
+}
 useSeoMeta({
   title: "Popular Quote | The Speakers",
   ogTitle: "Popular Quote | The Speakers",

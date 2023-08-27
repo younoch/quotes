@@ -4,8 +4,8 @@
       <h5>Popular tags</h5>
     </div>
     <ul class="lab-ul widget-wrapper">
-      <li v-for="(item, index) in tagList">
-        <span>{{ item.name }}</span>
+      <li v-for="(item, index) in tagList" @click="selectTag(item.name)">
+        <span >{{ item.name }}</span>
       </li>
     </ul>
   </div>
@@ -22,4 +22,12 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   pagination: false,
 });
+
+const emits = defineEmits<{
+  (event: "select-tag", tag: string): void;
+}>();
+
+const selectTag = (tag: string) => {
+  emits('select-tag', tag)
+}
 </script>

@@ -29,20 +29,20 @@
 const isSearch = ref<boolean>(false);
 const searchedString = ref<string>("");
 
-const emit = defineEmits<{
+const emits = defineEmits<{
   (event: "submitSearchedString", searchedString: string): void;
   (event: "searchState", isSearch: boolean): void;
 }>();
 
 function submitValue() {
 
-  emit("submitSearchedString", searchedString.value);
+  emits("submitSearchedString", searchedString.value);
 }
 
 watch(
   () => isSearch.value,
   (value: boolean) => {
-    emit("searchState", value);
+    emits("searchState", value);
   }
 );
 </script>

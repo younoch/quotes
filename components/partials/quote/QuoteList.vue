@@ -86,7 +86,7 @@ async function copyText(item: IQuoeteItem) {
       badge.hidden = false;
       setTimeout(function () {
         badge.hidden = true;
-      }, 3000);
+      }, 2500);
     }
   } catch (e) {
     alert("Cannot copy");
