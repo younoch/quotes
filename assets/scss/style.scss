@@ -23,39 +23,23 @@
 // 4. Layout-related sections
 @import 'layout/header',
 'layout/banner',
-'layout/project-details',
-'layout/kyc',
-'layout/stacking',
-'layout/farming',
 'layout/blog',
-'layout/roadmap',
 'layout/service',
 'layout/contact',
 'layout/account',
-'layout/leaderboard',
 'layout/error',
 'layout/footer';
 
 // 5. Components
 @import 'components/button',
 'components/project',
-'components/benifit',
-'components/work',
-'components/tier',
 'components/common',
 'components/social',
-'components/team',
-'components/counter',
 'components/token',
 'components/widget',
 'components/newsletter',
-'components/custom-upload',
-'components/preloader',
-'components/rating';
+'components/preloader';
 
 // 6. Page-specific styles
 @import 'pages/home';
 @import 'pages/quote';
-
-// 7. Themes
-@import 'themes/default';

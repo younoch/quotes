@@ -55,6 +55,9 @@
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+    <div class=" d-flex justify-content-center">
+      <a class="mx-auto" href="https://freetools.seobility.net/en/seocheck/the-speakers.com" rel="nofollow"><img src="https://freetools.seobility.net/widget/widget.png?url=the-speakers.com" alt="Seobility Score für the-speakers.com" style="height: 50px; width: auto;"></a>
+    </div>
   </div>
 </template>
 
