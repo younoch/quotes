@@ -86,20 +86,21 @@ const findCetagory = () => {
   );
   return selectedCetagory?.id;
 };
+const quotesLists = ref<IQuoeteItem[]>();
+const paginationData = ref();
 
-const { data, pending, error, refresh } = await useAsyncData(
-  "quotes-by-category",
-  () =>
-    fetch(
-      useRuntimeConfig().public.API_URL +
-        "/get-quotes-by-category/" +
-        findCetagory() +
-        "?page=1&limit=30"
-    ).then((res) => res.json())
-);
-
-const quotesLists = ref<IQuoeteItem[]>(data.value.data);
-const paginationData = ref(data.value.pagination);
+await get("/get-quotes-by-category/" + findCetagory(), {
+  page: 1,
+  limit: 10,
+})
+  .then((res) => {
+    quotesLists.value = res.data.data;
+    paginationData.value = res.data.pagination;
+  })
+  .catch((err) => {
+    console.log(err);
+  })
+  .finally(() => {});
 
 const isSearch = ref<boolean>(false);
 

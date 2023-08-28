@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2
+    <p
         :id="id"
         class="text mb-0"
         :class="{ 'line-clamp': showLess }"
@@ -8,7 +8,7 @@
       > 
       <i>&ldquo;{{ paragraph }}&rdquo; </i>
       
-    </h2>
+    </p>
     <div class="d-flex justify-content-between">
       <span class="cursor-pointer show-toggle" v-if="isClamped" @click="showLess = !showLess">
         {{ showLess ? "Show more" : "Show less" }}

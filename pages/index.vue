@@ -10,7 +10,7 @@
     </div>
   </transition>
   <div v-if="data" class="container">
-    <ReusableHeader v-if="!isSearch" subtitle="Quotes" title="Popular Quotes" />
+    <ReusableHeader v-if="!isSearch" subtitle="Quotes" :title="PageTiltle" />
     <Search @searchState="searchState" @submitSearchedString="search" />
     <div class="row blog__wrapper">
       <div class="col-12 col-md-8">
@@ -23,8 +23,12 @@
       </div>
       <div class="col-12 col-md-4">
         <aside class="ps-lg-1">
-          <Category class=" mb-2 mb-md-4"/>
-          <Tags class=" mt-2 mt-md-4" :tagList="getTagList" @select-tag="selectTag" />
+          <Category class="mb-2 mb-md-4" />
+          <Tags
+            class="mt-2 mt-md-4"
+            :tagList="getTagList"
+            @select-tag="selectTag"
+          />
         </aside>
       </div>
     </div>
@@ -40,16 +44,38 @@ import Category from "@/components/partials/quote/Category.vue";
 import QuoteList from "@/components/partials/quote/QuoteList.vue";
 import Search from "@/components/partials/quote/Search.vue";
 import { IQuoeteItem } from "~/components/partials/quote";
-const { get } = useApi();
 
-const { fetchSearch } = useQuoteStore();
-const { getTagList } = storeToRefs(useQuoteStore());
+useHead({
+  link: [
+    { rel: "apple-touch-icon", href: "/images/favicon.png", sizes: "180x180" },
+    { rel: "icon", type: "image/png", href: "/images/favicon.png" },
+    { rel: "shortcut icon", type: "image/png", href: "/images/favicon.png" },
+  ],
+});
+
+useSeoMeta({
+  title: "Popular Quote | The Speakers",
+  ogTitle: "Popular Quote | The Speakers",
+  description:
+    "Explore our website and find quotes that inspire, motivate, and empower you to live your best life.",
+  ogDescription:
+    "Explore our website and find quotes that inspire, motivate, and empower you to live your best life.",
+  applicationName: "The Speakers",
+  contentType: "text/html; charset=utf-8",
+  ogImage: "/images/og.png",
+  keywords: "quote, author, popular quotes, the-speakers",
+});
+
+const PageTiltle = ref('Popular Quotes')
 
 const { data, pending, error, refresh } = await useAsyncData("quotes", () =>
   fetch(useRuntimeConfig().public.API_URL + "/get-quotes?page=1&limit=40").then(
     (res) => res.json()
   )
 );
+
+const { get } = useApi();
+const { getTagList } = storeToRefs(useQuoteStore());
 
 const quotesLists = ref<IQuoeteItem[]>(data.value.data);
 const paginationData = ref(data.value.pagination);
@@ -81,17 +107,9 @@ async function viewMore(): Promise<void> {
     })
     .finally(() => {});
 }
-useHead({
-  link: [
-    { rel: "apple-touch-icon", href: "/images/favicon.png", sizes: "180x180" },
-    { rel: "icon", type: "image/png", href: "/images/favicon.png" },
-    { rel: "shortcut icon", type: "image/png", href: "/images/favicon.png" },
-  ],
-});
-const selectTag = async (tag : string) => {
-  console.log("sdfsadfsdf");
-  
-  get("/get-quotes-by-tag", { tag: tag,  page: 1, limit: 10 })
+const selectTag = async (tag: string) => {
+  PageTiltle.value =  `${tag} Quotes`
+  get("/get-quotes-by-tag", { tag: tag, page: 1, limit: 10 })
     .then((res) => {
       quotesLists.value = res.data.data;
       paginationData.value = res.data.pagination;
@@ -99,19 +117,9 @@ const selectTag = async (tag : string) => {
     .catch((err) => {
       console.log(err);
     })
-    .finally(() => {});
+    .finally(() => {
+      window.scrollTo(0, 0);
+    });
+};
 
-}
-useSeoMeta({
-  title: "Popular Quote | The Speakers",
-  ogTitle: "Popular Quote | The Speakers",
-  description:
-    "Explore our website and find quotes that inspire, motivate, and empower you to live your best life.",
-  ogDescription:
-    "Explore our website and find quotes that inspire, motivate, and empower you to live your best life.",
-  applicationName: "The Speakers",
-  contentType: 'text/html; charset=utf-8',
-  ogImage: "/images/og.png",
-  keywords: "quote, author, popular quotes, the-speakers",
-});
 </script>

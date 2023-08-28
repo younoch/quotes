@@ -18,7 +18,7 @@
               :lines="2"
             />
             <div class="d-flex justify-content-between">
-              <p class="text-end mb-0">— {{ item.author }}</p>
+              <p class="text-end mb-0 text-capitalize">— {{ item.author }}</p>
               <div class="d-flex gap-2">
                 <span
                   class="btn btn-outline-info btn-sm copy-btn"

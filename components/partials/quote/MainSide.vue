@@ -11,7 +11,7 @@
         </div>
         <div class="post-content pt-0">
           <div class="tags-area px-3 px-md-4 pb-3 pb-md-4">
-            <client-only>
+            
               <ul class="social justify-content-center">
                 <li class="social__item">
                   <a
@@ -19,7 +19,9 @@
                     target="_blank"
                     class="social__link"
                   >
+                  <client-only>
                     <i class="fab fa-twitter"></i>
+                  </client-only>
                   </a>
                 </li>
                 <li class="social__item">
@@ -28,7 +30,9 @@
                     target="_blank"
                     class="social__link"
                   >
+                  <client-only>
                     <i class="fab fa-facebook"></i>
+                  </client-only>
                   </a>
                 </li>
                 <li class="social__item">
@@ -37,7 +41,9 @@
                     target="_blank"
                     class="social__link"
                   >
+                  <client-only>
                     <i class="fab fa-linkedin-in"></i>
+                  </client-only>
                   </a>
                 </li>
                 <li class="social__item">
@@ -46,7 +52,9 @@
                     target="_blank"
                     class="social__link"
                   >
+                  <client-only>
                     <i class="fab fa-facebook-messenger"></i>
+                  </client-only>
                   </a>
                 </li>
                 <li class="social__item">
@@ -55,11 +63,12 @@
                     target="_blank"
                     class="social__link"
                   >
+                  <client-only>
                     <i class="fab fa-whatsapp"></i>
+                  </client-only>
                   </a>
                 </li>
               </ul>
-            </client-only>
             <ul class="tags lab-ul justify-content-center">
               <li v-for="(item, index) in singleQuote?.tags">
                 <a href="#">{{ item }}</a>

@@ -206,12 +206,6 @@ const router = useRouter();
 const { logUserOut } = useAuthStore();
 const { authenticated, userProfile } = storeToRefs(useAuthStore());
 
-// const fullName = ref<string>(userProfile?.FirstName + ' ' + userProfile?.LastName || '')
-if(userProfile) {
-  console.log(userProfile);
-}
-
-
 const logout = () => {
   logUserOut();
 };

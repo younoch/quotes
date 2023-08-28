@@ -1,32 +1,32 @@
 <template>
-      <div
-        class="widget widget-category aos-init"
+  <div
+    class="widget widget-category aos-init"
+    data-aos="fade-up"
+    data-aos-duration="800"
+  >
+    <div class="widget__header">
+      <h5>Quote Categories</h5>
+    </div>
+    <ul class="lab-ul widget-wrapper list-bg-none row">
+      <li
+        class="aos-init col-6 col-md-12"
         data-aos="fade-up"
         data-aos-duration="800"
+        v-for="(item, index) in categories"
+        :key="index"
       >
-        <div class="widget__header">
-          <h5>Quote Categories</h5>
-        </div>
-        <ul class="lab-ul widget-wrapper list-bg-none">
-          <li
-            class="aos-init"
-            data-aos="fade-up"
-            data-aos-duration="800"
-            v-for="(item, index) in categories"
-            :key="index"
-          >
-            <nuxt-link :to="`/quote/${item.value}`" class="d-flex flex-wrap justify-content-between">
-              <client-only>
-                <span>
-                  <i class="fa-solid fa-folder"></i>
-                  <span class="ml-3">{{ item.name }}</span>
-                </span>
-              </client-only>
-              <!-- <span>{{ item.counts }}</span> -->
-            </nuxt-link>
-          </li>
-        </ul>
-      </div>
+        <nuxt-link
+          :to="`/quote/${item.value}`"
+          class="d-flex flex-wrap align-items-center"
+        >
+          <client-only>
+            <i class="fa-solid fa-folder me-3"></i>
+          </client-only>
+{{ item.name }}
+        </nuxt-link>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -35,22 +35,22 @@ import { Category } from ".";
 const categories: Category[] = [
   {
     name: "Popular",
-    value: 'popular',
+    value: "popular",
     counts: 15,
   },
   {
     name: "Inspirational",
-    value: 'inspirational',
+    value: "inspirational",
     counts: 20,
   },
   {
     name: "Humor",
-    value: 'humor',
+    value: "humor",
     counts: 65,
   },
   {
     name: "Success",
-    value: 'success',
+    value: "success",
     counts: 32,
   },
   {
@@ -60,17 +60,17 @@ const categories: Category[] = [
   },
   {
     name: "Happiness",
-    value: 'happiness',
+    value: "happiness",
     counts: 70,
   },
   {
     name: "Love",
-    value: 'love',
+    value: "love",
     counts: 26,
   },
   {
     name: "Motivational",
-    value: 'motivational',
+    value: "motivational",
     counts: 20,
   },
 ];
