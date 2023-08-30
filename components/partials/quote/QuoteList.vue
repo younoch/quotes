@@ -7,8 +7,8 @@
           :key="'quote' + index"
           class="col-12"
         >
-          <div
-            class="project__item2 position-relative aos-init"
+          <blockquote
+            class="project__item2 position-relative aos-init mb-0"
             data-aos="fade-up"
             data-aos-duration="800"
           >
@@ -18,17 +18,17 @@
               :lines="2"
             />
             <div class="d-flex justify-content-between">
-              <p class="text-end mb-0 text-capitalize">— {{ item.author }}</p>
+              <cite class="text-end mb-0 text-capitalize">— {{ item.author }}</cite>
               <div class="d-flex gap-2">
                 <span
-                  class="btn btn-outline-info btn-sm copy-btn"
+                  class="btn btn-outline-info btn-sm copy-btn py-0 px-1"
                   :id="'copy' + item._id"
                   hidden
                   >Copied!</span
                 >
                 <button
                   type="button"
-                  class="btn btn-outline-info btn-sm"
+                  class="btn btn-outline-info btn-sm py-0 px-1"
                   data-bs-toggle="tooltip"
                   data-bs-placement="top"
                   title="Copy the quote"
@@ -38,7 +38,7 @@
                 </button>
                 <button
                   type="button"
-                  class="btn btn-outline-info btn-sm"
+                  class="btn btn-outline-info btn-sm py-0 px-1"
                   data-bs-toggle="tooltip"
                   data-bs-placement="top"
                   title="Share the quote"
@@ -48,7 +48,7 @@
                 </button>
               </div>
             </div>
-          </div>
+          </blockquote>
         </div>
       </div>
     </div>

@@ -33,13 +33,13 @@
 
         .widget-search-inner {
             background-color: $primary-color;
-            padding: 10px;
+            padding: 8px;
 
             @include breakpoint(md) {
-                padding: 16px;
+                padding: 12px;
             }
             @include breakpoint(lg) {
-                padding: 24px;
+                padding: 18px;
             }
 
             .form-control {
@@ -272,7 +272,7 @@
         ul {
             &.widget-wrapper {
                 @extend %flex;
-                padding: 4px;
+                padding: 12px;
                 gap: 8px;
 
                 @include breakpoint(sm) {

@@ -2,7 +2,7 @@
     <div class="section-header section-header--middle mt-2 mt-md-3 mt-lg-5">
         <div class="section-header__content">
             <div class="section-header__titlebar">
-                <h2 class="section-header__subtitle"> {{ subtitle }}</h2>
+                <b class="section-header__subtitle"> {{ subtitle }}</b>
                 <h1 class="section__header__title text-capitalize">{{ title }}</h1>
             </div>
         </div>

@@ -184,6 +184,7 @@ import { IQuoeteItem } from ".";
 interface Props {
   singleQuote: IQuoeteItem | undefined;
 }
+const props = defineProps<Props>();
 const route = useRoute();
 const ogImage = ref("");
 const sharableLink = ref<string>("");
@@ -202,5 +203,5 @@ onMounted(() => {
   sharableLink.value = location.origin + route.href;
 });
 
-const props = defineProps<Props>();
+
 </script>

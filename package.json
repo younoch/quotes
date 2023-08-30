@@ -18,6 +18,7 @@
     "@nuxt/devtools": "npm:@nuxt/devtools-edge@latest",
     "@nuxt/types": "2.13.2",
     "@nuxtjs/style-resources": "^1.2.1",
+    "@types/bootstrap": "^5.2.6",
     "html-to-image": "^1.11.11",
     "nuxt": "^3.6.5",
     "nuxt-gtag": "^0.6.1",
@@ -30,7 +31,7 @@
     "@nuxtjs/axios": "^5.13.6",
     "@pinia/nuxt": "^0.4.6",
     "aos": "^2.3.4",
-    "bootstrap": "^5.2.3",
+    "bootstrap": "^5.3.1",
     "yarn": "^1.22.19"
   }
 }

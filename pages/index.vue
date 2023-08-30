@@ -54,8 +54,8 @@ useHead({
 });
 
 useSeoMeta({
-  title: "Popular Quote | The Speakers",
-  ogTitle: "Popular Quote | The Speakers",
+  title: "Famous Quote | The Speakers",
+  ogTitle: "Famous Quote | The Speakers",
   description:
     "Explore our website and find quotes that inspire, motivate, and empower you to live your best life.",
   ogDescription:
@@ -63,13 +63,13 @@ useSeoMeta({
   applicationName: "The Speakers",
   contentType: "text/html; charset=utf-8",
   ogImage: "/images/og.png",
-  keywords: "quote, author, popular quotes, the-speakers",
+  keywords: "quote, author, Famous quotes, the-speakers",
 });
 
-const PageTiltle = ref('Popular Quotes')
+const PageTiltle = ref('Famous Quotes')
 
 const { data, pending, error, refresh } = await useAsyncData("quotes", () =>
-  fetch(useRuntimeConfig().public.API_URL + "/get-quotes?page=1&limit=40").then(
+  fetch(useRuntimeConfig().public.API_URL + "/get-quotes?page=1&limit=30").then(
     (res) => res.json()
   )
 );

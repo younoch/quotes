@@ -33,45 +33,45 @@
 import { Category } from ".";
 
 const categories: Category[] = [
-  {
-    name: "Popular",
-    value: "popular",
-    counts: 15,
-  },
-  {
-    name: "Inspirational",
-    value: "inspirational",
-    counts: 20,
-  },
-  {
-    name: "Humor",
-    value: "humor",
+{
+    name: "Love",
+    value: "love",
     counts: 65,
   },
   {
-    name: "Success",
-    value: "success",
-    counts: 32,
-  },
-  {
-    name: "Philosophy",
-    value: "philosophy",
-    counts: 16,
-  },
-  {
-    name: "Happiness",
-    value: "happiness",
+    name: "Life",
+    value: "life",
     counts: 70,
   },
   {
-    name: "Love",
-    value: "love",
-    counts: 26,
+    name: "Birthday",
+    value: "birthday",
+    counts: 15,
   },
   {
     name: "Motivational",
     value: "motivational",
     counts: 20,
+  },
+  {
+    name: "Funny",
+    value: "funny",
+    counts: 26,
+  },
+  {
+    name: "Inspirational",
+    value: "inspirational",
+    counts: 32,
+  },
+  {
+    name: "Family",
+    value: "family",
+    counts: 15,
+  },
+  {
+    name: "Movie",
+    value: "movie",
+    counts: 15,
   },
 ];
 </script>

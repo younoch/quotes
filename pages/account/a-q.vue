@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <form class="row" @submit.prevent="submit">
+    <form ref="formContent" class="row" @submit.prevent="submit">
       <div class="mb-2 col-12">
         <label for="quote-input" class="form-label">New Quote</label>
         <textarea
@@ -53,11 +53,10 @@
           aria-describedby="tagsError"
         />
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <div class="mt-2 mt-md-4">
+        <button type="submit" class="btn btn-primary w-100 ">Submit</button>
+      </div>
     </form>
-    <div class=" d-flex justify-content-center">
-      <a class="mx-auto" href="https://freetools.seobility.net/en/seocheck/the-speakers.com" rel="nofollow"><img src="https://freetools.seobility.net/widget/widget.png?url=the-speakers.com" alt="Seobility Score für the-speakers.com" style="height: 50px; width: auto;"></a>
-    </div>
   </div>
 </template>
 
@@ -74,47 +73,48 @@ const formData = ref({
 })
 
 const tagStringList = ref('')
+const formContent = ref(null)
 
-const categories: Category[] = [
-  {
-    name: "Popular",
-    value: "1",
-    counts: 15,
-  },
-  {
-    name: "Inspirational",
-    value: "2",
-    counts: 20,
-  },
-  {
-    name: "Humor",
-    value: "3",
-    counts: 65,
-  },
-  {
-    name: "Success",
-    value: "4",
-    counts: 32,
-  },
-  {
-    name: "Philosophy",
-    value: "5",
-    counts: 16,
-  },
-  {
-    name: "Happiness",
-    value: "6",
-    counts: 70,
-  },
-  {
+const categories = [
+{
     name: "Love",
-    value: "7",
-    counts: 26,
+    value: "love",
+    id: 1,
+  },
+  {
+    name: "Life",
+    value: "life",
+    id: 2,
+  },
+  {
+    name: "Birthday",
+    value: "birthday",
+    id: 3,
   },
   {
     name: "Motivational",
-    value: "8",
-    counts: 20,
+    value: "motivational",
+    id: 4,
+  },
+  {
+    name: "Funny",
+    value: "funny",
+    id: 5,
+  },
+  {
+    name: "Inspirational",
+    value: "inspirational",
+    id: 6,
+  },
+  {
+    name: "Family",
+    value: "family",
+    id: 7,
+  },
+  {
+    name: "Movie",
+    value: "movie",
+    id: 8,
   },
 ];
 const languese: any[] = [
@@ -131,9 +131,14 @@ const submit  = async () => {
     formData.value.tags.push(tag.toLowerCase())   
   }
   post("/add-quote", formData.value)
-    .then((res) => {})
+    .then((res) => {
+      alert("Success! You have completed the task.");
+      if(formContent.value)
+      formContent.value.reset()
+    })
     .catch((err) => {
       console.log(err);
+      alert("Error! Something went wrong.");
     })
     .finally(() => {});
   

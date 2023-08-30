@@ -19,10 +19,10 @@
       <Search @searchState="searchState" @submitSearchedString="search" />
       <div class="row blog__wrapper">
         <div class="col-12 col-md-8">
-          <QuoteList :quoteList="quotesLists" />
+          <QuoteList v-if="quotesLists" :quoteList="quotesLists" />
           <Pagination
             @click="viewMore"
-            v-if="paginationData.page < paginationData.pages"
+            v-if="paginationData && paginationData.page < paginationData.pages"
             :paginationData="paginationData"
           />
         </div>
@@ -46,47 +46,73 @@ import { IQuoeteItem } from "~/components/partials/quote";
 const { get } = useApi();
 const route = useRoute();
 const categories = [
-  {
-    value: "popular",
+{
+    value: "love",
     id: 1,
   },
   {
-    value: "inspirational",
+    value: "life",
     id: 2,
   },
   {
-    value: "humor",
+    value: "birthday",
     id: 3,
   },
   {
-    value: "success",
+    value: "motivational",
     id: 4,
   },
   {
-    value: "philosophy",
+    value: "funny",
     id: 5,
   },
   {
-    value: "happiness",
+    value: "inspirational",
     id: 6,
   },
   {
-    value: "love",
+    value: "family",
     id: 7,
   },
   {
-    value: "motivational",
+    value: "movie",
     id: 8,
   },
 ];
-
 const findCetagory = () => {
   const selectedCetagory = categories.find(
     (item) => item.value === route.params.id
   );
   return selectedCetagory?.id;
 };
-const quotesLists = ref<IQuoeteItem[]>();
+const quotesLists = ref<IQuoeteItem[]>(
+  {
+    _id: "64e80fc4c55b0942b5f36110",
+    quote: "It is sad not to love, but it is much sadder not to be able to love.",
+    author: "Miguel de Unamuno",
+    lang: "en",
+    slug: "it-is-sad-not-to-love-but-it-is-much-sadder-not-to-be-able-to-love-",
+    category_id: "7",
+    tags: [
+      "sad",
+      "love"
+    ],
+    created_at: "2023-08-25T02:19:48.400Z",
+    updated_at: "2023-08-25T02:19:48.400Z",
+    comments: [
+      {
+        profile: "64d10b79099bae7a6ced2c61",
+        comment: "It's your realization!",
+        _id: "64e80fc4c55b0942b5f36111"
+      },
+      {
+        profile: "64b1161ec953aaa0938ce3c3",
+        comment: "I tottaly agreed with you!",
+        _id: "64e80fc4c55b0942b5f36112"
+      }
+    ]
+  },
+);
 const paginationData = ref();
 
 await get("/get-quotes-by-category/" + findCetagory(), {

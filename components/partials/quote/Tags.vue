@@ -1,7 +1,7 @@
 <template>
   <div class="widget widget-tags">
     <div class="widget__header">
-      <h5>Popular tags</h5>
+      <h5>Famous tags</h5>
     </div>
     <ul class="lab-ul widget-wrapper">
       <li v-for="(item, index) in tagList" @click="selectTag(item.name)">
