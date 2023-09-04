@@ -28,6 +28,7 @@ export default defineNuxtConfig({
   modules: [
     "@pinia/nuxt",
     "@nuxt/content",
+    'nuxt-icons',
     "@nuxt/devtools",
     "nuxt-gtag",
     "nuxt-simple-sitemap",
@@ -51,7 +52,6 @@ export default defineNuxtConfig({
   },
 
   plugins: [
-    { src: "@/plugins/all.min.js", mode: "client" },
     { src: "@/plugins/aos.js", mode: "client" },
     { src: "@/plugins/axios.ts", mode: "client" },
   ],

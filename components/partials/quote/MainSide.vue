@@ -19,9 +19,7 @@
                     target="_blank"
                     class="social__link"
                   >
-                  <client-only>
-                    <i class="fab fa-twitter"></i>
-                  </client-only>
+                  <nuxt-icon name="brands/twitter"/>
                   </a>
                 </li>
                 <li class="social__item">
@@ -30,9 +28,7 @@
                     target="_blank"
                     class="social__link"
                   >
-                  <client-only>
-                    <i class="fab fa-facebook"></i>
-                  </client-only>
+                  <nuxt-icon name="brands/facebook"/>
                   </a>
                 </li>
                 <li class="social__item">
@@ -41,9 +37,7 @@
                     target="_blank"
                     class="social__link"
                   >
-                  <client-only>
-                    <i class="fab fa-linkedin-in"></i>
-                  </client-only>
+                  <nuxt-icon name="brands/linkedin-fill"/>
                   </a>
                 </li>
                 <li class="social__item">
@@ -52,9 +46,7 @@
                     target="_blank"
                     class="social__link"
                   >
-                  <client-only>
-                    <i class="fab fa-facebook-messenger"></i>
-                  </client-only>
+                  <nuxt-icon name="brands/messenger-fill"/>
                   </a>
                 </li>
                 <li class="social__item">
@@ -63,9 +55,7 @@
                     target="_blank"
                     class="social__link"
                   >
-                  <client-only>
-                    <i class="fab fa-whatsapp"></i>
-                  </client-only>
+                  <nuxt-icon name="brands/outline-whatsapp"/>
                   </a>
                 </li>
               </ul>
@@ -105,7 +95,9 @@
                     class="comment-reply-link"
                     href="#"
                     aria-label="Reply to Masum"
-                    ><i class="fa-solid fa-reply-all"></i> Reply</a
+                    >
+                    <nuxt-icon name="generals/reply-all"/>
+                    Reply</a
                   >
                 </span>
               </div>
@@ -139,7 +131,7 @@
                       class="comment-reply-link"
                       href="#"
                       aria-label="Reply to Rocky"
-                      ><i class="fa-solid fa-reply-all"></i> Reply</a
+                      ><nuxt-icon name="generals/reply-all"/> Reply</a
                     >
                   </span>
                 </div>

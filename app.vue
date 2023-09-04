@@ -9,13 +9,14 @@
         href="javascript:void(0);"
         @click="scrollingTop"
         class="scrollToTop"
-        ><i class="fa-solid fa-arrow-up-from-bracket"></i
-      ></a>
+        >
+        <nuxt-icon name="generals/chevron-triple-up"/>
+      </a>
     </transition>
   </div>
 </template>
 <script setup lang="ts">
-import { ref, watch, onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import { useRoute } from "vue-router";
 
 // useHead({

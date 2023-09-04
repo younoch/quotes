@@ -72,7 +72,7 @@
             border: 1px solid transparent;
 
             &::placeholder {
-                color: rgba($white-color, $alpha: .50);
+                // color: rgba($white-color, $alpha: .50);
             }
 
             &:focus {

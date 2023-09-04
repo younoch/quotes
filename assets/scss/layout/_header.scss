@@ -165,7 +165,7 @@
 }
 
 .header-wrapper {
-    padding-block: 10px;
+    // padding-block: 10px;
     @extend %w-100;
     @extend %flex;
     @extend %justify-between;
@@ -704,10 +704,10 @@
     &--middle {
         max-inline-size: 500px;
         margin: auto;
-        margin-bottom: 50px;
+        margin-bottom: 40px;
         text-align: center;
 
-        @include breakpoint(lg) {
+        @include breakpoint(md) {
             margin-bottom: 60px;
         }
 
@@ -715,11 +715,16 @@
             @extend %p-abs;
             @include background-cover;
             @include add-prefix(transform, translateX(-50%));
-            bottom: -35px;
+            bottom: -26px;
             left: 50%;
-            width: 200px;
+            width: 160px;
             aspect-ratio: 7/1;
+
             background-image: url(/images/shape/header.svg);
+            @include breakpoint(md) {
+                width: 200px;
+                bottom: -35px;
+            }
 
         }
 

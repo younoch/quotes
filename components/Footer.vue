@@ -3,40 +3,45 @@
     <div class="footer__wrapper padding-top padding-bottom">
       <div class="container">
         <div class="footer__content text-center">
-          <nuxt-link class="d-inline-block" to="/"
-            ><img src="/images/logo/logo2.png"  alt="the speakers"
+          <nuxt-link class="d-inline-block" to="/" rel="canonical"
+            ><img src="/images/logo/logo2.png" alt="the speakers"
           /></nuxt-link>
-          <div >
-            <p class="footer-description">Explore our website and find quotes that inspire, motivate, and empower you to live your best life.</p>
+          <div>
+            <p class="footer-description">
+              Discover our website and find quotes that inspire, motivate, and
+              empower you to live your best life.
+            </p>
           </div>
           <ul class="social justify-content-center">
             <li class="social__item">
-              <a href="https://twitter.com" class="social__link"
-                ><i class="fab fa-twitter"></i
-              ></a>
+              <a href="https://twitter.com" class="social__link">
+                <nuxt-icon name="brands/twitter"/>
+              </a>
             </li>
             <li class="social__item">
-              <a href="https://discord.com/" class="social__link"
-                ><i class="fab fa-discord"></i
-              ></a>
+              <a href="https://discord.com/" class="social__link">
+                <nuxt-icon name="brands/discord-line"/>
+              </a>
             </li>
             <li class="social__item">
-              <a href="https://www.twitch.tv/" class="social__link"><i class="fab fa-twitch"></i></a>
+              <a href="https://www.twitch.tv/" class="social__link">
+                <nuxt-icon name="brands/twitch"/>
+              </a>
             </li>
             <li class="social__item">
-              <a href="https://www.instagram.com/" class="social__link"
-                ><i class="fab fa-instagram"></i
-              ></a>
+              <a href="https://www.instagram.com/" class="social__link">
+                <nuxt-icon name="brands/instagram"/>
+              </a>
             </li>
             <li class="social__item">
-              <a href="https://www.linkedin.com/" class="social__link"
-                ><i class="fab fa-linkedin-in"></i
-              ></a>
+              <a href="https://www.linkedin.com/" class="social__link">
+                <nuxt-icon name="brands/linkedin-fill"/>
+            </a>
             </li>
             <li class="social__item">
-              <a href="https://www.facebook.com/" class="social__link"
-                ><i class="fab fa-facebook-f"></i
-              ></a>
+              <a href="https://www.facebook.com/" class="social__link">
+                <nuxt-icon name="brands/facebook"/>
+              </a>
             </li>
           </ul>
         </div>
@@ -44,7 +49,6 @@
     </div>
     <div class="footer__copyright">
       <div class="container">
-        
         <div class="text-center pb-4 p-2">
           <p class="mb-0">
             The Speakrs © {{ new Date().getFullYear() }} | All Rights Reserved
@@ -52,13 +56,12 @@
         </div>
       </div>
     </div>
-    
   </footer>
 </template>
 
 <style scoped lang="scss">
-  .footer-description {
-    font-size: 15px;
-    font-weight: 300;
-  }
+.footer-description {
+  font-size: 15px;
+  font-weight: 300;
+}
 </style>

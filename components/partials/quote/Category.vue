@@ -19,10 +19,8 @@
           :to="`/quote/${item.value}`"
           class="d-flex flex-wrap align-items-center"
         >
-          <client-only>
-            <i class="fa-solid fa-folder me-3"></i>
-          </client-only>
-{{ item.name }}
+          <nuxt-icon name="generals/folder" />
+          {{ item.name }}
         </nuxt-link>
       </li>
     </ul>
@@ -33,7 +31,7 @@
 import { Category } from ".";
 
 const categories: Category[] = [
-{
+  {
     name: "Love",
     value: "love",
     counts: 65,

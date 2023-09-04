@@ -16,6 +16,7 @@
               :id="'text' + item._id"
               :paragraph="item.quote"
               :lines="2"
+              @click="pushChild(item)"
             />
             <div class="d-flex justify-content-between">
               <cite class="text-end mb-0 text-capitalize">— {{ item.author }}</cite>
@@ -34,17 +35,9 @@
                   title="Copy the quote"
                   @click="copyText(item)"
                 >
-                  <i class="fa fa-copy" aria-hidden="true"></i>
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-info btn-sm py-0 px-1"
-                  data-bs-toggle="tooltip"
-                  data-bs-placement="top"
-                  title="Share the quote"
-                  @click="pushChild(item)"
-                >
-                  <i class="fa fa-share-alt" aria-hidden="true"></i>
+                <b>
+                  Copy
+                </b>
                 </button>
               </div>
             </div>

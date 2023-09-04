@@ -57,16 +57,16 @@ useSeoMeta({
   title: "Famous Quote | The Speakers",
   ogTitle: "Famous Quote | The Speakers",
   description:
-    "Explore our website and find quotes that inspire, motivate, and empower you to live your best life.",
+    "Discover our website and find quotes that inspire, motivate, and empower you to live your best life.",
   ogDescription:
-    "Explore our website and find quotes that inspire, motivate, and empower you to live your best life.",
+    "Discover our website and find quotes that inspire, motivate, and empower you to live your best life.",
   applicationName: "The Speakers",
   contentType: "text/html; charset=utf-8",
   ogImage: "/images/og.png",
-  keywords: "quote, author, Famous quotes, the-speakers",
+  keywords: "quote, author, Famous quotes, the-speakers, Discover Famous Quotes",
 });
 
-const PageTiltle = ref('Famous Quotes')
+const PageTiltle = ref("Discover Famous Quotes | The Speakers");
 
 const { data, pending, error, refresh } = await useAsyncData("quotes", () =>
   fetch(useRuntimeConfig().public.API_URL + "/get-quotes?page=1&limit=30").then(
@@ -108,7 +108,7 @@ async function viewMore(): Promise<void> {
     .finally(() => {});
 }
 const selectTag = async (tag: string) => {
-  PageTiltle.value =  `${tag} Quotes`
+  PageTiltle.value = `Discover ${tag} Quotes | The Speakers`;
   get("/get-quotes-by-tag", { tag: tag, page: 1, limit: 10 })
     .then((res) => {
       quotesLists.value = res.data.data;
@@ -121,5 +121,4 @@ const selectTag = async (tag: string) => {
       window.scrollTo(0, 0);
     });
 };
-
 </script>

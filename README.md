@@ -2,6 +2,10 @@
 
 Look the live [The Speakers](https://www.the-speakers.com/).
 
+## Icons link
+
+[Iconify] (https://icon-sets.iconify.design/)
+
 <!-- ## Setup
 
 Make sure to install the dependencies:
@@ -19,7 +23,7 @@ pnpm install --shamefully-hoist
 
 ## Development Server
 
-Start the development server on http://localhost:3000
+Start the development server on https://icon-sets.iconify.design/
 
 ```bash
 npm run dev

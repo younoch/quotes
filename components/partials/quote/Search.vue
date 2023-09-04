@@ -5,7 +5,7 @@
         <div class="input-group">
           <input
             type="text"
-            class="form-control"
+            class="form-control p-1 p-md-1"
             v-model="searchedString"
             placeholder="Search quote"
             aria-label="Search bar"
@@ -15,9 +15,7 @@
           />
 
           <button class="search-icon" @click="submitValue" >
-            <client-only>
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </client-only>
+            <nuxt-icon name="generals/magnifying-glass"/>
           </button>
         </div>
       </div>
