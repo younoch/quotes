@@ -7,10 +7,10 @@
             <MainSide :singleQuote="localQuote" />
           </div>
           <div class="col-12 col-md-4 mt-2 mt-4">
-          <aside class="ps-lg-1">
-            <Category class="mb-2 mb-md-4" />
-          </aside>
-        </div>
+            <aside class="ps-lg-1">
+              <Category class="mb-2 mb-md-4" />
+            </aside>
+          </div>
         </div>
       </div>
     </div>
@@ -70,7 +70,7 @@ useSeoMeta({
   applicationName: "The Speakers",
   ogImage: "/images/og.png",
   twitterImage: "/images/og.png",
-  contentType: 'text/html; charset=utf-8',
+  contentType: "text/html; charset=utf-8",
   keywords: localQuote.value?.tags?.toString(),
 });
 useHead({
@@ -82,9 +82,21 @@ useHead({
     },
   ],
   link: [
-    { rel: "apple-touch-icon", href: "/images/favicon.png", sizes: "180x180" },
-    { rel: "icon", type: "image/png", href: "/images/favicon.png" },
-    { rel: "shortcut icon", type: "image/png", href: "/images/favicon.png" },
+    {
+      rel: "apple-touch-icon",
+      href: "/images/the-speakers-favicon.png",
+      sizes: "180x180",
+    },
+    {
+      rel: "icon",
+      type: "image/png",
+      href: "/images/the-speakers-favicon.png",
+    },
+    {
+      rel: "shortcut icon",
+      type: "image/png",
+      href: "/images/the-speakers-favicon.png",
+    },
   ],
 });
 </script>

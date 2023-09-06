@@ -5,13 +5,14 @@
     </div>
     <ul class="lab-ul widget-wrapper">
       <li v-for="(item, index) in tagList" @click="selectTag(item.name)">
-        <span >{{ item.name }}</span>
+        <b v-if="item.name" class="d-inline">{{ item.name }}</b>
       </li>
     </ul>
   </div>
 </template>
 
 <script setup lang="ts">
+import { useQuoteStore } from "~/store/quote";
 import { ITags } from ".";
 
 interface Props {
@@ -23,6 +24,7 @@ const props = withDefaults(defineProps<Props>(), {
   pagination: false,
 });
 
+const { fetchTagList } = useQuoteStore();
 const emits = defineEmits<{
   (event: "select-tag", tag: string): void;
 }>();
@@ -30,4 +32,8 @@ const emits = defineEmits<{
 const selectTag = (tag: string) => {
   emits('select-tag', tag)
 }
+
+onBeforeMount(() => {
+  fetchTagList()
+})
 </script>

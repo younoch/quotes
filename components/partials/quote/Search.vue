@@ -14,9 +14,9 @@
             @keyup.enter="submitValue"
           />
 
-          <button class="search-icon" @click="submitValue" >
+          <div class="search-icon d-flex justify-content-center align-items-center rounded-1 px-2 ms-1" @click="submitValue" >
             <nuxt-icon name="generals/magnifying-glass"/>
-          </button>
+          </div>
         </div>
       </div>
     </div>

@@ -63,6 +63,7 @@ onMounted(() => {
   font-size: 16px;
   font-weight: normal;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .line-clamp {

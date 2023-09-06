@@ -1,10 +1,10 @@
 <template>
-  <footer class="footer" style="background-image: url(/images/footer/bg.png)">
+  <footer class="footer">
     <div class="footer__wrapper padding-top padding-bottom">
       <div class="container">
         <div class="footer__content text-center">
           <nuxt-link class="d-inline-block" to="/" rel="canonical"
-            ><img src="/images/logo/logo2.png" alt="the speakers"
+            ><nuxt-img src="/images/logo/logo2.png" alt="the speakers"
           /></nuxt-link>
           <div>
             <p class="footer-description">

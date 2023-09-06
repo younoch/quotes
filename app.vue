@@ -18,32 +18,11 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from "vue";
 import { useRoute } from "vue-router";
-
-// useHead({
-//   meta: [
-//     { name: 'title', content: "The Speakers" },
-//     { name: 'description', content: "Wisdom from the World’s Greatest Minds" },
-//     { name: 'application-name', content: "The Speakers" },
-//     { name: "og:image", content: "/images/og.png"},
-//     { name: "keywords", content: "the, speakers, quote, quotes" },
-//   ],
-// })
-
-// const show = ref<boolean>(true)
 const scrollPosition = ref<number>(0);
 
 const route = useRoute();
 
-// watch(route, () => {
-//   show.value = true
-
-//   setTimeout(() => {
-//     show.value = false
-//   }, 300)
-// })
-
 onMounted(() => {
-  // show.value = false
   window.addEventListener("scroll", handleScroll);
 });
 

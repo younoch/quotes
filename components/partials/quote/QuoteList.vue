@@ -35,9 +35,9 @@
                   title="Copy the quote"
                   @click="copyText(item)"
                 >
-                <b>
+                <p class="mb-0 fw-bold">
                   Copy
-                </b>
+                </p>
                 </button>
               </div>
             </div>

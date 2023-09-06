@@ -23,9 +23,21 @@ layoutStore.assignLayoutData({ title: "Login Page", subtitle: "Login" });
 
 useHead({
   link: [
-    { rel: "apple-touch-icon", href: "/images/favicon.png", sizes: "180x180" },
-    { rel: "icon", type: "image/png", href: "/images/favicon.png" },
-    { rel: "shortcut icon", type: "image/png", href: "/images/favicon.png" },
+    {
+      rel: "apple-touch-icon",
+      href: "/images/the-speakers-favicon.png",
+      sizes: "180x180",
+    },
+    {
+      rel: "icon",
+      type: "image/png",
+      href: "/images/the-speakers-favicon.png",
+    },
+    {
+      rel: "shortcut icon",
+      type: "image/png",
+      href: "/images/the-speakers-favicon.png",
+    },
   ],
 });
 

@@ -26,14 +26,16 @@ export const useQuoteStore = defineStore("quote", {
         .finally(() => {});
     },
     fetchTagList() {
-      get("/get-tags")
-        .then((res) => {
-          this.tagList = res.data.data;
-        })
-        .catch((err) => {
-          console.log(err);
-        })
-        .finally(() => {});
+      if(!this.tagList.length) {
+        get("/get-tags")
+          .then((res) => {
+            this.tagList = res.data.data;
+          })
+          .catch((err) => {
+            console.log(err);
+          })
+          .finally(() => {});
+      }
     },
 
     fetchSearch(searchedString: string) {

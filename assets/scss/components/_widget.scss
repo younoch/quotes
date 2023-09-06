@@ -57,8 +57,6 @@
             .search-icon {
                 background-color: $theme-color;
                 color: $body-color;
-                padding-inline: 1rem;
-                border-color: transparent;
             }
         }
     }
@@ -284,7 +282,7 @@
                     border: none;
                     padding: 0;
 
-                    span {
+                    b {
                         @extend %d-inline-block;
                         @include add-prefix(transition, $transition);
                         font-family: $title-font;

@@ -75,7 +75,7 @@
         <li class="comment" id="li-comment-1">
           <div class="com-item">
             <div class="com-thumb">
-              <img
+              <nuxt-img
                 alt=""
                 src="/images/blog/author/02.png"
                 srcset="/images/blog/author/02.png"
@@ -110,7 +110,7 @@
           <ul class="lab-ul comment-list">
             <li class="comment" id="li-comment-2">
               <div class="com-thumb">
-                <img
+                <nuxt-img
                   alt=""
                   src="/images/blog/author/03.png"
                   class="avatar avatar-90"

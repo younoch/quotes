@@ -212,16 +212,6 @@
   }
 }
 
-// Usage:
-// ************
-
-// .image {
-//   background: url("my-image.png") no-repeat;
-//   @include retina-image("my-image2x.png", 1000px, 500px);
-// }
-
-//*=====================****===================== 
-
 
 
 
@@ -313,19 +303,6 @@
   background-size: cover;
   background-position: center;
 }
-
-//* ===== Usage ===== 
-
-// div {
-//   background-image: url("cute-doggo.png");
-//   @include background-cover;
-// }
-
-//*=====================****===================== 
-
-
-
-
 
 //*=====================****===================== 
 //*Hover effect for no-touch device only. (touch screen device dont have any hover state)

@@ -28,7 +28,7 @@
         <label for="category-select" class="form-label">Select Category</label>
         <select class="form-select" id="category-select" v-model="formData.category_id">
           <option selected>Choose...</option>
-          <option v-for="(item, index) in categories" :value="item.value">
+          <option v-for="(item, index) in categories" :value="item.id">
             {{ item.name }}
           </option>
         </select>

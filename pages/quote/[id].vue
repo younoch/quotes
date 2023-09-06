@@ -26,7 +26,6 @@
             :paginationData="paginationData"
           />
         </div>
-        <!-- <Tags class="col-12 col-md-4" :tagList="getTagList" /> -->
         <div class="col-12 col-md-4">
           <aside class="ps-lg-1">
             <Category class="mb-2 mb-md-4" />
@@ -112,7 +111,7 @@ const paginationData = ref();
 
 await get("/get-quotes-by-category/" + findCetagory(), {
   page: 1,
-  limit: 10,
+  limit: 30,
 })
   .then((res) => {
     quotesLists.value = res.data.data;
@@ -143,7 +142,7 @@ async function search(searchedString: string): Promise<void> {
 async function viewMore(): Promise<void> {
   get("/get-quotes-by-category/" + findCetagory(), {
     page: paginationData.value.page + 1,
-    limit: 10,
+    limit: 30,
   })
     .then((res) => {
       quotesLists.value = res.data.data.concat(quotesLists.value);
@@ -156,13 +155,25 @@ async function viewMore(): Promise<void> {
 }
 useHead({
   link: [
-    { rel: "apple-touch-icon", href: "/images/favicon.png", sizes: "180x180" },
-    { rel: "icon", type: "image/png", href: "/images/favicon.png" },
-    { rel: "shortcut icon", type: "image/png", href: "/images/favicon.png" },
+    {
+      rel: "apple-touch-icon",
+      href: "/images/the-speakers-favicon.png",
+      sizes: "180x180",
+    },
+    {
+      rel: "icon",
+      type: "image/png",
+      href: "/images/the-speakers-favicon.png",
+    },
+    {
+      rel: "shortcut icon",
+      type: "image/png",
+      href: "/images/the-speakers-favicon.png",
+    },
   ],
 });
 useSeoMeta({
-  title: `Discover ${ 
+  title: `Discover ${
     route.params.id.charAt(0).toUpperCase() + route.params.id.slice(1)
   } Quotes | The Speakers`,
   description:

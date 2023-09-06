@@ -2,7 +2,7 @@
   <div class="position-relative">
     <Header class="sticky-top" />
     <slot />
-    <Footer />
+    <LazyFooter />
   </div>
 </template>
 
@@ -15,10 +15,7 @@ const { setProfile } = useAuthStore();
 const { authenticated } = storeToRefs(useAuthStore());
 const token = useCookie("token");
 
-const { fetchTagList } = useQuoteStore();
-
 onMounted(async () => {
-  await fetchTagList();
   if (token.value) {
     authenticated.value = true;
    await setProfile();

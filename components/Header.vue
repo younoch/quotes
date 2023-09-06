@@ -12,9 +12,9 @@
             <div class="brand-logo d-none d-lg-inline-block">
               <div class="logo">
                 <nuxt-link to="/">
-                  <img
-                    src="/images/logo/logo.png"
-                    height="55"
+                  <NuxtImg
+                    src="/images/logo/the-speakers-logo.png"
+                    height="40"
                     alt="The Speakers"
                   />
                 </nuxt-link>
@@ -23,8 +23,8 @@
             <div class="header-wrapper justify-content-lg-end">
               <div class="mobile-logo d-lg-none">
                 <nuxt-link to="/">
-                  <img
-                    src="/images/logo/logo.png"
+                  <nuxt-img
+                    src="/images/logo/the-speakers-logo.png"
                     height="55"
                     alt="The Speakers"
                   />

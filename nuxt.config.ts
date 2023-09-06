@@ -32,6 +32,7 @@ export default defineNuxtConfig({
     "@nuxt/devtools",
     "nuxt-gtag",
     "nuxt-simple-sitemap",
+    "@nuxt/image"
   ],
   buildModules: [
     "@nuxtjs/style-resources",

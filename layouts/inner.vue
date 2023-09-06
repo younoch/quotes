@@ -22,7 +22,7 @@
       </div>
     </section>
     <slot></slot>
-    <Footer></Footer>
+    <LazyFooter></LazyFooter>
   </div>
 </template>
 

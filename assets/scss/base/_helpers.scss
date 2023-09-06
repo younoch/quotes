@@ -146,29 +146,6 @@
   }
 }
 
-.shape-fadeBlob {
-  &--left {
-    @extend %p-rel;
-
-    @include breakpoint(md) {
-      &:after {
-        position: absolute;
-        content: "";
-        background-image: url(/images/shape/theme-blob.png);
-        background-size: contain;
-        background-repeat: no-repeat;
-        width: 6500px;
-        height: 650px;
-        bottom: 0;
-        left: 0;
-        opacity: .5;
-        @include animation(light 10s linear infinite alternate);
-      }
-    }
-  }
-}
-
-
 //uplift the components on above section
 .uplifted {
   margin-top: -80px;

@@ -264,18 +264,6 @@
     &--featured {
         .section-header__titlebar {
             @extend %p-rel;
-
-            &:before {
-                @extend %p-abs;
-                width: 200px;
-                height: 200px;
-                background-image: url(/images/project/header-bg.png);
-                background-size: contain;
-                background-repeat: no-repeat;
-                left: 0;
-                top: 0;
-                z-index: -1;
-            }
         }
     }
 
