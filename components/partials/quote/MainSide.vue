@@ -69,20 +69,15 @@
       </div>
     </div>
 
-    <div id="comments" class="comments">
-      <h4 class="comment-title h7">02 Comment</h4>
+    <div v-if="singleQuote && singleQuote.comments && singleQuote.comments.length" id="comments" class="comments">
+      <h4 class="comment-title h7">{{ singleQuote.comments.length }} Comment</h4>
       <ul class="lab-ul comment-list">
-        <li class="comment" id="li-comment-1">
-          <div class="com-item">
-            <div class="com-thumb">
-              <nuxt-img
-                alt=""
-                src="/images/blog/author/02.png"
-                srcset="/images/blog/author/02.png"
-                class="avatar avatar-90 photo"
-                height="90"
-                width="90"
-              />
+        <li v-for="(item, index) in singleQuote.comments" class="comment" id="li-comment-1">
+          <div class=" d-flex p-4 gap-5">
+            <div class=" d-flex justify-content-center align-items-center">
+              <div class="p-2">
+                {{ getFirstLetters("sdf sdfaf") }}
+              </div>
             </div>
             <div class="com-content">
               <div class="com-title">
@@ -90,69 +85,18 @@
                   <a href="#" class="h7">Alex Rock</a>
                   <span> October 5, 2023 at 12:41 pm </span>
                 </div>
-                <span class="reply">
-                  <a
-                    class="comment-reply-link"
-                    href="#"
-                    aria-label="Reply to Masum"
-                    >
-                    <nuxt-icon name="generals/reply-all"/>
-                    Reply</a
-                  >
-                </span>
               </div>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
-                dolores deserunt dolorem facilis ullam fugiat.
-              </p>
+              <p class="mb-0">{{ item.comment }}</p>
             </div>
           </div>
-          <ul class="lab-ul comment-list">
-            <li class="comment" id="li-comment-2">
-              <div class="com-thumb">
-                <nuxt-img
-                  alt=""
-                  src="/images/blog/author/03.png"
-                  class="avatar avatar-90"
-                  height="90"
-                  width="90"
-                />
-              </div>
-              <div class="com-content">
-                <div class="com-title">
-                  <div class="com-title-meta">
-                    <a href="#" rel="external nofollow" class="h7"
-                      >Jimmy Leo
-                    </a>
-                    <span> June 5, 2023 at 2:11 pm </span>
-                  </div>
-                  <span class="reply">
-                    <a
-                      class="comment-reply-link"
-                      href="#"
-                      aria-label="Reply to Rocky"
-                      ><nuxt-icon name="generals/reply-all"/> Reply</a
-                    >
-                  </span>
-                </div>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Pariatur accusamus totam, eligendi rem dicta facere fuga a vel
-                  temporibus fugit.
-                </p>
-              </div>
-            </li>
-          </ul>
         </li>
       </ul>
     </div>
 
-    <div id="respond" class="comment-respond">
+    <div v-if="authenticated" id="respond" class="comment-respond">
       <h4 class="h7">Leave a Comment</h4>
       <div class="add-comment">
         <form action="#" method="post" id="commentform" class="comment-form">
-          <input name="name" type="text" value="" placeholder="Name*" />
-          <input name="email" type="text" value="" placeholder="Email*" />
           <textarea
             id="comment-reply"
             name="comment"
@@ -169,9 +113,11 @@
 </template>
 
 <script setup lang="ts">
+import { storeToRefs } from "pinia";
 import QuoteImage from "@/components/partials/quote/QuoteImage.vue";
 import { toPng } from "html-to-image";
 import { IQuoeteItem } from ".";
+import { useAuthStore } from "~/store/auth";
 
 interface Props {
   singleQuote: IQuoeteItem | undefined;
@@ -179,6 +125,7 @@ interface Props {
 const props = defineProps<Props>();
 const route = useRoute();
 const ogImage = ref("");
+const { authenticated, getUserProfile } = storeToRefs(useAuthStore());
 const sharableLink = ref<string>("");
 
 const generateImage = async () => {
@@ -191,6 +138,16 @@ const generateImage = async () => {
     console.log("It's failed");
   }
 };
+
+function getFirstLetters(str: string) {
+  var words = str.split(" ");
+  if (words.length >= 2) {
+    return words[0][0] + words[1][0];
+  } else {
+    return "";
+  }
+}
+
 onMounted(() => {
   sharableLink.value = location.origin + route.href;
 });

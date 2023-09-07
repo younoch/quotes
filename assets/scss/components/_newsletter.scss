@@ -136,16 +136,6 @@
                     display: none;
                 }
             }
-
-            &:before {
-                background-image: url(../../../public/images/newsletter/1.svg);
-                left: 0
-            }
-
-            &:after {
-                background-image: url(../../../public/images/newsletter/2.svg);
-                right: 0
-            }
         }
     }
 

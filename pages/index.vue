@@ -82,7 +82,7 @@ useSeoMeta({
 const PageTiltle = ref("Discover Famous Quotes | The Speakers");
 
 const { data, pending, error, refresh } = await useAsyncData("quotes", () =>
-  fetch(useRuntimeConfig().public.API_URL + "/get-quotes?page=1&limit=30").then(
+  fetch(useRuntimeConfig().public.API_URL + "/get-quotes?page=1&limit=40").then(
     (res) => res.json()
   )
 );

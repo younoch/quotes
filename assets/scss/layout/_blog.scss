@@ -529,41 +529,10 @@
         @include breakpoint(max-sm) {
             margin: 0;
         }
-
-        .com-item {
-            @extend %p-30;
-            @extend %pb-0;
-        }
-
         .comment {
-            .com-thumb {
-                height: 50px;
-                width: 50px;
-                @extend %of-hidden;
-                @extend %mr-15;
-                @extend %mb-15;
-                float: left;
-                border: 5px solid rgba($white-color, $alpha: .1);
-                border-radius: 5px;
-
-                @include breakpoint(sm) {
-                    margin-bottom: 0;
-                }
-
-                @include breakpoint(md) {
-                    height: 80px;
-                    width: 80px;
-                }
-
-                img {
-                    border-radius: 3px;
-                }
-            }
 
             .com-content {
                 @extend %of-hidden;
-                @extend %pb-20;
-
                 @include breakpoint(max-sm) {
                     width: 100%;
                 }
@@ -600,27 +569,6 @@
                             @extend %d-inline-block;
                             @extend %mb-5;
                             @include font-size(14px);
-                        }
-                    }
-
-                    .reply {
-                        @include breakpoint(max-sm) {
-                            margin-bottom: 10px;
-                            display: inline-block;
-                        }
-
-                        .comment-reply-link {
-                            padding: 3px 16px;
-                            @include add-prefix(transition, $transition);
-
-                            svg {
-                                @extend %mr-5;
-                            }
-
-                            &:hover {
-                                color: $theme-color;
-                                border-radius: 5px;
-                            }
                         }
                     }
                 }

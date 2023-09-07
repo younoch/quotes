@@ -15,6 +15,17 @@
         v-for="(item, index) in categories"
         :key="index"
       >
+      <template v-if="isPushRouter">
+        <button
+          class="d-flex flex-wrap align-items-center btn w-100"
+          @click="pushAnotherCategory(item.value)"
+        >
+          <nuxt-icon name="generals/folder" />
+          {{ item.name }}
+        </button>
+
+      </template>
+      <template v-else>
         <nuxt-link
           :to="`/quote/${item.value}`"
           class="d-flex flex-wrap align-items-center"
@@ -22,6 +33,8 @@
           <nuxt-icon name="generals/folder" />
           {{ item.name }}
         </nuxt-link>
+      </template>
+
       </li>
     </ul>
   </div>
@@ -29,6 +42,15 @@
 
 <script setup lang="ts">
 import { Category } from ".";
+
+interface Props {
+  isPushRouter?: boolean;
+}
+const props = withDefaults(defineProps<Props>(), {
+  isPushRouter: false,
+});
+
+const router = useRouter();
 
 const categories: Category[] = [
   {
@@ -72,4 +94,8 @@ const categories: Category[] = [
     counts: 15,
   },
 ];
+
+function pushAnotherCategory(categoryValue: string) {
+  router.push(`/quote/${categoryValue}`);
+}
 </script>

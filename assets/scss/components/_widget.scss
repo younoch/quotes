@@ -80,14 +80,14 @@
                                 background-color: transparent;
                             }
                         }
-                    }
+                    }   
                 }
             }
 
             li {
                 padding: 0;
 
-                a {
+                a, button {
                     @include add-prefix(transition, $transition);
                     @include font-size(16px);
                     color: $text-color;

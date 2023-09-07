@@ -28,7 +28,7 @@
         </div>
         <div class="col-12 col-md-4">
           <aside class="ps-lg-1">
-            <Category class="mb-2 mb-md-4" />
+            <Category class="mb-2 mb-md-4" :isPushRouter="true" />
           </aside>
         </div>
       </div>

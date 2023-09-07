@@ -13,6 +13,9 @@ export const useAuthStore = defineStore("auth", {
     userProfile: {},
     loading: false,
   }),
+  getters: {
+    getUserProfile: (state) => state.userProfile,
+  },
   actions: {
     async authenticateUser({ username, password }: UserPayloadInterface) {
       const { data, pending }: any = await useFetch(
