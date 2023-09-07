@@ -45,10 +45,26 @@ export default defineNuxtConfig({
       page_title: "The Speakers",
     },
   },
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+    },
+  },
+  site: {
+    url: process.env.SITEMAP,
+  },
+  sitemap: {
+    cacheTtl: Number(process.env.SITEMAPCACHETIME) || 0
+  },
+  routeRules: {
+    '/account/**': { index: false },
+    '/contact-us': { index: false },
+  },
 
   runtimeConfig: {
     public: {
       API_URL: process.env.API_URL,
+      SITEMAPCACHETIME: process.env.SITEMAPCACHETIME
     },
   },
 

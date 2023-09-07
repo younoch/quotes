@@ -1,3 +1,5 @@
 API_URL = https://app.the-speakers.com/api/v1
 SEARCH_CONSOLE = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 G_TAG = gggggggggggg
+SITEMAP = https://example.com
+SITEMAPCACHETIME = 1
