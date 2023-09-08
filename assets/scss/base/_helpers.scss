@@ -116,36 +116,6 @@
   background: linear-gradient(180deg, rgba(47, 47, 106, .40) 0%, rgba(8, 7, 27, 0) 100%);
 }
 
-.shape-1r {
-  @extend %p-rel;
-
-  @include breakpoint(xl) {
-    &:after {
-      position: absolute;
-      content: "";
-      background-image: url(/images/shape/graphic.svg);
-      background-size: contain;
-      width: 210px;
-      height: 250px;
-      top: 0;
-      right: 0;
-      @include animation(light 6s linear infinite alternate);
-    }
-
-    &:before {
-      bottom: 0;
-      left: 0;
-      position: absolute;
-      content: "";
-      box-shadow: inset 0 0 30px rgba($theme-color, $alpha: .10);
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      @include animation(floating 6s linear infinite alternate);
-    }
-  }
-}
-
 //uplift the components on above section
 .uplifted {
   margin-top: -80px;

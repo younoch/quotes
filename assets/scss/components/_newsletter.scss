@@ -42,16 +42,6 @@
                     display: none;
                 }
             }
-
-            &:before {
-                background-image: url(/images/newsletter/2.svg);
-                left: 0;
-            }
-
-            &:after {
-                background-image: url(/images/newsletter/1.svg);
-                right: 0
-            }
         }
     }
 

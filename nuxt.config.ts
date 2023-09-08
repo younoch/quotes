@@ -45,11 +45,6 @@ export default defineNuxtConfig({
       page_title: "The Speakers",
     },
   },
-  nitro: {
-    prerender: {
-      crawlLinks: true,
-    },
-  },
   site: {
     url: process.env.SITEMAP,
   },

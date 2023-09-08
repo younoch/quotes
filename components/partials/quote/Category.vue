@@ -21,7 +21,7 @@
           @click="pushAnotherCategory(item.value)"
         >
           <nuxt-icon name="generals/folder" />
-          {{ item.name }}
+          {{ item.name }} Quotes
         </button>
 
       </template>
@@ -31,7 +31,7 @@
           class="d-flex flex-wrap align-items-center"
         >
           <nuxt-icon name="generals/folder" />
-          {{ item.name }}
+          {{ item.name }} Quotes
         </nuxt-link>
       </template>
 
