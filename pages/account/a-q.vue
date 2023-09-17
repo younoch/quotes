@@ -43,6 +43,17 @@
         </select>
       </div>
       <div class="mb-2 col-12">
+        <label for="slug-input" class="form-label">Add Slug</label>
+        <input
+          class="form-control"
+          id="author-input"
+          type="text"
+          v-model="formData.slug"
+          placeholder="write author name..."
+          aria-describedby="authorError"
+        />
+      </div>
+      <div class="mb-2 col-12">
         <label for="tags-input" class="form-label">Add Tags</label>
         <input
           class="form-control"
@@ -68,6 +79,7 @@ const formData = ref({
   author: '',
   lang: 'en',
   category_id: '',
+  slug: '',
   tags: [],
   comments: []
 })
@@ -143,4 +155,7 @@ const submit  = async () => {
     .finally(() => {});
   
 }
+watch(() => formData.value.quote, (newValue, oldValue) => {
+  formData.value.slug = newValue.replace(/[^a-z0-9]+/gi, "-").toLowerCase()
+})
 </script>

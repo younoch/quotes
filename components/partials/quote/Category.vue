@@ -5,7 +5,7 @@
     data-aos-duration="800"
   >
     <div class="widget__header">
-      <h5>Quote Categories</h5>
+      <h2 class="fs-5">Quote Categories</h2>
     </div>
     <ul class="lab-ul widget-wrapper list-bg-none row">
       <li
@@ -27,7 +27,7 @@
       </template>
       <template v-else>
         <nuxt-link
-          :to="`/quote/${item.value}`"
+          :to="`/quotes/category/${item.value}`"
           class="d-flex flex-wrap align-items-center"
         >
           <nuxt-icon name="generals/folder" />
@@ -49,8 +49,6 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   isPushRouter: false,
 });
-
-const router = useRouter();
 
 const categories: Category[] = [
   {
@@ -96,6 +94,6 @@ const categories: Category[] = [
 ];
 
 function pushAnotherCategory(categoryValue: string) {
-  router.push(`/quote/${categoryValue}`);
+  navigateTo(`/quotes/category/${categoryValue}`);
 }
 </script>

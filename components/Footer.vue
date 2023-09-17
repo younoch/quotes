@@ -4,7 +4,7 @@
       <div class="container">
         <div class="footer__content text-center">
           <nuxt-link class="d-inline-block" to="/" rel="canonical"
-            ><nuxt-img src="/images/logo/logo2.png" alt="the speakers"
+            ><nuxt-img src="/images/logo/logo2.png" alt="the speakers" loading="lazy" 
           /></nuxt-link>
           <div>
             <p class="footer-description">

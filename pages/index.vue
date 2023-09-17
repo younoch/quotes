@@ -81,11 +81,18 @@ useSeoMeta({
 
 const PageTiltle = ref("Discover Famous Quotes | The Speakers");
 
-const { data, pending, error, refresh } = await useAsyncData("quotes", () =>
+const { data, pending, error, refresh } = await useAsyncData("quotes-" + useRoute().name, () =>
   fetch(useRuntimeConfig().public.API_URL + "/get-quotes?page=1&limit=40").then(
     (res) => res.json()
   )
 );
+
+  // if(error) {
+  //   console.log(error);
+  //   console.log(
+  //     useRuntimeConfig().public.API_URL + "/get-quotes?page=1&limit=40"
+  //   );
+  // }
 
 const { get } = useApi();
 const { getTagList } = storeToRefs(useQuoteStore());

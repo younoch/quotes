@@ -152,7 +152,7 @@
                   </li>
                   <li v-if="authenticated" class="menu-item-has-children">
                     <a href="javascript:void(0);">
-                      {{`${userProfile.FirstName} ${userProfile.LastName}` }}
+                      {{ `${userProfile.FirstName} ${userProfile.LastName}` }}
                     </a>
                     <ul class="submenu">
                       <li>
@@ -203,6 +203,12 @@ import { useAuthStore } from "~/store/auth";
 
 const { logUserOut } = useAuthStore();
 const { authenticated, userProfile } = storeToRefs(useAuthStore());
+const router = useRouter();
+
+watch(() => router.value,(value: any) => {
+    console.log(value);
+  },{ deep: true }
+);
 
 const logout = () => {
   logUserOut();

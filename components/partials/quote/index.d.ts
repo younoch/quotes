@@ -9,6 +9,7 @@ export interface IQuoeteItem {
   _id: string;
   quote: string;
   lang: string;
+  image?: string;
   slug?: string;
   category_id: string;
   tags: string[];

@@ -51,7 +51,6 @@
 <script setup lang="ts">
 import TextClamp from "@/components/reusable/textformat/TextClamp.vue";
 import { IQuoeteItem } from "./";
-import { useQuoteStore } from "~/store/quote";
 
 interface Props {
   quoteList: IQuoeteItem[];
@@ -60,12 +59,8 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {});
 const route = useRoute();
 
-const router = useRouter();
-const { selectQuote } = useQuoteStore();
-
 function pushChild(item: IQuoeteItem) {
-  selectQuote(item);
-  router.push(`/quote/single?id=${item._id}`);
+  navigateTo(`/quotes/${item.slug}`)
 }
 
 async function copyText(item: IQuoeteItem) {

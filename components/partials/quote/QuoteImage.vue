@@ -5,11 +5,12 @@
       <div class="corner" id="left_bottom"></div>
       <div class="corner" id="right_top"></div>
       <div class="corner" id="right_bottom"></div>
-      <h6>{{ author }}</h6>
-      <blockquote>
+      <p class="site-name">the-speakers.com</p>
+      <blockquote class="d-flex flex-column justify-content-center h-100">
         <h1 class="mb-0">
           <i>&ldquo; {{quote}} &rdquo;</i>
         </h1>
+        <cite class="text-center mb-0 text-capitalize">— {{ author }}</cite>
       </blockquote>
     </div>
   </div>
@@ -19,12 +20,13 @@
 import { toPng } from 'html-to-image'
 interface Props {
   author: string
-  quote: string;
+  quote: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
   author: '',
   quote: "",
+  
 });
 </script>
 
@@ -32,6 +34,7 @@ const props = withDefaults(defineProps<Props>(), {
 .container-design {
   background: #02121F;
   padding: 10px 0;
+  aspect-ratio: 1.91;
 }
 #ct {
 
@@ -41,7 +44,7 @@ const props = withDefaults(defineProps<Props>(), {
   color: #fff;
   padding: 15px;
 
-  h6 {
+  .site-name {
   background: #02121F;
   display: inline;
   color: #28DBD1;
@@ -83,7 +86,6 @@ const props = withDefaults(defineProps<Props>(), {
   border-color: #28DBD1 transparent transparent transparent;
 }
 h1 {
-  padding-top: 13px;
   font-size: 18px;
   font-weight: 400;
 }
