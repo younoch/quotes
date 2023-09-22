@@ -55,8 +55,8 @@ useSeoMeta({
   description: () => data.value.data?.quote,
   ogDescription: () => data.value.data?.quote,
   applicationName: "The Speakers",
-  ogImage: "/images/og.png",
-  twitterImage: "/images/og.png",
+  ogImage: data.value.data?.image,
+  twitterImage: data.value.data?.image,
   contentType: "text/html; charset=utf-8",
   keywords: () => data.value.data?.tags?.toString(),
 });

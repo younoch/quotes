@@ -151,7 +151,8 @@ const generateImage = async () => {
   const div: HTMLElement | string = document.querySelector("#og-image") ?? "";
   if (div) {
     const imageData = await toBlob(div);
-    if (imageData) uploadImage(imageData);
+    if (imageData && props.singleQuote && !props.singleQuote.image) 
+    uploadImage(imageData);
   } else {
     console.log("It's failed");
   }
@@ -160,21 +161,21 @@ const generateImage = async () => {
 async function uploadImage(imageData: any): Promise<void> {
   const formData = new FormData();
   formData.append("image", imageData);
-  const url = `/upload-image-by-id?id=${props.singleQuote?._id}`;
-  const config = {
-    headers: {
-      "Content-Type": "multipart/form-data",
-    },
-  };
-  post(url, formData, config)
-    .then((res) => {
-      console.log("upload-image sucessfully");
-    })
-    .catch((err) => {
-      console.log(err);
-    })
-    .finally(() => {});
+  const url = useRuntimeConfig().public.API_URL +`/upload-image-by-id?_id=${props.singleQuote?._id}`;
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      body: formData
+    });
+    const data = await response.json();
+    console.log("upload-image successfully");
+    console.log(data);
+  } catch (err) {
+    console.error(err);
+    console.log("upload-image failed");
+  }
 }
+
 
 onMounted(() => {
   sharableLink.value = location.origin + route.href;
