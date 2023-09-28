@@ -11,24 +11,22 @@
           >
             <div class="brand-logo d-none d-lg-inline-block">
               <div class="logo">
-                <nuxt-link to="/">
                   <NuxtImg
                     src="/images/logo/the-speakers-logo.png"
                     height="40"
                     alt="The Speakers"
+                    @click="navigateTo('/')"
                   />
-                </nuxt-link>
               </div>
             </div>
             <div class="header-wrapper justify-content-lg-end">
               <div class="mobile-logo d-lg-none">
-                <nuxt-link to="/">
                   <nuxt-img
                     src="/images/logo/the-speakers-logo.png"
                     height="55"
                     alt="The Speakers"
+                    @click="navigateTo('/')"
                   />
-                </nuxt-link>
               </div>
               <div class="menu-area">
                 <ul id="menu" class="menu">

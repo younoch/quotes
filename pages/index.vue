@@ -1,38 +1,38 @@
 <template>
-  <transition name="fade">
-    <div v-if="pending" class="preloader">
-      <div class="preloader__inner">
-        <div class="preloader__icon">
-          <span></span>
-          <span></span>
+    <transition name="fade">
+      <div v-if="pending" class="preloader">
+        <div class="preloader__inner">
+          <div class="preloader__icon">
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </transition>
+    <div v-if="data" class="container">
+      <ReusableHeader v-if="!isSearch" subtitle="Quotes" :title="PageTiltle" />
+      <Search @searchState="searchState" @submitSearchedString="search" />
+      <div class="row blog__wrapper">
+        <div class="col-12 col-md-8">
+          <QuoteList :quoteList="quotesLists" />
+          <Pagination
+            v-if="paginationData.page < paginationData.pages"
+            :paginationData="paginationData"
+            @click="viewMore"
+          />
+        </div>
+        <div class="col-12 col-md-4">
+          <aside class="ps-lg-1">
+            <Category class="mb-2 mb-md-4" />
+            <Tags
+              class="mt-2 mt-md-4"
+              :tagList="getTagList"
+              @select-tag="selectTag"
+            />
+          </aside>
         </div>
       </div>
     </div>
-  </transition>
-  <div v-if="data" class="container">
-    <ReusableHeader v-if="!isSearch" subtitle="Quotes" :title="PageTiltle" />
-    <Search @searchState="searchState" @submitSearchedString="search" />
-    <div class="row blog__wrapper">
-      <div class="col-12 col-md-8">
-        <QuoteList :quoteList="quotesLists" />
-        <Pagination
-          v-if="paginationData.page < paginationData.pages"
-          :paginationData="paginationData"
-          @click="viewMore"
-        />
-      </div>
-      <div class="col-12 col-md-4">
-        <aside class="ps-lg-1">
-          <Category class="mb-2 mb-md-4" />
-          <Tags
-            class="mt-2 mt-md-4"
-            :tagList="getTagList"
-            @select-tag="selectTag"
-          />
-        </aside>
-      </div>
-    </div>
-  </div>
 </template>
 <script setup lang="ts">
 import { ref } from "vue";
@@ -45,7 +45,18 @@ import QuoteList from "@/components/partials/quote/QuoteList.vue";
 import Search from "@/components/partials/quote/Search.vue";
 import { IQuoeteItem } from "~/components/partials/quote";
 
+const structuredDataObject = ref({
+        '@type': 'Quotes',
+        '@context': 'https://www.the-speakers.com/',
+        name: 'Famous Quotes | The Speakers',
+        description: 'Find inspiring quotes on our website that will motivate you to live your best life. Browse by category, author, or topic and share your favorites with others.',
+        url: 'https://www.the-speakers.com/',
+        image: '/images/og.png',
+        keywords: 'quote, author, Famous quotes, the-speakers, Discover Famous Quotes'
+      })
+
 useHead({
+  script: [{ type: 'application/ld+json', innerHTML: JSON.stringify(structuredDataObject.value) }],
   link: [
     {
       rel: "apple-touch-icon",
@@ -66,12 +77,12 @@ useHead({
 });
 
 useSeoMeta({
-  title: "Famous Quote | The Speakers",
-  ogTitle: "Famous Quote | The Speakers",
+  title: "Famous Quotes | The Speakers",
+  ogTitle: "Famous Quotes | The Speakers",
   description:
-    "Discover our website and find quotes that inspire, motivate, and empower you to live your best life.",
+    "Find inspiring quotes on our website that will motivate you to live your best life. Browse by category, author, or topic and share your favorites with others.",
   ogDescription:
-    "Discover our website and find quotes that inspire, motivate, and empower you to live your best life.",
+    "Find inspiring quotes on our website that will motivate you to live your best life. Browse by category, author, or topic and share your favorites with others.",
   applicationName: "The Speakers",
   contentType: "text/html; charset=utf-8",
   ogImage: "/images/og.png",
@@ -86,13 +97,6 @@ const { data, pending, error, refresh } = await useAsyncData("quotes-" + useRout
     (res) => res.json()
   )
 );
-
-  // if(error) {
-  //   console.log(error);
-  //   console.log(
-  //     useRuntimeConfig().public.API_URL + "/get-quotes?page=1&limit=40"
-  //   );
-  // }
 
 const { get } = useApi();
 const { getTagList } = storeToRefs(useQuoteStore());

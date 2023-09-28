@@ -3,13 +3,11 @@
     <div class="footer__wrapper padding-top padding-bottom">
       <div class="container">
         <div class="footer__content text-center">
-          <nuxt-link class="d-inline-block" to="/" rel="canonical"
-            ><nuxt-img src="/images/logo/logo2.png" alt="the speakers" loading="lazy" 
-          /></nuxt-link>
+          <nuxt-img src="/images/logo/logo2.png" alt="the speakers" loading="lazy" @click="navigateTo('/')"
+          />
           <div>
             <p class="footer-description">
-              Discover our website and find quotes that inspire, motivate, and
-              empower you to live your best life.
+              Find inspiring quotes on our website that will motivate you to live your best life. Browse by category, author, or topic and share your favorites with others.
             </p>
           </div>
           <ul class="social justify-content-center">

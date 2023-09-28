@@ -43,7 +43,7 @@ useHead({
 
 useSeoMeta({
   title: "Login | The Speakers",
-  description: "Wisdom from the World’s Greatest Minds",
+  description: "Find inspiring quotes on our website that will motivate you to live your best life. Browse by category, author, or topic and share your favorites with others.",
   applicationName: "The Speakers",
   ogImage: "/images/og.png",
 });

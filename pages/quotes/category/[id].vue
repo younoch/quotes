@@ -177,7 +177,7 @@ useSeoMeta({
     route.params.id.charAt(0).toUpperCase() + route.params.id.slice(1)
   } Quotes | The Speakers`,
   description:
-    "Discover our website and find quotes that inspire, motivate, and empower you to live your best life.",
+    "Find inspiring quotes on our website that will motivate you to live your best life. Browse by category, author, or topic and share your favorites with others.",
   applicationName: "The Speakers",
   ogImage: "/images/og.png",
   contentType: "text/html; charset=utf-8",

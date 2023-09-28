@@ -31,7 +31,7 @@
                   <nuxt-icon name="brands/facebook" />
                 </a>
               </li>
-              <li class="social__item">
+              <!-- <li class="social__item">
                 <a
                   :href="`https://www.linkedin.com/shareArticle?url=${sharableLink}&title=${singleQuote?.quote}`"
                   target="_blank"
@@ -39,8 +39,8 @@
                 >
                   <nuxt-icon name="brands/linkedin-fill" />
                 </a>
-              </li>
-              <li class="social__item">
+              </li> -->
+              <!-- <li class="social__item">
                 <a
                   :href="`fb-messenger://share/?link=${singleQuote?.quote} ${sharableLink}`"
                   target="_blank"
@@ -48,7 +48,7 @@
                 >
                   <nuxt-icon name="brands/messenger-fill" />
                 </a>
-              </li>
+              </li> -->
               <li class="social__item">
                 <a
                   :href="`https://wa.me/?text=${singleQuote?.quote}${sharableLink}`"
@@ -151,7 +151,7 @@ const generateImage = async () => {
   const div: HTMLElement | string = document.querySelector("#og-image") ?? "";
   if (div) {
     const imageData = await toBlob(div);
-    if (imageData && props.singleQuote && !props.singleQuote.image) 
+    if (imageData && props.singleQuote && !props.singleQuote.image && screen.availWidth > 1200) 
     uploadImage(imageData);
   } else {
     console.log("It's failed");
@@ -176,9 +176,12 @@ async function uploadImage(imageData: any): Promise<void> {
   }
 }
 
-
 onMounted(() => {
   sharableLink.value = location.origin + route.href;
-  if (!props?.singleQuote?.image) generateImage();
+  if (!props?.singleQuote?.image) {
+    setTimeout(() => {
+      generateImage()
+    }, 50)
+  };
 });
 </script>
