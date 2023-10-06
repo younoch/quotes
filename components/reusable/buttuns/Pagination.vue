@@ -6,14 +6,14 @@
       </span>
     </li>
     <li class="page-item active" aria-current="page">
-      <a class="page-link" href="#">1</a>
+      <nuxt-link class="page-link" to="/account/login">1</nuxt-link>
     </li>
     <li class="page-item">
       <span class="page-link">2</span>
     </li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><nuxt-link class="page-link" to="/account/login">3</nuxt-link></li>
     <li class="page-item">
-      <a class="page-link" href="#">
+      <a class="page-link" href="/account/login">
         <nuxt-icon name="generals/angle-right"/>
       </a>
     </li>
@@ -24,7 +24,7 @@
     data-aos="fade-up"
     data-aos-duration="800"
   >
-    <nuxt-link to="/" class="default-btn"><span>View More</span></nuxt-link>
+    <!-- <nuxt-link to="/" class="default-btn"><span>View More</span></nuxt-link> -->
   </div>
 </template>
 

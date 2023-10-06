@@ -4,14 +4,14 @@
       <NuxtPage />
     </NuxtLayout>
     <transition name="scrolltop">
-      <a
+      <div
         v-if="scrollPosition > 300"
         href="javascript:void(0);"
         @click="scrollingTop"
         class="scrollToTop"
         >
         <nuxt-icon name="generals/chevron-triple-up"/>
-      </a>
+      </div>
     </transition>
   </div>
 </template>

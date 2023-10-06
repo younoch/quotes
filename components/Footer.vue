@@ -49,7 +49,7 @@
       <div class="container">
         <div class="text-center pb-4 p-2">
           <p class="mb-0">
-            The Speakrs © {{ new Date().getFullYear() }} | All Rights Reserved
+            The Speakers © {{ new Date().getFullYear() }} | All Rights Reserved
           </p>
         </div>
       </div>

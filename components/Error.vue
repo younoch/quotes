@@ -9,7 +9,6 @@
                             <h2><span class="color--theme-color">Opps !</span> You're Lost in the Space</h2>
                             <p>The page you're looking for is not found or unreachable . please try again or go back to
                                 home </p>
-                            <nuxt-link to="/" class="default-btn"><span>Back to home</span></nuxt-link>
                         </div>
                     </div>
                 </div>

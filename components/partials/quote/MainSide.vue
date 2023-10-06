@@ -61,7 +61,7 @@
             </ul>
             <ul class="tags lab-ul justify-content-center">
               <li v-for="(item, index) in singleQuote?.tags">
-                <a href="#">{{ item }}</a>
+                <div class="item" >{{ item }}</div>
               </li>
             </ul>
           </div>
@@ -92,7 +92,7 @@
             <div class="com-content">
               <div class="com-title">
                 <div class="com-title-meta">
-                  <a href="#" class="h7">Alex Rock</a>
+                  <a href="/account/login" class="h7">Alex Rock</a>
                   <span> October 5, 2023 at 12:41 pm </span>
                 </div>
               </div>
@@ -106,7 +106,7 @@
     <div v-if="authenticated" id="respond" class="comment-respond">
       <h4 class="h7">Leave a Comment</h4>
       <div class="add-comment">
-        <form action="#" method="post" id="commentform" class="comment-form">
+        <form method="post" id="commentform" class="comment-form">
           <textarea
             id="comment-reply"
             name="comment"

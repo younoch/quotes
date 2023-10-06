@@ -15,6 +15,7 @@
       <div class="row blog__wrapper">
         <div class="col-12 col-md-8">
           <QuoteList :quoteList="quotesLists" />
+          <pre>{{ paginationData }}</pre>
           <Pagination
             v-if="paginationData.page < paginationData.pages"
             :paginationData="paginationData"

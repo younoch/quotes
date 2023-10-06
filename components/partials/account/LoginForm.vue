@@ -34,16 +34,16 @@
                     <h5 class="subtitle">Login With Social Media</h5>
                     <ul class="social justify-content-center">
                         <li class="social__item">
-                            <a href="#" class="social__link"><nuxt-icon name="brands/twitter"/></a>
+                            <a href="https://twitter.com/home" class="social__link"><nuxt-icon name="brands/twitter"/></a>
                         </li>
                         <li class="social__item">
-                            <a href="#" class="social__link"><nuxt-icon name="brands/discord-line"/></a>
+                            <a href="https://www.linkedin.com/" class="social__link"><nuxt-icon name="brands/discord-line"/></a>
                         </li>
                         <li class="social__item">
-                            <a href="#" class="social__link"><nuxt-icon name="brands/linkedin-fill"/></a>
+                            <a href="https://www.linkedin.com/" class="social__link"><nuxt-icon name="brands/linkedin-fill"/></a>
                         </li>
                         <li class="social__item">
-                            <a href="#" class="social__link"><nuxt-icon name="brands/facebook"/></a>
+                            <a href="https://www.facebook.com/" class="social__link"><nuxt-icon name="brands/facebook"/></a>
                         </li>
                     </ul>
                 </div>

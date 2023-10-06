@@ -745,7 +745,7 @@
     li {
         padding: 5px;
 
-        a {
+        a, .item {
             @extend %d-inline-block;
             @include add-prefix(transition, $transition);
             background: $body-color;

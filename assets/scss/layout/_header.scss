@@ -257,13 +257,14 @@
     }
 
     >li {
-        >a {
+        >a, span {
             @include font-size(18px);
             color: $white-color;
 
             font-weight: 600;
             padding: 15px 22px;
             text-transform: uppercase;
+            cursor: pointer;
 
             i {
                 margin-right: 5px;
@@ -298,9 +299,10 @@
                 li {
                     padding: 0;
 
-                    a {
+                    a, span {
                         padding: 10px 20px;
                         text-transform: uppercase;
+                        cursor: pointer;
                         display: flex;
                         align-items: center;
                         justify-content: space-between;

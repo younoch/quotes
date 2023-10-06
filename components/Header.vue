@@ -146,7 +146,7 @@
                                         <nuxt-link to="/quote" >Quetes</nuxt-link>
                                     </li> -->
                   <li>
-                    <nuxt-link to="/contact-us">Contact</nuxt-link>
+                    <span  @click="navigateTo('/contact-us')">Contact</span>
                   </li>
                   <li v-if="authenticated" class="menu-item-has-children">
                     <a href="javascript:void(0);">
@@ -154,7 +154,7 @@
                     </a>
                     <ul class="submenu">
                       <li>
-                        <nuxt-link to="/account/profile">profile</nuxt-link>
+                        <nuxt-link to="/account/profile" >profile</nuxt-link>
                       </li>
                       <li>
                         <nuxt-link @click="logout">logout</nuxt-link>
@@ -162,7 +162,7 @@
                     </ul>
                   </li>
                   <li v-else>
-                    <nuxt-link to="/account/login">Log In</nuxt-link>
+                    <span @click="navigateTo('/account/login')">Log In</span>
                   </li>
                 </ul>
 
