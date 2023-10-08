@@ -24,7 +24,7 @@
     data-aos="fade-up"
     data-aos-duration="800"
   >
-    <!-- <nuxt-link to="/" class="default-btn"><span>View More</span></nuxt-link> -->
+    <button class="default-btn cursor-pointer"><span>View More</span></button>
   </div>
 </template>
 

@@ -15,7 +15,6 @@
       <div class="row blog__wrapper">
         <div class="col-12 col-md-8">
           <QuoteList :quoteList="quotesLists" />
-          <pre>{{ paginationData }}</pre>
           <Pagination
             v-if="paginationData.page < paginationData.pages"
             :paginationData="paginationData"
@@ -122,7 +121,7 @@ async function search(searchedString: string): Promise<void> {
     .finally(() => {});
 }
 async function viewMore(): Promise<void> {
-  get("/get-quotes", { page: paginationData.value.page + 1, limit: 10 })
+  get("/get-quotes", { page: paginationData.value.page + 1, limit: 20 })
     .then((res) => {
       quotesLists.value = quotesLists.value.concat(res.data.data);
       paginationData.value = res.data.pagination;

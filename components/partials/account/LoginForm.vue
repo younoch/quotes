@@ -37,7 +37,7 @@
                             <a href="https://twitter.com/home" class="social__link"><nuxt-icon name="brands/twitter"/></a>
                         </li>
                         <li class="social__item">
-                            <a href="https://www.linkedin.com/" class="social__link"><nuxt-icon name="brands/discord-line"/></a>
+                            <button class="btn social__link" @click="loginWithGmail"><nuxt-icon name="brands/google"/></button>
                         </li>
                         <li class="social__item">
                             <a href="https://www.linkedin.com/" class="social__link"><nuxt-icon name="brands/linkedin-fill"/></a>
@@ -55,6 +55,7 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia';
 import { useAuthStore } from '~/store/auth'; 
+const { get } = useApi();
 
 const { authenticateUser } = useAuthStore(); 
 
@@ -77,4 +78,15 @@ const login = async () => {
     router.push('/');
   }
 };
+
+async function loginWithGmail(): Promise<void> {
+  get("/login-with-gmail")
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {});
+}
 </script>
