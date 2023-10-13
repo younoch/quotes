@@ -1,23 +1,21 @@
 <template>
   <div>
     <Head>
-      <Title>Signup</Title>
+      <Title>Privacy Policy</Title>
     </Head>
-    <ReusableHeader  subtitle="Signup" title="signup" />
-    <SignupForm />
+    <ReusableHeader  subtitle="Privacy Policy" title="Privacy Policy for The Speakers" />
+    <ProvacyPolicy />
     <NewLetter />
   </div>
 </template>
 
 <script>
-import SignupForm from "@/components/partials/account/SignupForm.vue";
+import ProvacyPolicy from "@/components/partials/account/ProvacyPolicy.vue";
 import NewLetter from "@/components/common/NewLetter.vue";
-// definePageMeta({
-//   layout: "inner",
-// });
+
 export default {
   scrollToTop: true,
-  components: { SignupForm, NewLetter },
+  components: { ProvacyPolicy, NewLetter },
   setup() {
     const activeID = 1;
     return {
@@ -26,7 +24,7 @@ export default {
   },
   head() {
     return {
-      title: "Tokenomics",
+      title: "Reset Password",
     };
   },
   data() {

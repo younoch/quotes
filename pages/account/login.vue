@@ -3,23 +3,21 @@
     <Head>
       <Title>Login</Title>
     </Head>
+    <ReusableHeader  subtitle="Login" title="Login" />
     <LoginForm />
     <NewLetter />
   </div>
 </template>
 
 <script setup lang="ts">
-import { useLayoutStore } from "~/store/layout";
 import LoginForm from "@/components/partials/account/LoginForm.vue";
 import NewLetter from "@/components/common/NewLetter.vue";
 import { ref } from "vue";
 
-definePageMeta({
-  layout: "inner",
-});
+// definePageMeta({
+//   layout: "inner",
+// });
 const activeID = ref(1);
-const layoutStore = useLayoutStore();
-layoutStore.assignLayoutData({ title: "Login Page", subtitle: "Login" });
 
 useHead({
   link: [

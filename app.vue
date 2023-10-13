@@ -6,7 +6,6 @@
     <transition name="scrolltop">
       <div
         v-if="scrollPosition > 300"
-        href="javascript:void(0);"
         @click="scrollingTop"
         class="scrollToTop"
         >

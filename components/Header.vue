@@ -148,6 +148,9 @@
                   <li>
                     <span  @click="navigateTo('/contact-us')">Contact</span>
                   </li>
+                  <li>
+                    <span @click="navigateTo('/account/privacy-policy')">Privacy Policy</span>
+                  </li>
                   <li v-if="authenticated" class="menu-item-has-children">
                     <a href="javascript:void(0);">
                       {{ `${userProfile.FirstName} ${userProfile.LastName}` }}
@@ -164,6 +167,7 @@
                   <li v-else>
                     <span @click="navigateTo('/account/login')">Log In</span>
                   </li>
+                  
                 </ul>
 
                 <!-- <a

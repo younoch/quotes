@@ -3,35 +3,35 @@ export default cachedEventHandler(
     async (e) => {
       const posts = await Promise.all([
         {
-          _path: '/quote/love',
+          _path: '/quotes/category/love',
           modifiedAt: new Date(),
         },
         {
-          _path: '/quote/life',
+          _path: '/quotes/category/life',
           modifiedAt: new Date(),
         },
         {
-          _path: '/quote/birthday',
+          _path: '/quotes/category/birthday',
           modifiedAt: new Date(),
         },
         {
-          _path: '/quote/motivational',
+          _path: '/quotes/category/motivational',
           modifiedAt: new Date(),
         },
         {
-          _path: '/quote/funny',
+          _path: '/quotes/category/funny',
           modifiedAt: new Date(),
         },
         {
-          _path: '/quote/inspirational',
+          _path: '/quotes/category/inspirational',
           modifiedAt: new Date(),
         },
         {
-          _path: '/quote/family',
+          _path: '/quotes/category/family',
           modifiedAt: new Date(),
         },
         {
-          _path: '/quote/movie',
+          _path: '/quotes/category/movie',
           modifiedAt: new Date(),
         },
       ]);

@@ -1,5 +1,5 @@
 <template>
-    <div class="login-section padding-top padding-bottom">
+    <div class="login-section  padding-bottom">
         <div class=" container">
             <div class="account-wrapper">
                 <div class="account-title">
