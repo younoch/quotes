@@ -1,5 +1,5 @@
 <template>
-    <section class="newsletter  padding-bottom" data-aos="fade-up" data-aos-duration="1000">
+    <section class="newsletter pb-4 pb-lg-5" data-aos="fade-up" data-aos-duration="1000">
         <div class="container">
             <div class="newsletter__wrapper newsletter__wrapper--bg-shapes">
                 <div class="section-header section-header--middle">

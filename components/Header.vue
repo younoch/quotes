@@ -149,7 +149,10 @@
                     <span  @click="navigateTo('/contact-us')">Contact</span>
                   </li>
                   <li>
-                    <span @click="navigateTo('/account/privacy-policy')">Privacy Policy</span>
+                    <span @click="navigateTo('/account/privacy-policy')">Privacy</span>
+                  </li>
+                  <li>
+                    <span @click="navigateTo('/account/terms-conditions')">Terms</span>
                   </li>
                   <li v-if="authenticated" class="menu-item-has-children">
                     <a href="javascript:void(0);">

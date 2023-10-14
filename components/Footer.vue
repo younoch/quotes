@@ -1,6 +1,6 @@
 <template>
   <footer class="footer">
-    <div class="footer__wrapper padding-top padding-bottom">
+    <div class="footer__wrapper padding-top pb-4 pb-lg-5">
       <div class="container">
         <div class="footer__content text-center">
           <nuxt-img src="/images/logo/logo2.png" alt="the speakers" loading="lazy" @click="navigateTo('/')"
@@ -44,6 +44,10 @@
           </ul>
         </div>
       </div>
+    </div>
+    <div class="d-flex justify-content-center gap-2 gap-lg-4 pb-2 pb-lg-3">
+      <nuxt-link to="/account/privacy-policy"> Privacy Policy</nuxt-link>
+      <nuxt-link to="/account/terms-conditions"> Terms & Conditions</nuxt-link>
     </div>
     <div class="footer__copyright">
       <div class="container">

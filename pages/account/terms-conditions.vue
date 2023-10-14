@@ -1,21 +1,21 @@
 <template>
   <div>
     <Head>
-      <Title>Privacy Policy</Title>
+      <Title>Terms and Conditions</Title>
     </Head>
-    <ReusableHeader  subtitle="Privacy Policy" title="Privacy Policy for The Speakers" />
-    <PrivacyPolicy />
+    <ReusableHeader  subtitle="Terms and Conditions" title="Terms and Conditions for The Speakers" />
+    <TermsAndConditions />
     <NewLetter />
   </div>
 </template>
 
 <script>
-import PrivacyPolicy from "@/components/partials/account/PrivacyPolicy.vue";
+import TermsAndConditions from "@/components/partials/account/TermsAndConditions.vue";
 import NewLetter from "@/components/common/NewLetter.vue";
 
 export default {
   scrollToTop: true,
-  components: { PrivacyPolicy, NewLetter },
+  components: { TermsAndConditions, NewLetter },
   setup() {
     const activeID = 1;
     return {
