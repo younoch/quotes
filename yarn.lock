@@ -1523,6 +1523,11 @@
     "@types/qs" "*"
     "@types/serve-static" "*"
 
+"@types/facebook-js-sdk@^3.3.8":
+  version "3.3.8"
+  resolved "https://registry.yarnpkg.com/@types/facebook-js-sdk/-/facebook-js-sdk-3.3.8.tgz#0c2ea4cd2c7db2a2d68ef5e9d6b31099ce887ea7"
+  integrity sha512-WLxZcnlfxgCfyhB5st9OMThSqgR0uutmWuHNlnNdKZJKh3m3gg/R1tevjOg21QPh+QrknXmgXyGUQjGNqONLyw==
+
 "@types/file-loader@^4.2.0":
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/@types/file-loader/-/file-loader-4.2.1.tgz#f41154dc90d578002df8ae94db80c315e844720e"
@@ -3593,6 +3598,13 @@ fastq@^1.6.0:
   dependencies:
     reusify "^1.0.4"
 
+fb-sdk@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/fb-sdk/-/fb-sdk-1.0.3.tgz#2fc7723f4b01cf8cf275e9f9d70dcdab7669aea0"
+  integrity sha512-i1n/72J9u2pS6tLlIydilRlu8GrcsgPqs+0JOW6dH2CB5Pu4CjfCbpPqjlw+pbA02ViHg2J2O1mm7TDLbgiDUg==
+  dependencies:
+    load-script "^1.0.0"
+
 fetch-blob@^3.1.2, fetch-blob@^3.1.4:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/fetch-blob/-/fetch-blob-3.2.0.tgz#f09b8d4bbd45adc6f0c20b7e787e793e309dcce9"
@@ -4635,6 +4647,11 @@ listhen@^1.2.2, listhen@^1.4.4, listhen@^1.4.8:
     ufo "^1.3.0"
     untun "^0.1.2"
     uqr "^0.1.2"
+
+load-script@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/load-script/-/load-script-1.0.0.tgz#0491939e0bee5643ee494a7e3da3d2bac70c6ca4"
+  integrity sha512-kPEjMFtZvwL9TaZo0uZ2ml+Ye9HUMmPwbYRJ324qF9tqMejwykJ5ggTyvzmrbBeapCAbk98BSbTeovHEEP1uCA==
 
 loader-runner@^4.2.0:
   version "4.3.0"
@@ -7804,10 +7821,10 @@ type-fest@^3.8.0:
   resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-3.13.1.tgz#bb744c1f0678bea7543a2d1ec24e83e68e8c8706"
   integrity sha512-tLq3bSNx+xSpwvAJnzrK0Ep5CLNWjvFTOp71URMaAEWBfRb9nnJiBoUe0tF8bI4ZFO3omgBR6NvnbzVUT3Ly4g==
 
-typescript@4:
-  version "4.9.5"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.9.5.tgz#095979f9bcc0d09da324d58d03ce8f8374cbe65a"
-  integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
+typescript@5.3.2:
+  version "5.4.0-dev.20231105"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.4.0-dev.20231105.tgz#a416d439f7f8d488f141a311759ba8e92915b54f"
+  integrity sha512-TN7QRSjarOvoxvHuZdVmofCnXJYklxsiZ1tyJKiKkghPWXwrkQ68R3NN3vhtS8B+jIeZoETKssmfbmhCl8rwxQ==
 
 ufo@^1.1.2, ufo@^1.2.0, ufo@^1.3.0:
   version "1.3.0"
@@ -8467,6 +8484,7 @@ widest-line@^4.0.1:
     string-width "^5.0.1"
 
 "wrap-ansi-cjs@npm:wrap-ansi@^7.0.0", wrap-ansi@^7.0.0:
+  name wrap-ansi-cjs
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/wrap-ansi/-/wrap-ansi-7.0.0.tgz#67e145cff510a6a6984bdf1152911d69d2eb9e43"
   integrity sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==

@@ -43,7 +43,7 @@
                             <a href="https://www.linkedin.com/" class="social__link"><nuxt-icon name="brands/linkedin-fill"/></a>
                         </li>
                         <li class="social__item">
-                            <a href="https://www.facebook.com/" class="social__link"><nuxt-icon name="brands/facebook"/></a>
+                            <button class="btn social__link" @click="loginWithFacebook"><nuxt-icon name="brands/facebook"/></button>
                         </li>
                     </ul>
                 </div>
@@ -54,7 +54,8 @@
 
 <script setup lang="ts">
 import { storeToRefs } from 'pinia';
-import { useAuthStore } from '~/store/auth'; 
+import { useAuthStore } from '~/store/auth';
+import $fb  from "@/plugins/fb-sdk";
 const { get } = useApi();
 
 const { authenticateUser } = useAuthStore(); 
@@ -72,6 +73,8 @@ let loginForm = ref<LoginForm>({
   password: ''
 })
 
+const fbReady = ref<boolean>(false)
+
 const login = async () => {
   await authenticateUser(loginForm.value);
   if (authenticated) {
@@ -88,5 +91,41 @@ async function loginWithGmail(): Promise<void> {
       console.log(err);
     })
     .finally(() => {});
+
 }
+
+const loginWithFacebook = async () => {
+      try {
+        const response = await $fb.login({
+          scope: 'email',
+        })
+        if (response.authResponse) {
+          // get the user's profile information
+          const profile = await $fb.api('/me', {
+            fields: 'id,name,email,picture',
+          })
+          // send the profile and access token to your backend
+          const data = {
+            fb_token: response.authResponse.accessToken,
+            ...profile,
+          }
+          const result = await this.$axios.$post('/api/login', data)
+          // store the result in your auth store or cookie
+          auth.setUser(result.user)
+          auth.setToken(result.token)
+        } else {
+          // handle the case when the user declines
+          console.log('User cancelled login or did not fully authorize.')
+        }
+      } catch (error) {
+        // handle any errors
+        console.error(error)
+      }
+    }
+
+onMounted( () => {
+    nextTick( () => {
+        fbReady.value = true
+    })
+})
 </script>

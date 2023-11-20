@@ -3,9 +3,9 @@
     <div class="footer__wrapper padding-top pb-4 pb-lg-5">
       <div class="container">
         <div class="footer__content text-center">
-          <nuxt-img src="/images/logo/logo2.png" alt="the speakers" loading="lazy" @click="navigateTo('/')"
+          <nuxt-img style=" height: 60px;" src="/images/logo/the-speakers-logo.png" alt="the speakers" loading="lazy" @click="navigateTo('/')"
           />
-          <div>
+          <div class="mt-4">
             <p class="footer-description">
               Find inspiring quotes on our website that will motivate you to live your best life. Browse by category, author, or topic and share your favorites with others.
             </p>

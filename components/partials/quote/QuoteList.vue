@@ -60,7 +60,7 @@ const props = withDefaults(defineProps<Props>(), {});
 const route = useRoute();
 
 function pushChild(item: IQuoeteItem) {
-  navigateTo(`/quotes/${item.slug}`)
+  navigateTo(`/quote/${item.slug}`)
 }
 
 async function copyText(item: IQuoeteItem) {

@@ -27,7 +27,7 @@
       </template>
       <template v-else>
         <nuxt-link
-          :to="`/quotes/category/${item.value}`"
+          :to="`/quote/category/${item.value}`"
           class="d-flex flex-wrap align-items-center"
         >
           <nuxt-icon name="generals/folder" />
@@ -94,6 +94,6 @@ const categories: Category[] = [
 ];
 
 function pushAnotherCategory(categoryValue: string) {
-  navigateTo(`/quotes/category/${categoryValue}`);
+  navigateTo(`/quote/category/${categoryValue}`);
 }
 </script>

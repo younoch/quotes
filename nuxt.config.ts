@@ -3,7 +3,7 @@ const getPostRoutes = async () => {
   const response = await axios.get(
     process.env.API_URL + '/get-quotes'
   );
-  return response?.data?.data.map((quote: any) => `/quotes/${quote.slug}`);
+  return response?.data?.data.map((quote: any) => `/quote/${quote.slug}`);
 };
   export default defineNuxtConfig({
     target: "static",
@@ -72,7 +72,11 @@ const getPostRoutes = async () => {
     plugins: [
       { src: "@/plugins/aos.js", mode: "client" },
       { src: "@/plugins/axios.ts", mode: "client" },
+      { src: "@/plugins/fb-sdk.ts", mode: "client" },
     ],
+    build: {
+      transpile: ['fb-sdk'],
+    },
     render: {
       static: {
         setHeaders: (
