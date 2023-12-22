@@ -38,7 +38,7 @@ const getPostRoutes = async () => {
       "@nuxt/devtools",
       "nuxt-gtag",
       "nuxt-simple-sitemap",
-      "@nuxt/image"
+      "@nuxt/image",
     ],
     buildModules: [
       "@nuxtjs/style-resources",
@@ -61,7 +61,6 @@ const getPostRoutes = async () => {
       '/account/**': { index: false },
       '/contact-us': { index: false },
     },
-
     runtimeConfig: {
       public: {
         API_URL: process.env.API_URL,
@@ -100,6 +99,14 @@ const getPostRoutes = async () => {
         const slugs = await getPostRoutes();
         nitroConfig.prerender.routes.push(...slugs);
       },
+    },
+    nitro: {
+      devProxy: {
+        '/api/': {
+          target: process.env.SITEMAP,
+          changeOrigin: true
+        }
+      }
     },
     generate: { fallback: "404.html" },
     extend(config: { resolve: { symlinks: boolean } }, ctx: any) {

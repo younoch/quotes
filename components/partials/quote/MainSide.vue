@@ -134,7 +134,7 @@ interface Props {
 }
 const props = defineProps<Props>();
 const route = useRoute();
-const { post } = useApi();
+
 const { authenticated, getUserProfile } = storeToRefs(useAuthStore());
 const sharableLink = ref<string>("");
 

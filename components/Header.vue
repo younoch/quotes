@@ -154,6 +154,9 @@
                   <li>
                     <span @click="navigateTo('/account/terms-conditions')">Terms</span>
                   </li>
+                  <li>
+                    <span @click="navigateTo('/chat')">Chat</span>
+                  </li>
                   <li v-if="authenticated" class="menu-item-has-children">
                     <a href="javascript:void(0);">
                       {{ `${userProfile.FirstName} ${userProfile.LastName}` }}

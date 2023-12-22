@@ -33,7 +33,6 @@ const emits = defineEmits<{
 }>();
 
 function submitValue() {
-
   emits("submitSearchedString", searchedString.value);
 }
 
