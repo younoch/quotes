@@ -154,7 +154,7 @@
                   <li>
                     <span @click="navigateTo('/account/terms-conditions')">Terms</span>
                   </li>
-                  <li>
+                  <li v-if="authenticated">
                     <span @click="navigateTo('/chat')">Chat</span>
                   </li>
                   <li v-if="authenticated" class="menu-item-has-children">

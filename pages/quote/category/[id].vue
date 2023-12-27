@@ -41,7 +41,7 @@ import Pagination from "@/components/reusable/buttuns/Pagination.vue";
 import Category from "@/components/partials/quote/Category.vue";
 import QuoteList from "@/components/partials/quote/QuoteList.vue";
 import Search from "@/components/partials/quote/Search.vue";
-import { IQuoeteItem } from "~/components/partials/quote";
+import type { IQuoeteItem } from "~/components/partials/quote";
 const { get } = useApi();
 const route = useRoute();
 const categories = [
@@ -177,7 +177,7 @@ useSeoMeta({
     route.params.id.charAt(0).toUpperCase() + route.params.id.slice(1)
   } Quotes | The Speakers`,
   description:
-    "Find inspiring quotes on our website that will motivate you to live your best life. Browse by category, author, or topic and share your favorites with others.",
+    `Find ${route.params.id} quotes on our website. Browse by category, author, or topic and share your favorites with others.`,
   applicationName: "The Speakers",
   ogImage: "/images/og.png",
   contentType: "text/html; charset=utf-8",

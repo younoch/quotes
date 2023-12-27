@@ -1,17 +1,32 @@
 <template>
   <div>
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
-    <transition name="scrolltop">
-      <div
-        v-if="scrollPosition > 300"
-        @click="scrollingTop"
-        class="scrollToTop"
+    <NuxtErrorBoundary>
+      <NuxtLayout>
+        <NuxtPage />
+      </NuxtLayout>
+      <transition name="scrolltop">
+        <div
+          v-if="scrollPosition > 300"
+          @click="scrollingTop"
+          class="scrollToTop"
         >
-        <nuxt-icon name="generals/chevron-triple-up"/>
-      </div>
-    </transition>
+          <nuxt-icon name="generals/chevron-triple-up" />
+        </div>
+      </transition>
+      <template #error="{ error }">
+        <div>
+          <p>
+            Oh no, something broke when loading the lesson!
+            <code>{{ error }}</code>
+          </p>
+          <p>
+            <button class="hover:cursor-pointer" @click="clearError(error)">
+              Go to the first lesson
+            </button>
+          </p>
+        </div>
+      </template>
+    </NuxtErrorBoundary>
   </div>
 </template>
 <script setup lang="ts">
@@ -36,6 +51,13 @@ function handleScroll() {
 function scrollingTop() {
   window.scrollTo(0, 0);
 }
+const clearError = async (err: any) => {
+  // Go to the first lesson
+  await navigateTo(
+    '/'
+  );
+  err.value = null;
+};
 </script>
 
 <style lang="scss">

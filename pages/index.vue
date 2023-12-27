@@ -43,7 +43,7 @@ import Tags from "@/components/partials/quote/Tags.vue";
 import Category from "@/components/partials/quote/Category.vue";
 import QuoteList from "@/components/partials/quote/QuoteList.vue";
 import Search from "@/components/partials/quote/Search.vue";
-import { IQuoeteItem } from "~/components/partials/quote";
+import type { IQuoeteItem } from "~/components/partials/quote";
 
 const structuredDataObject = ref({
         '@type': 'Quotes',

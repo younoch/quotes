@@ -27,7 +27,7 @@
       </template>
       <template v-else>
         <nuxt-link
-          :to="`/quote/category/${item.value}`"
+        :to="`/quote/category/${item.value}`"
           class="d-flex flex-wrap align-items-center"
         >
           <nuxt-icon name="generals/folder" />
@@ -41,7 +41,7 @@
 </template>
 
 <script setup lang="ts">
-import { Category } from ".";
+import type { Category } from '.';
 
 interface Props {
   isPushRouter?: boolean;

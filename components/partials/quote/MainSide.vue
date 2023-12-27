@@ -126,8 +126,8 @@
 import { storeToRefs } from "pinia";
 import QuoteImage from "@/components/partials/quote/QuoteImage.vue";
 import { toJpeg, toBlob } from "html-to-image";
-import { IQuoeteItem } from ".";
 import { useAuthStore } from "~/store/auth";
+import type { IQuoeteItem } from ".";
 
 interface Props {
   singleQuote: IQuoeteItem | undefined;

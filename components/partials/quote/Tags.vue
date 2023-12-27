@@ -13,7 +13,7 @@
 
 <script setup lang="ts">
 import { useQuoteStore } from "~/store/quote";
-import { ITags } from ".";
+import type { ITags } from ".";
 
 interface Props {
   tagList?: ITags[];

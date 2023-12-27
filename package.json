@@ -2,7 +2,7 @@
   "name": "the-speakers",
   "description": "Find inspiring quotes on our website that will motivate you to live your best life. Browse by category, author, or topic and share your favorites with others.",
   "author": "The speakers",
-  "url": "https://themeforest.net/user/thetork",
+  "url": "https://www.the-speakers.com/",
   "email": "younoch295@gmail.com",
   "private": true,
   "scripts": {
@@ -24,7 +24,7 @@
     "nuxt": "^3.6.5",
     "nuxt-gtag": "^0.6.1",
     "nuxt-icons": "^3.2.1",
-    "nuxt-simple-sitemap": "^3.1.5",
+    "nuxt-simple-sitemap": "^4.2.0",
     "sass": "^1.56.2",
     "typescript": "5.3.2"
   },

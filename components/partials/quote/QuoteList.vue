@@ -50,7 +50,7 @@
 
 <script setup lang="ts">
 import TextClamp from "@/components/reusable/textformat/TextClamp.vue";
-import { IQuoeteItem } from "./";
+import type { IQuoeteItem } from ".";
 
 interface Props {
   quoteList: IQuoeteItem[];
