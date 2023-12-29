@@ -78,6 +78,7 @@ const categories = [
     id: 8,
   },
 ];
+const fullPath: any = computed(() => route.fullPath).value
 const findCetagory = () => {
   const selectedCetagory = categories.find(
     (item) => item.value === route.params.id
@@ -179,6 +180,8 @@ useSeoMeta({
   description:
     `Find ${route.params.id} quotes on our website. Browse by category, author, or topic and share your favorites with others.`,
   applicationName: "The Speakers",
+  ogTitle: `Discover ${route.params.id.charAt(0).toUpperCase() + route.params.id.slice(1) } Quotes | The Speakers`,
+  ogUrl: useRuntimeConfig().public.SITEMAP + fullPath,
   ogImage: "/images/og.png",
   contentType: "text/html; charset=utf-8",
   keywords: "quote, author, the-speakers " + route.params.id + " quotes",

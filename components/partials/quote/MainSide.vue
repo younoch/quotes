@@ -50,13 +50,19 @@
                 </a>
               </li> -->
               <li class="social__item">
-                <a
+                <!-- <a
                   :href="`https://wa.me/?text=${singleQuote?.quote}${sharableLink}`"
                   target="_blank"
                   class="social__link"
                 >
                   <nuxt-icon name="brands/outline-whatsapp" />
-                </a>
+                </a> -->
+                <button
+                  class="social__link"
+                  @click="whatsAppChat(singleQuote?.quote)"
+                >
+                  <nuxt-icon name="brands/outline-whatsapp" />
+                </button>
               </li>
             </ul>
             <ul class="tags lab-ul justify-content-center">
@@ -174,6 +180,9 @@ async function uploadImage(imageData: any): Promise<void> {
     console.error(err);
     console.log("upload-image failed");
   }
+}
+async function  whatsAppChat (quote:string) {
+  await navigateTo(`https://wa.me/?text=${quote}${sharableLink.value}`, { external: true, open: {target: '_blank',} })
 }
 
 onMounted(() => {

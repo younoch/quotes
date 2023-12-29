@@ -19,8 +19,7 @@
     }
 
     &__thumb {
-        @extend %mb-15,
-        %of-hidden;
+        @extend %of-hidden;
 
         img {
             @extend %w-100;
@@ -29,29 +28,8 @@
     }
 
     &__content {
-        padding-inline: 30px;
-        padding-block-end: 20px;
-        padding-block-start: 15px;
 
         @include breakpoint(lg) {}
-
-        &-top {
-            @extend %mb-20;
-
-            h4 {
-                @extend %mb-15;
-
-                a {
-                    color: $white-color;
-                }
-
-                &:hover {
-                    a {
-                        color: $theme-color;
-                    }
-                }
-            }
-        }
 
         >p {
             @extend %text-clamp-2;

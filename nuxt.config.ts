@@ -1,4 +1,4 @@
-import axios from "axios";
+/* import axios from "axios";
 const getPostRoutes = async () => {
   const response = await axios.get(
     process.env.API_URL + "/get-quotes?page=1&limit=400"
@@ -9,7 +9,7 @@ const getPostRoutes = async () => {
   if (routes) {
     return routes;
   }
-};
+}; */
 export default defineNuxtConfig({
   target: "server",
   ssr: true,
@@ -69,6 +69,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       API_URL: process.env.API_URL,
+        SITEMAP: process.env.SITEMAP,
     },
   },
 
@@ -98,12 +99,12 @@ export default defineNuxtConfig({
     },
   },
 
-  hooks: {
-    async "nitro:config"(nitroConfig) {
-      const slugs = await getPostRoutes();
-      nitroConfig.prerender.routes.push(...slugs);
-    },
-  },
+  // hooks: {
+  //   async "nitro:config"(nitroConfig) {
+  //     const slugs = await getPostRoutes();
+  //     nitroConfig.prerender.routes.push(...slugs);
+  //   },
+  // },
   nitro: {
     devProxy: {
       "/api/": {

@@ -1,7 +1,6 @@
 .banner {
     @extend %of-hidden;
     @include background-cover;
-    padding-block: 100px;
 
     &__content {
         h1 {

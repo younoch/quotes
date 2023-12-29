@@ -1,55 +1,56 @@
 import axios from 'axios'
-const getPostRoutes = async () => {
-    const response = await axios.get(
-      process.env.API_URL + '/get-quotes?page=1&limit=400'
-    );
-    const routes = response?.data?.data.map((quote: any) => {
-        return {
-            _path: `/quote/${quote.slug}`,
-            modifiedAt: new Date(),
-        }
-    })
-    if(routes) {
-      return routes
-    }
-  };
+// const getPostRoutes = async () => {
+//     const response = await axios.get(
+//       process.env.API_URL + '/get-quotes?page=1&limit=400'
+//     );
+//     const routes = response?.data?.data.map((quote: any) => {
+//         return {
+//             _path: `/quote/${quote.slug}`,
+//             modifiedAt: new Date(),
+//         }
+//     })
+//     if(routes) {
+//       return routes
+//     }
+//   };
 export default defineEventHandler(async (e) => {
-    const posts = await Promise.all([
+    const staticRoutes = await Promise.all([
       {
-        _path: '/quote/category/love',
+        _path: '/quotes/love',
         modifiedAt: new Date(),
       },
       {
-        _path: '/quote/category/life',
+        _path: '/quotes/life',
         modifiedAt: new Date(),
       },
       {
-        _path: '/quote/category/birthday',
+        _path: '/quotes/birthday',
         modifiedAt: new Date(),
       },
       {
-        _path: '/quote/category/motivational',
+        _path: '/quotes/motivational',
         modifiedAt: new Date(),
       },
       {
-        _path: '/quote/category/funny',
+        _path: '/quotes/funny',
         modifiedAt: new Date(),
       },
       {
-        _path: '/quote/category/inspirational',
+        _path: '/quotes/inspirational',
         modifiedAt: new Date(),
       },
       {
-        _path: '/quote/category/family',
+        _path: '/quotes/family',
         modifiedAt: new Date(),
       },
       {
-        _path: '/quote/category/movie',
+        _path: '/quotes/movie',
         modifiedAt: new Date(),
       },
     ]);
-    const postRoutes = await getPostRoutes()
-    const allRoute = [... postRoutes, ...posts]
+    // const postRoutes = await getPostRoutes()
+    const allRoute = [ ...staticRoutes]
+    // const allRoute = [... postRoutes, ...staticRoutes]
     return allRoute.map((p) => {
       return {
         loc: p._path,

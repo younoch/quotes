@@ -3,14 +3,20 @@
         <div class="section-header__content">
             <div class="section-header__titlebar">
                 <b class="section-header__subtitle "> {{ subtitle }}</b>
-                <h1 class="section__header__title text-capitalize fs-3 mb-0 mb-md-1">{{ title }}</h1>
+                <h2 v-if="isHome" class="section__header__title text-capitalize fs-3 mb-0 mb-md-1">{{ title }}</h2>
+                <h1 v-else class="section__header__title text-capitalize fs-3 mb-0 mb-md-1">{{ title }}</h1>
             </div>
         </div>
     </div>
 </template>
 
-<script>
-export default {
-    props: ['title', 'subtitle']
+<script setup lang="ts">
+interface Props {
+    title: string;
+    subtitle: string;
+    isHome: boolean
 }
+const props = withDefaults(defineProps<Props>(), {
+    isHome: true,
+});
 </script>

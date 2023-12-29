@@ -32,6 +32,7 @@ import MainSide from "@/components/partials/quote/MainSide.vue";
 import Category from "@/components/partials/quote/Category.vue";
 
 const route = useRoute();
+const fullPath: any = computed(() => route.fullPath).value
 
 const key = computed(() => "single-quote-" + route.params.slug).value;
 
@@ -48,6 +49,7 @@ watchEffect(() => {
   refresh();
 });
 
+
 useSeoMeta({
   title: () => data.value.data?.author,
   ogType: "website",
@@ -56,6 +58,7 @@ useSeoMeta({
   ogDescription: () => data.value.data?.quote,
   applicationName: "The Speakers",
   ogImage: data.value.data?.image,
+  ogUrl: useRuntimeConfig().public.SITEMAP +  fullPath,
   twitterImage: data.value.data?.image,
   contentType: "text/html; charset=utf-8",
   keywords: () => data.value.data?.tags?.toString(),

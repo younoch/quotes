@@ -12,12 +12,13 @@
             data-aos="fade-up"
             data-aos-duration="800"
           >
+          <NuxtLink :to="`/quote/${item.slug}`">
             <TextClamp
               :id="'text' + item._id"
               :paragraph="item.quote"
               :lines="2"
-              @click="pushChild(item)"
             />
+          </NuxtLink>
             <div class="d-flex justify-content-between">
               <cite class="text-end mb-0 text-capitalize">— {{ item.author }}</cite>
               <div class="d-flex gap-2">
@@ -59,9 +60,9 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {});
 const route = useRoute();
 
-function pushChild(item: IQuoeteItem) {
-  navigateTo(`/quote/${item.slug}`)
-}
+// function pushChild(item: IQuoeteItem) {
+//   navigateTo(`/quote/${item.slug}`)
+// }
 
 async function copyText(item: IQuoeteItem) {
   const copyText =
