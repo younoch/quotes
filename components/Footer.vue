@@ -7,7 +7,7 @@
           />
           <div class="mt-4">
             <p class="footer-description">
-              Find inspiring quotes on our website that will motivate you to live your best life. Browse by category, author, or topic and share your favorites with others.
+              Discover quotes, thinking, and expertise from writers on your interest.
             </p>
           </div>
           <ul class="social justify-content-center">

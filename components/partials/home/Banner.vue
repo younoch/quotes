@@ -10,7 +10,7 @@
                             <nuxt-link to="/account/signup" class="default-btn"><span>Be a writer</span></nuxt-link>
                         </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 d-none d-md-block">
                         <div class="banner__thumb" data-aos="fade-up" data-aos-duration="1000">
                             <nuxt-img src="/images/banner/banner-thumb/01.png" alt="banner Image"/>
 

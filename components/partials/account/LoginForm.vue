@@ -94,34 +94,29 @@ async function loginWithGmail(): Promise<void> {
 
 }
 
-const loginWithFacebook = async () => {
+/* const loginWithFacebook = async () => {
       try {
         const response = await $fb.login({
           scope: 'email',
         })
         if (response.authResponse) {
-          // get the user's profile information
           const profile = await $fb.api('/me', {
             fields: 'id,name,email,picture',
           })
-          // send the profile and access token to your backend
           const data = {
             fb_token: response.authResponse.accessToken,
             ...profile,
           }
           const result = await this.$axios.$post('/api/login', data)
-          // store the result in your auth store or cookie
           auth.setUser(result.user)
           auth.setToken(result.token)
         } else {
-          // handle the case when the user declines
           console.log('User cancelled login or did not fully authorize.')
         }
       } catch (error) {
-        // handle any errors
         console.error(error)
       }
-    }
+    } */
 
 onMounted( () => {
     nextTick( () => {

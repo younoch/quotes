@@ -20,10 +20,10 @@
               </div>
             </div>
             <div class="header-wrapper justify-content-lg-end">
-              <div class="mobile-logo d-lg-none">
+              <div class="mobile-logo d-lg-none my-2">
                   <nuxt-img
                     src="/images/logo/the-speakers-logo.png"
-                    height="55"
+                    height="30"
                     alt="The Speakers"
                     @click="navigateTo('/')"
                   />

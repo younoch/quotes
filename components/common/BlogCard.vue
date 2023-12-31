@@ -6,7 +6,7 @@
             </div>
             <div class="blog__content  m-2">
                 <div class="blog__content-top">
-                    <h4><nuxt-link to="/blog/blog-single">Socket.IO with NUXT 3, express and MongoDB</nuxt-link>
+                    <h4><nuxt-link to="/blog">Socket.IO with NUXT 3, express and MongoDB</nuxt-link>
                     </h4>
                 </div>
                 <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisici ng elit. Harum, eum? Lorem

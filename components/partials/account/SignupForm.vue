@@ -68,8 +68,10 @@ interface LoginForm {
 }
 
 let loginForm = ref<LoginForm>({
-  username: '',
-  password: ''
+FirstName: '',
+LastName: '',
+EmailAddress: '',
+MobileNumber: ''
 })
 
 const login = async () => {
