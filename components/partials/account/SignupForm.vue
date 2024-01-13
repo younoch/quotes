@@ -7,24 +7,27 @@
                     <p>Enter your all information to create a new account</p>
                 </div>
 
-                <form class="account-form">
+                <form @submit.prevent="signupUser" class="account-form">
                     <div class="form-group">
-                        <input type="text" placeholder="First Name" name="Fname">
+                        <input v-model="signupForm.FirstName" type="text" placeholder="First Name" name="Fname">
                     </div>
                     <div class="form-group">
-                        <input type="text" placeholder="Last Name" name="Lname">
+                        <input v-model="signupForm.LastName" type="text" placeholder="Last Name" name="Lname">
                     </div>
                     <div class="form-group">
-                        <input type="text" placeholder="Email" name="email">
+                        <input v-model="signupForm.EmailAddress" type="email" placeholder="Email" name="email">
                     </div>
                     <div class="form-group">
-                        <input type="password" placeholder="Password" name="password">
+                        <input v-model="signupForm.username" type="text" placeholder="username" name="email">
                     </div>
                     <div class="form-group">
-                        <input type="password" placeholder="Confirm Password" name="password">
+                        <input  type="password" placeholder="Password" name="password">
                     </div>
                     <div class="form-group">
-                        <button class="d-block default-btn"><span>Create Account</span></button>
+                        <input v-model="signupForm.password" type="password" placeholder="Confirm Password" name="password">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="d-block default-btn"><span>Create Account</span></button>
                     </div>
                 </form>
                 <div class="account-bottom">
@@ -58,24 +61,33 @@ import { useAuthStore } from '~/store/auth';
 const { authenticateUser } = useAuthStore(); 
 
 const router = useRouter();
+const { post } = useApi();
 
 const { authenticated } = storeToRefs(useAuthStore());
-interface LoginForm {
+interface ISignupForm {
     FirstName: string;
     LastName: string;
     EmailAddress: string;
-    MobileNumber: string;
+    username: string;
+    password: string;
 }
 
-let loginForm = ref<LoginForm>({
+let signupForm = ref<ISignupForm>({
 FirstName: '',
 LastName: '',
 EmailAddress: '',
-MobileNumber: ''
+username: '',
+password: '',
 })
 
-const login = async () => {
-  await authenticateUser(loginForm.value);
+const signupUser = async () => {
+    post("/create-profile", signupForm.value)
+    .then((res) => {})
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {});
+  await authenticateUser(signupForm.value);
   if (authenticated) {
     router.push('/');
   }

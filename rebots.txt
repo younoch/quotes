@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /account/
+Disallow: /contact-us
+Disallow: /chat
+Allow: /
+Allow: /*?
+Allow: /quote/*?
+Allow: /quote/category/*?
+
+Sitemap: https://www.the-speakers.com/sitemap.xml

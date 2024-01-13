@@ -145,21 +145,15 @@
                   <!-- <li>
                                         <nuxt-link to="/quote" >Quetes</nuxt-link>
                                     </li> -->
-                  <li>
-                    <span  @click="navigateTo('/contact-us')">Contact</span>
-                  </li>
-                  <li>
-                    <span @click="navigateTo('/account/privacy-policy')">Privacy</span>
-                  </li>
-                  <li>
-                    <span @click="navigateTo('/account/terms-conditions')">Terms</span>
+                  <li v-if="authenticated">
+                    <nuxt-link to="/blog/write">Write blog</nuxt-link>
                   </li>
                   <li v-if="authenticated">
-                    <span @click="navigateTo('/chat')">Chat</span>
+                    <nuxt-link to="/chat">Chat</nuxt-link>
                   </li>
                   <li v-if="authenticated" class="menu-item-has-children">
                     <a href="javascript:void(0);">
-                      {{ `${userProfile.FirstName} ${userProfile.LastName}` }}
+                      {{ `${userProfile?.FirstName} ${userProfile?.LastName}` }}
                     </a>
                     <ul class="submenu">
                       <li>

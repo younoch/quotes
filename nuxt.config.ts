@@ -76,6 +76,7 @@ export default defineNuxtConfig({
   plugins: [
     { src: "@/plugins/aos.js", mode: "client" },
     { src: "@/plugins/axios.ts", mode: "client" },
+    // { src: "@/plugins/quill.ts", mode: "client" },
     { src: "@/plugins/fb-sdk.ts", mode: "client" },
   ],
   build: {

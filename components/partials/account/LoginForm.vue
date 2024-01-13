@@ -62,6 +62,7 @@ const { authenticateUser } = useAuthStore();
 
 const router = useRouter();
 
+
 const { authenticated } = storeToRefs(useAuthStore());
 interface LoginForm {
   username: string;

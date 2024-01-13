@@ -48,6 +48,7 @@
     <div class="d-flex justify-content-center gap-2 gap-lg-4 pb-2 pb-lg-3">
       <nuxt-link to="/account/privacy-policy"> Privacy Policy</nuxt-link>
       <nuxt-link to="/account/terms-conditions"> Terms & Conditions</nuxt-link>
+      <nuxt-link to="/contact-us"> Contact Us</nuxt-link>
     </div>
     <div class="footer__copyright">
       <div class="container">

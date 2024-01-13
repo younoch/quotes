@@ -1,0 +1,16 @@
+RewriteEngine on
+# Redirect non-www to www with https
+RewriteCond %{HTTP_HOST} !^www\.
+RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [L,R=301]
+
+RewriteBase /
+RewriteCond %{REQUEST_URI} !^/$
+RewriteCond %{REQUEST_URI} !^/sitemap_index\.xml$
+RewriteRule ^index\.html$ - [L]
+#RewriteCond %{REQUEST_FILENAME} !-d # Omit for SSR because there is a physical directory
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ $1/index.html [L]
+
+<IfModule mod_headers.c>
+    Header set Cache-Control "no-store"
+</IfModule>

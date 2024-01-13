@@ -1,6 +1,6 @@
 <template>
   <div>
-    <NuxtErrorBoundary>
+    <!-- <NuxtErrorBoundary> -->
       <NuxtLayout>
         <NuxtPage />
       </NuxtLayout>
@@ -13,7 +13,7 @@
           <nuxt-icon name="generals/chevron-triple-up" />
         </div>
       </transition>
-      <template #error="{ error }">
+      <!-- <template #error="{ error }">
         <div>
           <p>
             Oh no, something broke when loading the lesson!
@@ -25,13 +25,14 @@
             </button>
           </p>
         </div>
-      </template>
-    </NuxtErrorBoundary>
+      </template> -->
+    <!-- </NuxtErrorBoundary> -->
   </div>
 </template>
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from "vue";
 import { useRoute } from "vue-router";
+import 'vue3-toastify/dist/index.css';
 const scrollPosition = ref<number>(0);
 
 const route = useRoute();

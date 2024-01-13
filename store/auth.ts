@@ -1,6 +1,7 @@
 // store/auth.ts
 
 import { defineStore } from "pinia";
+const { useToast } = useToster()
 
 interface UserPayloadInterface {
   username: string;
@@ -31,10 +32,13 @@ export const useAuthStore = defineStore("auth", {
       this.loading = pending;
 
       if (data.value) {
+        useToast('success', "login successfully");
         const token = useCookie("token");
         token.value = data?.value?.token;
         this.authenticated = true;
         this.userProfile = data.value?.data;
+      } else {
+        useToast('error','username required');
       }
     },
     logUserOut() {
@@ -54,7 +58,7 @@ export const useAuthStore = defineStore("auth", {
             },
           }
         );
-        this.userProfile = data.value.data[0]
+        this.userProfile = data.value?.data[0]
       }
     },
   },
